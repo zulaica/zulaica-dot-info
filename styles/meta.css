@@ -53,17 +53,17 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(0, 0, 0, 0.4);
+  background: #0006;
 }
 
 header {
   top: 0;
-  border-bottom: 2px ridge rgba(255, 255, 255, 0.2);
+  border-bottom: 2px ridge #fff3;
 }
 
 footer {
   bottom: 0;
-  border-top: 2px groove rgba(255, 255, 255, 0.2);
+  border-top: 2px groove #fff3;
 }
 
 [role="group"] {
