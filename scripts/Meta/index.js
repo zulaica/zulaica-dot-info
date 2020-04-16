@@ -26,12 +26,7 @@ const handleSuccess = (payload) => {
   background.style.setProperty("--background-image", `url(${payload.image})`);
 
   img.setAttribute("src", payload.image);
-  img.setAttribute(
-    "alt",
-    `${payload.type} ${
-      payload.verb
-    } on ${payload.date.toDateString()} at ${payload.date.toTimeString()}`
-  );
+  img.setAttribute("alt", payload.accessibility_caption);
 
   figcaption.innerHTML = `<h1 style="
     margin: 0;
