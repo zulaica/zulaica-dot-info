@@ -48,16 +48,15 @@ html {
 
   text-rendering: optimizeLegibility;
   font-variant-ligatures: common-ligatures discretionary-ligatures;
-  font-feature-settings: "kern" 1, "liga" 1, "dlig" 1;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'dlig' 1;
   font-kerning: normal;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  font-family: "Calluna", serif;
+  font-family: 'Calluna', serif;
   font-weight: 400;
   color: var(--text-color);
-  text-shadow: var(--shade);
 
   background: #333;
   background: var(--background-color);
@@ -87,13 +86,13 @@ footer {
   border-top: 2px groove var(--border-color);
 }
 
-[role="group"] {
+[role='group'] {
   display: inline-block;
   vertical-align: middle;
 }
 
 h1 {
-  font-family: "futura-pt", sans-serif;
+  font-family: 'futura-pt', sans-serif;
   font-size: 2.125rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -145,7 +144,7 @@ section {
 section #message {
   margin: auto;
   width: 80vw;
-  font-family: "futura-pt", sans-serif;
+  font-family: 'futura-pt', sans-serif;
   font-size: 2.125rem;
   font-weight: 700;
   text-transform: uppercase;
