@@ -35,7 +35,26 @@ const handleSuccess = (payload) => {
     font-size: 1.5rem;
     font-style: italic;
     border-bottom: 1px solid var(--title-border-color);
-  ">Instagram</h1><p>${payload.caption}</p>`;
+  ">Instagram</h1>
+  <p>${payload.caption}</p>
+  <footer>
+    <p style="
+      margin: 0;
+      font-size: 0.825rem;
+    "><time datetime="${payload.date.toISOString()}">
+      ${payload.date.toLocaleDateString("en-US", {
+        timeZone: "America/Los_Angeles",
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })} at ${payload.date.toLocaleTimeString("en-US", {
+    timeZone: "America/Los_Angeles",
+    hour: "2-digit",
+    minute: "2-digit",
+  })}
+    </time></p>
+  </footer>`;
 
   return Promise.resolve();
 };
