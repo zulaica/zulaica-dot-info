@@ -1,8 +1,8 @@
-import background from "./background.js";
+import background from './background.js';
 
 const setOffset = (offsetX, offsetY) => {
   background.style.setProperty(
-    "transform",
+    'transform',
     `scale3d(1.25, 1.25, 1.25) translate3d(${offsetX}px, ${offsetY}px, 0)`
   );
 };

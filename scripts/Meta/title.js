@@ -1,5 +1,5 @@
-const title = document.createElement("h3");
-title.setAttribute("id", "title");
+const title = document.createElement('h3');
+title.setAttribute('id', 'title');
 
 export const titleStyle = `
   #title {

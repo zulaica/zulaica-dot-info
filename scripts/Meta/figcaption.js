@@ -1,4 +1,4 @@
-const figcaption = document.createElement("figcaption");
+const figcaption = document.createElement('figcaption');
 
 export const figcaptionStyle = `
   figcaption {
