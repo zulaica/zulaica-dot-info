@@ -39,7 +39,7 @@ const handleSuccess = (payload) => {
     font-weight: bold;
     font-size: 1.5rem;
     font-style: italic;
-    border-bottom: 1px solid #fff6;
+    border-bottom: 1px solid var(--title-border-color);
   ">Instagram</h1><p>${payload.caption}</p>`;
 
   return Promise.resolve();

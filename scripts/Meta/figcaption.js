@@ -9,9 +9,9 @@ export const figcaptionStyle = `
     text-align: left;
     font-size: 1.25rem;
     line-height: 1.5;
-    color: white;
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid #fff4;
+    color: var(--text-color);
+    background: var(--background-color);
+    border: 1px solid var(--border-color);
     border-right: transparent;
     border-radius: 3px;
     box-shadow: var(--shade);

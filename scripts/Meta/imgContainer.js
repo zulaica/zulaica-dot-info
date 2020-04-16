@@ -5,8 +5,8 @@ export const imgContainerStyle = `
     width: 33vw;
     height: 33vw;
     margin: auto;
-    background: rgb(204, 199, 204);
-    border: 1px solid rgb(204, 199, 204);
+    background: var(--img-container-color);
+    border: 1px solid var(--img-container-color);
     border-radius: 3px;
     box-shadow: var(--shade);
   }
