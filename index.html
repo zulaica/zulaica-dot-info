@@ -80,11 +80,11 @@
     </footer>
 
     <script nomodule>
-      document.getElementById('message').textContent =
-        '⚠️ This browser does not have native support for JavaScript modules.';
-      console.error(
-        'This browser does not have native support for JavaScript modules.'
-      );
+      document.getElementById('message').textContent = '⚠️ Unsupported Browser';
+      document.getElementById('context').innerHTML =
+        'This browser does not support the features required to render this\
+        site. Please consider <a href="https://browsehappy.com">\
+        upgrading to a modern browser</a>.';
     </script>
   </body>
 </html>
