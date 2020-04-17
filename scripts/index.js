@@ -31,10 +31,19 @@ const normalizeResponse = response => {
 
 const handleSupported = () =>
   fetch(instagramURL)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('⛔️ Something went wrong');
+      }
+
+      return response;
+    })
     .then(response => validateResponse(response))
     .then(response => normalizeResponse(response))
     .then(payload => Meta(payload))
-    .catch(error => console.info(error));
+    .catch(
+      error => (document.getElementById('message').textContent = `⛔️ ${error}`)
+    );
 
 const handleUnsupported = () => console.info('handleUnsupported');
 
