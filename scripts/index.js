@@ -1,6 +1,5 @@
 import CONTACT_INFO from './contact.js';
 import isSupported from './support.js';
-import Meta from './Meta/index.js';
 import parallax from './Meta/parallax.js';
 
 const instagramURL = 'https://www.instagram.com/zulaica/?__a=1';
@@ -40,7 +39,9 @@ const handleSupported = () =>
     })
     .then(response => validateResponse(response))
     .then(response => normalizeResponse(response))
-    .then(payload => Meta(payload))
+    .then(payload =>
+      import('./Meta/index.js').then(module => module.default(payload))
+    )
     .catch(
       error => (document.getElementById('message').textContent = `⛔️ ${error}`)
     );
