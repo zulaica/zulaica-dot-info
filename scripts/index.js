@@ -50,10 +50,12 @@ const handleSupported = () =>
         error === 'TypeError: NetworkError when attempting to fetch resource.'
       ) {
         document.getElementById('context').innerHTML =
-          'The <a href="https://addons.mozilla.org/en-US/firefox/addon/facebook-container/">\
-          Mozilla Facebook Container Extension</a> prevents loading the\
-          Instagram API from the private/unsupported endpoint that is currently\
-          being used. This is a known issue and a solution using the\
+          'This error may occur if you have the\
+          <a href="https://addons.mozilla.org/en-US/firefox/addon/facebook-container/">\
+          Mozilla Facebook Container Extension</a> enabled. This extension\
+          prevents loading the Instagram API from the private/unsupported\
+          endpoint that is currently being used to display my latest post.\
+          This is a known issue and a solution using the\
           <a href="https://developers.facebook.com/docs/instagram-basic-display-api/reference/media">\
           Instagram Basic Display API</a> is currently in development.';
       }
