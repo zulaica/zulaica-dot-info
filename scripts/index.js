@@ -1,6 +1,5 @@
 import CONTACT_INFO from './contact.js';
 import isSupported from './support.js';
-import parallax from './Meta/parallax.js';
 
 const instagramURL = 'https://www.instagram.com/zulaica/?__a=1';
 
@@ -39,9 +38,12 @@ const handleSupported = () =>
     })
     .then(response => validateResponse(response))
     .then(response => normalizeResponse(response))
-    .then(payload =>
-      import('./Meta/index.js').then(module => module.default(payload))
-    )
+    .then(payload => {
+      import('./Meta/index.js').then(module => module.default(payload));
+      import('./Meta/parallax.js').then(module =>
+        document.addEventListener('mousemove', module.default)
+      );
+    })
     .catch(
       error => (document.getElementById('message').textContent = `⛔️ ${error}`)
     );
@@ -55,5 +57,3 @@ window.addEventListener('load', () => {
 window.addEventListener('DOMContentLoaded', () => {
   console.info(`%c ${CONTACT_INFO}`, 'font-family: monospace;');
 });
-
-document.addEventListener('mousemove', parallax);
