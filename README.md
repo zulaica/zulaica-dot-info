@@ -21,6 +21,7 @@ JavaScript, and <abbr title="Cascading Style Sheets">CSS</abbr> APIs.
 - [Dynamic Module Imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#Dynamic_Imports)
 - [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
 - [`prefers-color-scheme` media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme)
+- [Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 
 > Aren't you concerned about **LEGACY-BROWSER**?
 
