@@ -56,10 +56,10 @@ const handleSupported = () =>
         document.getElementById('context').innerHTML =
           'This error may occur if you have the\
           <a href="https://addons.mozilla.org/en-US/firefox/addon/facebook-container/">\
-          Mozilla Facebook Container Extension</a> enabled. This extension\
+          Mozilla Facebook Container Extension</a> enabled. The extension\
           prevents loading the Instagram API from the private/unsupported\
           endpoint that is currently being used to display my latest post.\
-          This is a known issue and a solution using the\
+          It is a known issue and a solution using the\
           <a href="https://developers.facebook.com/docs/instagram-basic-display-api/reference/media">\
           Instagram Basic Display API</a> is currently in development.';
       }
