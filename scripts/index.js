@@ -47,7 +47,11 @@ const handleSupported = () =>
     .catch(error => {
       document.getElementById('message').textContent = `⛔️ ${error}`;
       if (
-        error === 'TypeError: NetworkError when attempting to fetch resource.'
+        error
+          .toString()
+          .includes(
+            'TypeError: NetworkError when attempting to fetch resource.'
+          )
       ) {
         document.getElementById('context').innerHTML =
           'This error may occur if you have the\
