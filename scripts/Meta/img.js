@@ -1,4 +1,4 @@
-const img = document.createElement('img');
+const img = document.createElement("img");
 
 export const imgStyle = `
   img {
