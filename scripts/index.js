@@ -1,12 +1,12 @@
-import CONTACT_INFO from './contact.js';
-import isSupported from './support.js';
+import CONTACT_INFO from "./contact.js";
+import isSupported from "./support.js";
 
-const instagramURL = 'https://www.instagram.com/zulaica/?__a=1';
+const instagramURL = "https://www.instagram.com/zulaica/?__a=1";
 
 const validateResponse = response => {
   if (!response.ok) {
     throw new Error(
-      `${response.statusText}` || '😞 An unknown error has occurred.'
+      `${response.statusText}` || "😞 An unknown error has occurred."
     );
   }
 
@@ -18,7 +18,7 @@ const normalizeResponse = response => {
     response.graphql.user.edge_owner_to_timeline_media.edges[0].node;
   return {
     accessibility_caption:
-      latestPost.accessibility_caption || 'Accessibility caption not provided',
+      latestPost.accessibility_caption || "Accessibility caption not provided",
     caption:
       latestPost.edge_media_to_caption.edges[0] &&
       latestPost.edge_media_to_caption.edges[0].node.text,
@@ -31,7 +31,7 @@ const handleSupported = () =>
   fetch(instagramURL)
     .then(response => {
       if (!response.ok) {
-        throw new Error('⛔️ Something went wrong');
+        throw new Error("⛔️ Something went wrong");
       }
 
       return response;
@@ -39,21 +39,21 @@ const handleSupported = () =>
     .then(response => validateResponse(response))
     .then(response => normalizeResponse(response))
     .then(payload => {
-      import('./Meta/index.js').then(module => module.default(payload));
-      import('./Meta/parallax.js').then(module =>
-        document.addEventListener('mousemove', module.default)
+      import("./Meta/index.js").then(module => module.default(payload));
+      import("./Meta/parallax.js").then(module =>
+        document.addEventListener("mousemove", module.default)
       );
     })
     .catch(error => {
-      document.getElementById('message').textContent = `⛔️ ${error}`;
+      document.getElementById("message").textContent = `⛔️ ${error}`;
       if (
         error
           .toString()
           .includes(
-            'TypeError: NetworkError when attempting to fetch resource.'
+            "TypeError: NetworkError when attempting to fetch resource."
           )
       ) {
-        document.getElementById('context').innerHTML =
+        document.getElementById("context").innerHTML =
           'This error may occur if you have the\
           <a href="https://addons.mozilla.org/en-US/firefox/addon/facebook-container/">\
           Mozilla Facebook Container Extension</a> enabled. The extension\
@@ -65,12 +65,12 @@ const handleSupported = () =>
       }
     });
 
-const handleUnsupported = () => console.info('handleUnsupported');
+const handleUnsupported = () => console.info("handleUnsupported");
 
-window.addEventListener('load', () => {
+window.addEventListener("load", () => {
   isSupported ? handleSupported() : handleUnsupported();
 });
 
-window.addEventListener('DOMContentLoaded', () => {
-  console.info(`%c ${CONTACT_INFO}`, 'font-family: monospace;');
+window.addEventListener("DOMContentLoaded", () => {
+  console.info(`%c ${CONTACT_INFO}`, "font-family: monospace;");
 });

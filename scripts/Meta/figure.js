@@ -1,4 +1,4 @@
-const figure = document.createElement('figure');
+const figure = document.createElement("figure");
 
 export const figureStyle = `
   figure {
