@@ -36,7 +36,7 @@ const handleSuccess = payload => {
     font-style: italic;
     border-bottom: 1px solid var(--title-border-color);
   ">Instagram</h1>
-  <p>${payload.caption}</p>
+  <p style='white-space: pre-line'>${payload.caption}</p>
   <footer>
     <p style="
       margin: 0;
