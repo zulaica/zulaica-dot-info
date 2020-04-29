@@ -59,8 +59,6 @@ const handleSuccess = payload => {
   return Promise.resolve();
 };
 
-// const handleError = error => "😞 There was an error.";
-
 const Meta = payload => {
   handleSuccess(payload).then(() => buildMeta());
 };
