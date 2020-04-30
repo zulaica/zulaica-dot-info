@@ -7,7 +7,7 @@ export const figcaptionStyle = `
     margin: auto 0;
     padding: 2.5rem;
     text-align: left;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     line-height: 1.5;
     color: var(--text-color);
     background: var(--background-color);

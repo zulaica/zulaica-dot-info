@@ -32,7 +32,7 @@ const handleSuccess = payload => {
     margin: 0;
     font-family: 'Helvetica Neue', sans-serif;
     font-weight: bold;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-style: italic;
     border-bottom: 1px solid var(--title-border-color);
   ">Instagram</h1>
@@ -40,7 +40,7 @@ const handleSuccess = payload => {
   <footer>
     <p style="
       margin: 0;
-      font-size: 0.825rem;
+      font-size: 0.8125rem;
     "><time datetime="${payload.date.toISOString()}">
       ${payload.date.toLocaleDateString("en-US", {
         timeZone: "America/Los_Angeles",
