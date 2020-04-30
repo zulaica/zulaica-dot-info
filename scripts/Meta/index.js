@@ -31,19 +31,20 @@ const handleSuccess = payload => {
   figcaption.innerHTML = `<h1>Instagram</h1>
   <p>${payload.caption.replace(/(\n\n)/g, "</p><p>")}</p>
   <footer>
-    <time datetime="${payload.date.toISOString()}">
-      ${payload.date.toLocaleDateString("en-US", {
-        timeZone: "America/Los_Angeles",
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-      })} at ${payload.date.toLocaleTimeString("en-US", {
+    <time datetime="${payload.date.toISOString()}">${payload.date.toLocaleDateString(
+    "en-US",
+    {
+      timeZone: "America/Los_Angeles",
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    }
+  )} at ${payload.date.toLocaleTimeString("en-US", {
     timeZone: "America/Los_Angeles",
     hour: "2-digit",
     minute: "2-digit"
-  })}
-    </time>
+  })}</time>
   </footer>`;
 
   return Promise.resolve();
