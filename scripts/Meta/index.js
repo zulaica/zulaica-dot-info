@@ -29,14 +29,14 @@ const handleSuccess = payload => {
   img.setAttribute("alt", payload.accessibility_caption);
 
   figcaption.innerHTML = `<h1 style="
-    margin: 0;
+    margin: -0.625rem 0 0 0;
     font-family: 'Helvetica Neue', sans-serif;
     font-weight: bold;
     font-size: 1.75rem;
     font-style: italic;
     border-bottom: 1px solid var(--title-border-color);
   ">Instagram</h1>
-  <p style='white-space: pre-line'>${payload.caption}</p>
+  <p style='white-space: pre-line;'>${payload.caption}</p>
   <footer>
     <p style="
       margin: 0;
