@@ -28,24 +28,10 @@ const handleSuccess = payload => {
   img.setAttribute("src", payload.image);
   img.setAttribute("alt", payload.accessibility_caption);
 
-  figcaption.innerHTML = `<h1 style="
-    margin: -0.625rem 0 0 0;
-    font-family: 'Helvetica Neue', sans-serif;
-    font-weight: bold;
-    font-size: 1.75rem;
-    font-style: italic;
-    border-bottom: 1px solid var(--title-border-color);
-  ">Instagram</h1>
-  <p style='white-space: pre-line;'>${payload.caption.replace(
-    /(\n\n)/g,
-    "</p><p style='white-space: pre-line;'>"
-  )}</p>
+  figcaption.innerHTML = `<h1>Instagram</h1>
+  <p>${payload.caption.replace(/(\n\n)/g, "</p><p>")}</p>
   <footer>
-    <p style="
-      margin: 0;
-      font-size: 0.8125rem;
-      text-align: right;
-    "><time datetime="${payload.date.toISOString()}">
+    <time datetime="${payload.date.toISOString()}">
       ${payload.date.toLocaleDateString("en-US", {
         timeZone: "America/Los_Angeles",
         weekday: "long",
@@ -57,7 +43,7 @@ const handleSuccess = payload => {
     hour: "2-digit",
     minute: "2-digit"
   })}
-    </time></p>
+    </time>
   </footer>`;
 
   return Promise.resolve();
