@@ -41,6 +41,7 @@ const handleSuccess = payload => {
     <p style="
       margin: 0;
       font-size: 0.8125rem;
+      text-align: right;
     "><time datetime="${payload.date.toISOString()}">
       ${payload.date.toLocaleDateString("en-US", {
         timeZone: "America/Los_Angeles",
