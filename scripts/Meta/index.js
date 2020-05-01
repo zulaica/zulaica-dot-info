@@ -29,7 +29,9 @@ const handleSuccess = payload => {
   img.setAttribute("alt", payload.accessibility_caption);
 
   figcaption.innerHTML = `<h1>Instagram</h1>
-  <p>${payload.caption.replace(/(\n\n)/g, "</p><p>")}</p>
+  <p>${payload.caption
+    .replace(/(\n\n)/g, "</p><p>")
+    .replace(/(\n)/g, "<br />")}</p>
   <footer>
     <time datetime="${payload.date.toISOString()}">${payload.date.toLocaleDateString(
     "en-US",
