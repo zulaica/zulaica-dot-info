@@ -28,32 +28,25 @@ const handleSuccess = payload => {
   img.setAttribute("src", payload.image);
   img.setAttribute("alt", payload.accessibility_caption);
 
-  figcaption.innerHTML = `<h1 style="
-    margin: 0;
-    font-family: 'Helvetica Neue', sans-serif;
-    font-weight: bold;
-    font-size: 1.5rem;
-    font-style: italic;
-    border-bottom: 1px solid var(--title-border-color);
-  ">Instagram</h1>
-  <p style='white-space: pre-line'>${payload.caption}</p>
+  figcaption.innerHTML = `<h1>Instagram</h1>
+  <p>${payload.caption
+    .replace(/(\n\n)/g, "</p><p>")
+    .replace(/(\n)/g, "<br />")}</p>
   <footer>
-    <p style="
-      margin: 0;
-      font-size: 0.825rem;
-    "><time datetime="${payload.date.toISOString()}">
-      ${payload.date.toLocaleDateString("en-US", {
-        timeZone: "America/Los_Angeles",
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-      })} at ${payload.date.toLocaleTimeString("en-US", {
+    <time datetime="${payload.date.toISOString()}">${payload.date.toLocaleDateString(
+    "en-US",
+    {
+      timeZone: "America/Los_Angeles",
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    }
+  )} at ${payload.date.toLocaleTimeString("en-US", {
     timeZone: "America/Los_Angeles",
     hour: "2-digit",
     minute: "2-digit"
-  })}
-    </time></p>
+  })}</time>
   </footer>`;
 
   return Promise.resolve();
