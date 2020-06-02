@@ -15,6 +15,10 @@ const buildMeta = () => {
   figure.appendChild(imgContainer);
   imgContainer.appendChild(img);
   figure.appendChild(figcaption);
+
+  return new Promise((resolve, reject) => {
+    img.naturalWidth > 0 ? resolve() : reject("Error: Unable to render image.");
+  });
 };
 
 const handleSuccess = payload => {
@@ -53,7 +57,9 @@ const handleSuccess = payload => {
 };
 
 const Meta = payload => {
-  handleSuccess(payload).then(() => buildMeta());
+  handleSuccess(payload)
+    .then(() => buildMeta())
+    .catch(error => console.error(error));
 };
 
 export default Meta;
