@@ -64,7 +64,7 @@ const handleError = error => {
     'This error may occur if you have the\
   <a href="https://addons.mozilla.org/en-US/firefox/addon/facebook-container/">\
   Mozilla Facebook Container Extension</a> enabled. The extension\
-  prevents loading images from Instagram if this site is not allowed in\
+  prevents images loading from Instagram if this site is not allowed in\
   Facebook Container.';
   figcaption.innerHTML = `<h1>${error}</h1>
   <p>${isFirefox && noImage && fbContainerMessage}</p>
