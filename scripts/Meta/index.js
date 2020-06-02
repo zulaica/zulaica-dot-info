@@ -56,10 +56,26 @@ const handleSuccess = payload => {
   return Promise.resolve();
 };
 
+const handleError = error => {
+  const date = new Date();
+  figcaption.innerHTML = `<h1>${error}</h1>
+  <footer>
+    <time datetime="${date.toISOString()}">${date.toLocaleDateString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  })} at ${date.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit"
+  })}</time>
+  </footer>`;
+};
+
 const Meta = payload => {
   handleSuccess(payload)
     .then(() => buildMeta())
-    .catch(error => console.error(error));
+    .catch(error => handleError(error));
 };
 
 export default Meta;
