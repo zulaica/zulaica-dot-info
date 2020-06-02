@@ -1,7 +1,7 @@
 import CONTACT_INFO from "./contact.js";
 import isSupported from "./support.js";
 
-const instagramURL = "https://www.instagram.com/zulaica/?__a=1";
+const instagramURL = "http://127.0.0.1:3001/instagram";
 
 const validateResponse = response => {
   if (!response.ok) {
