@@ -15,15 +15,14 @@ const validateResponse = response => {
 
 const normalizeResponse = response => {
   const latestPost =
-    response.graphql.user.edge_owner_to_timeline_media.edges[0].node;
+    response.data[0];
   return {
     accessibility_caption:
       latestPost.accessibility_caption || "Accessibility caption not provided",
     caption:
-      latestPost.edge_media_to_caption.edges[0] &&
-      latestPost.edge_media_to_caption.edges[0].node.text,
-    date: new Date(latestPost.taken_at_timestamp * 1000),
-    image: latestPost.display_url
+      latestPost.caption,
+    date: new Date(latestPost.timestamp),
+    image: latestPost.media_url
   };
 };
 
