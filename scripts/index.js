@@ -3,24 +3,12 @@ import isSupported from "./support.js";
 
 const instagramURL = "http://127.0.0.1:3001/instagram";
 
-const validateResponse = response => {
-  if (!response.ok) {
-    throw new Error(
-      `${response.statusText}` || "😞 An unknown error has occurred."
-    );
-  }
-
-  return response.json();
-};
-
 const normalizeResponse = response => {
-  const latestPost =
-    response.data[0];
+  const latestPost = response.data[0];
   return {
     accessibility_caption:
       latestPost.accessibility_caption || "Accessibility caption not provided",
-    caption:
-      latestPost.caption,
+    caption: latestPost.caption,
     date: new Date(latestPost.timestamp.replace(/\+0000/g, "Z")),
     image: latestPost.media_url
   };
@@ -30,12 +18,13 @@ const handleSupported = () =>
   fetch(instagramURL)
     .then(response => {
       if (!response.ok) {
-        throw new Error("⛔️ Something went wrong");
+        throw new Error(
+          `${response.statusText}` || "😞 An unknown error has occurred."
+        );
       }
 
-      return response;
+      return response.json();
     })
-    .then(response => validateResponse(response))
     .then(response => normalizeResponse(response))
     .then(payload => {
       import("./Meta/index.js").then(module => module.default(payload));
