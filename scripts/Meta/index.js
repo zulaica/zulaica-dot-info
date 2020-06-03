@@ -67,7 +67,7 @@ const handleError = error => {
   prevents images loading from Instagram if this site is not allowed in\
   Facebook Container.';
   figcaption.innerHTML = `<h1>${error}</h1>
-  <p>${isFirefox && noImage && fbContainerMessage}</p>
+  <p>${isFirefox && noImage ? fbContainerMessage : ""}</p>
   <footer>
     <time datetime="${date.toISOString()}">${date.toLocaleDateString("en-US", {
     weekday: "long",
