@@ -16,15 +16,14 @@ const scaffold = payload => {
   imgContainer.appendChild(img);
   figure.appendChild(figcaption);
 
-  img.src = payload.image;
-
   return new Promise((resolve, reject) => {
+    img.src = payload.image;
+    img.setAttribute("alt", payload.accessibility_caption);
     img.onload = () => {
       resolve(payload);
     };
-
     img.onerror = () => {
-      reject("⛔️ Error: Unable to load or display image.");
+      reject("⛔️ Error: Unable to load image.");
     };
   });
 };
@@ -34,10 +33,7 @@ const handleSuccess = payload => {
   bg.src = payload.image;
   bg.onload = () =>
     context.drawImage(bg, 0, 0, background.width, background.height);
-
   background.style.setProperty("--background-image", `url(${payload.image})`);
-
-  img.setAttribute("alt", payload.accessibility_caption);
 
   figcaption.innerHTML = `<h1>Instagram</h1>
   <p>${payload.caption
@@ -59,14 +55,11 @@ const handleSuccess = payload => {
     minute: "2-digit"
   })}</time>
   </footer>`;
-
-  return Promise.resolve();
 };
 
 const handleError = error => {
   const date = new Date();
   const isFirefox = navigator.userAgent.includes("Firefox");
-  const noImage = error.includes("Unable to load or display image.");
   const fbContainerMessage =
     'This error may occur if you have the\
   <a href="https://addons.mozilla.org/en-US/firefox/addon/facebook-container/">\
@@ -75,7 +68,7 @@ const handleError = error => {
   Facebook Container.';
 
   figcaption.innerHTML = `<h1 style="font-style: normal">${error}</h1>
-  <p>${isFirefox && noImage ? fbContainerMessage : ""}</p>
+  <p>${isFirefox && fbContainerMessage}</p>
   <footer>
     <time datetime="${date.toISOString()}">${date.toLocaleDateString("en-US", {
     weekday: "long",
