@@ -3,7 +3,16 @@ import background, { context } from "./background.js";
 import figure from "./figure.js";
 import imgContainer from "./imgContainer.js";
 import img from "./img.js";
-import figcaption from "./figcaption.js";
+import figcaption, {
+  content,
+  dateFormat,
+  footer,
+  localizedDateFormat,
+  localizedTimeFormat,
+  time,
+  timeFormat,
+  title
+} from "./figcaption.js";
 
 const section = document.querySelector("section");
 const shadowRoot = section.attachShadow({ mode: "open" });
@@ -15,6 +24,10 @@ const scaffold = payload => {
   figure.appendChild(imgContainer);
   imgContainer.appendChild(img);
   figure.appendChild(figcaption);
+  figcaption.appendChild(title);
+  figcaption.appendChild(content);
+  figcaption.appendChild(footer);
+  footer.appendChild(time);
 
   return new Promise((resolve, reject) => {
     img.src = payload.image;
@@ -35,26 +48,15 @@ const handleSuccess = payload => {
     context.drawImage(bg, 0, 0, background.width, background.height);
   background.style.setProperty("--background-image", `url(${payload.image})`);
 
-  figcaption.innerHTML = `<h1>Instagram</h1>
-  <p>${payload.caption
+  title.textContent = "Instagram";
+  content.innerHTML = `${payload.caption
     .replace(/(\n\n)/g, "</p><p>")
-    .replace(/(\n)/g, "<br />")}</p>
-  <footer>
-    <time datetime="${payload.date.toISOString()}">${payload.date.toLocaleDateString(
+    .replace(/(\n)/g, "<br />")}`;
+  time.setAttribute("datetime", `${payload.date.toISOString()}`);
+  time.textContent = `${payload.date.toLocaleDateString(
     "en-US",
-    {
-      timeZone: "America/Los_Angeles",
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric"
-    }
-  )} at ${payload.date.toLocaleTimeString("en-US", {
-    timeZone: "America/Los_Angeles",
-    hour: "2-digit",
-    minute: "2-digit"
-  })}</time>
-  </footer>`;
+    localizedDateFormat
+  )} at ${payload.date.toLocaleTimeString("en-US", localizedTimeFormat)}`;
 };
 
 const handleError = error => {
@@ -67,19 +69,14 @@ const handleError = error => {
   prevents images loading from Instagram if this site is not allowed in\
   Facebook Container.';
 
-  figcaption.innerHTML = `<h1 style="font-style: normal">${error}</h1>
-  <p>${isFirefox && fbContainerMessage}</p>
-  <footer>
-    <time datetime="${date.toISOString()}">${date.toLocaleDateString("en-US", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric"
-  })} at ${date.toLocaleTimeString("en-US", {
-    hour: "2-digit",
-    minute: "2-digit"
-  })}</time>
-  </footer>`;
+  title.setAttribute("style", "font-style: normal");
+  title.textContent = error;
+  content.innerHTML = `${isFirefox && fbContainerMessage}`;
+  time.setAttribute("datetime", `${date.toISOString()}`);
+  time.textContent = `${date.toLocaleDateString(
+    "en-US",
+    dateFormat
+  )} at ${date.toLocaleTimeString("en-US", timeFormat)}`;
 };
 
 const Meta = payload => {

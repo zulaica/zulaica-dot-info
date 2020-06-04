@@ -1,4 +1,8 @@
 const figcaption = document.createElement("figcaption");
+export const title = document.createElement("h1");
+export const content = figcaption.appendChild(document.createElement("p"));
+export const footer = document.createElement("footer");
+export const time = footer.appendChild(document.createElement("time"));
 
 export const figcaptionStyle = `
   figcaption {
@@ -37,5 +41,27 @@ export const figcaptionStyle = `
     text-align: right;
   }
 `;
+
+export const dateFormat = {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric"
+};
+
+export const timeFormat = {
+  hour: "2-digit",
+  minute: "2-digit"
+};
+
+export const localizedDateFormat = Object.assign(
+  { timeZone: "America/Los_Angeles" },
+  dateFormat
+);
+
+export const localizedTimeFormat = Object.assign(
+  { timeZone: "America/Los_Angeles" },
+  timeFormat
+);
 
 export default figcaption;
