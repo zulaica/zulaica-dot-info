@@ -66,14 +66,15 @@ const handleSuccess = payload => {
 const handleError = error => {
   const date = new Date();
   const isFirefox = navigator.userAgent.includes("Firefox");
-  const noImage = error === "Error: Unable to render image.";
+  const noImage = error.includes("Unable to load or display image.");
   const fbContainerMessage =
     'This error may occur if you have the\
   <a href="https://addons.mozilla.org/en-US/firefox/addon/facebook-container/">\
   Mozilla Facebook Container Extension</a> enabled. The extension\
   prevents images loading from Instagram if this site is not allowed in\
   Facebook Container.';
-  figcaption.innerHTML = `<h1>${error}</h1>
+
+  figcaption.innerHTML = `<h1 style="font-style: normal">${error}</h1>
   <p>${isFirefox && noImage ? fbContainerMessage : ""}</p>
   <footer>
     <time datetime="${date.toISOString()}">${date.toLocaleDateString("en-US", {
