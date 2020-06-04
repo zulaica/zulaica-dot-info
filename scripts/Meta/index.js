@@ -8,7 +8,7 @@ import figcaption from "./figcaption.js";
 const section = document.querySelector("section");
 const shadowRoot = section.attachShadow({ mode: "open" });
 
-const buildMeta = () => {
+const scaffold = payload => {
   shadowRoot.appendChild(style);
   shadowRoot.appendChild(background);
   shadowRoot.appendChild(figure);
@@ -16,8 +16,16 @@ const buildMeta = () => {
   imgContainer.appendChild(img);
   figure.appendChild(figcaption);
 
+  img.src = payload.image;
+
   return new Promise((resolve, reject) => {
-    img.naturalWidth > 0 ? resolve() : reject("Error: Unable to render image.");
+    img.onload = () => {
+      resolve(payload);
+    };
+
+    img.onerror = () => {
+      reject("⛔️ Error: Unable to load or display image.");
+    };
   });
 };
 
@@ -29,7 +37,6 @@ const handleSuccess = payload => {
 
   background.style.setProperty("--background-image", `url(${payload.image})`);
 
-  img.setAttribute("src", payload.image);
   img.setAttribute("alt", payload.accessibility_caption);
 
   figcaption.innerHTML = `<h1>Instagram</h1>
@@ -82,8 +89,8 @@ const handleError = error => {
 };
 
 const Meta = payload => {
-  handleSuccess(payload)
-    .then(() => buildMeta())
+  scaffold(payload)
+    .then(() => handleSuccess(payload))
     .catch(error => handleError(error));
 };
 
