@@ -36,7 +36,9 @@ const handleSupported = () =>
       document.getElementById("message").textContent = `⛔️ ${error}`;
     });
 
-const handleUnsupported = () => console.info("handleUnsupported");
+const handleUnsupported = () =>
+  (document.getElementById("message").textContent =
+    "😞 This browser is unsupported.");
 
 window.addEventListener("load", () => {
   isSupported ? handleSupported() : handleUnsupported();
