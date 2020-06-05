@@ -19,7 +19,7 @@ const handleSupported = () =>
     .then(response => {
       if (!response.ok) {
         throw new Error(
-          `${response.statusText}` || "😞 An unknown error has occurred."
+          `⛔️ ${response.statusText}` || "😞 An unknown error has occurred."
         );
       }
 
