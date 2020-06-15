@@ -10,7 +10,7 @@ export const imgContainerStyle = `
     margin: auto;
     background: var(--image-container-color);
     border: 1px solid var(--image-container-color);
-    border-radius: 3px;
+    border-radius: 2px;
     box-shadow: var(--shade);
   }
 

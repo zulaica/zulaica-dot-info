@@ -19,7 +19,7 @@ export const figcaptionStyle = `
     background: var(--background-color);
     border: 1px solid var(--border-color);
     border-right: transparent;
-    border-radius: 3px;
+    border-radius: 2px;
     box-shadow: var(--shade);
   }
 
