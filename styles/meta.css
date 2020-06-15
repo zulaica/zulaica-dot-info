@@ -28,7 +28,7 @@
 }
 
 :root {
-  --img-container-color: #aaa3;
+  --img-container-color: #000;
   --shade: 0 0 0 2px var(--shade-color);
 }
 
