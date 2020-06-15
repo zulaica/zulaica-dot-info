@@ -27,7 +27,7 @@ JavaScript, and <abbr title="Cascading Style Sheets">CSS</abbr> APIs.
 
 > Aren't you concerned about **LEGACY-BROWSER**?
 
-Nope.
+[Nope](https://github.com/zulaica/zulaica-dot-info/blob/release/scripts/index.js#L39).
 
 > This looks not-very-good on mobile.
 
