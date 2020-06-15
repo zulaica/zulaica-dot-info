@@ -9,7 +9,9 @@ export const figcaptionStyle = `
     width: 45vw;
     height: max-content;
     margin: auto 0;
+    margin-right: -2px;
     padding: 2.5rem;
+    padding-right: calc(2.5rem + 2px);
     text-align: left;
     font-size: 1.125rem;
     line-height: 1.5;
