@@ -32,6 +32,7 @@
     5% 1px, 95% 1px, calc(33vw - 1px) 5%, calc(33vw - 1px) 95%,
     95% calc(33vw - 1px), 5% calc(33vw - 1px), 1px 95%, 1px 5%, 2.5% 2.5%;
   --image-container-color: #000;
+  --image-size: 33vw;
   --photo-corner-color: #fff;
   --shade: 0 0 0 2px var(--shade-color);
 }

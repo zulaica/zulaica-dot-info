@@ -5,8 +5,8 @@ export const imgContainerStyle = `
     display: flex;
     align-items: center;
     justify-items: center;
-    width: 33vw;
-    height: 33vw;
+    width: var(--image-size);
+    height: var(--image-size);
     margin: auto;
     background: var(--image-container-color);
     border: 1px solid var(--image-container-color);
