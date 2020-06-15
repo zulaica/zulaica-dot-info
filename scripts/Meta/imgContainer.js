@@ -10,7 +10,7 @@ export const imgContainerStyle = `
     margin: auto;
     background: var(--image-container-color);
     border: 1px solid var(--image-container-color);
-    border-radius: 2px;
+    border-radius: var(--border-radius);
     box-shadow: var(--shade);
   }
 
@@ -19,7 +19,7 @@ export const imgContainerStyle = `
     position: absolute;
     width: var(--image-size);
     height: var(--image-size);
-    border-radius: 2px;
+    border-radius: var(--border-radius);
     background: var(--photo-corner-color);
     -webkit-clip-path: polygon(var(--clip-path));
     clip-path: polygon(var(--clip-path));

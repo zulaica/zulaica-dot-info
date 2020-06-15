@@ -4,7 +4,7 @@ export const imgStyle = `
   img {
     width: 100%;
     text-align: center;
-    border-radius: 2px;
+    border-radius: var(--border-radius);
   }
 `;
 
