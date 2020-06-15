@@ -29,6 +29,7 @@
 
 :root {
   --border-radius: 2px;
+  --caption-padding: 2.5rem;
   --clip-path: 0px 0px, 0px 100%, 100% 100%, 100% 0px, 0px 0px, 2.5% 2.5%,
     5% 1px, 95% 1px, calc(var(--image-size) - 1px) 5%,
     calc(var(--image-size) - 1px) 95%, 95% calc(var(--image-size) - 1px),
