@@ -20,7 +20,7 @@ export const imgContainerStyle = `
     width: 33vw;
     height: 33vw;
     border-radius: 2px;
-    background: #fff;
+    background: var(--photo-corner-color);
     -webkit-clip-path: polygon(var(--clip-path));
     clip-path: polygon(var(--clip-path));
   }
