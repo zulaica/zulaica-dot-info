@@ -14,15 +14,16 @@ export const imgContainerStyle = `
     box-shadow: var(--shade);
   }
 
-  div::after {
-    content: "";
-    position: absolute;
-    width: var(--image-size);
-    height: var(--image-size);
-    border-radius: var(--border-radius);
-    background: var(--photo-corner-color);
-    -webkit-clip-path: polygon(var(--clip-path));
-    clip-path: polygon(var(--clip-path));
+  @supports (clip-path: polygon(0% 0%)){
+    div::after {
+      content: "";
+      position: absolute;
+      width: var(--image-size);
+      height: var(--image-size);
+      border-radius: var(--border-radius);
+      background: var(--photo-corner-color);
+      clip-path: polygon(var(--clip-path));
+    }
   }
 `;
 
