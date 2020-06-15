@@ -14,7 +14,6 @@ export const figcaptionStyle = `
     padding-right: calc(var(--caption-padding) + var(--border-radius));
     text-align: left;
     font-size: 1.125rem;
-    line-height: 1.5;
     color: var(--text-color);
     background: var(--background-color);
     border: 1px solid var(--border-color);

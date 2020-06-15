@@ -51,7 +51,7 @@ html {
   -webkit-text-size-adjust: 100%;
 
   font-size: 16px;
-  line-height: 1.5em;
+  line-height: 1.5;
   vertical-align: baseline;
 
   text-rendering: geometricPrecision;
@@ -160,7 +160,6 @@ section #message {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.35rem;
-  line-height: 1.5;
 }
 
 section #context {
