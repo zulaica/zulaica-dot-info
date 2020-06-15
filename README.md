@@ -23,6 +23,7 @@ JavaScript, and <abbr title="Cascading Style Sheets">CSS</abbr> APIs.
 - [`prefers-color-scheme` media query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme)
 - [Template Literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
 - [`calc()` CSS Function](https://developer.mozilla.org/en-US/docs/Web/CSS/calc)
+- [CSS Feature Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports)
 
 > Aren't you concerned about **LEGACY-BROWSER**?
 
