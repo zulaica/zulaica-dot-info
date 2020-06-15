@@ -6,6 +6,7 @@ export const imgContainerStyle = `
     align-items: center;
     justify-items: center;
     width: 33vw;
+    height: 33vw;
     margin: auto;
     background: var(--img-container-color);
     border: 1px solid var(--img-container-color);
