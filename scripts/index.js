@@ -36,9 +36,13 @@ const handleSupported = () =>
       document.getElementById("message").textContent = `⛔️ ${error}`;
     });
 
-const handleUnsupported = () =>
-  (document.getElementById("message").textContent =
-    "😞 This browser is unsupported.");
+const handleUnsupported = () => {
+  document.getElementById("message").textContent = "⚠️ Unsupported Browser";
+  document.getElementById("context").innerHTML =
+    'Your browser does not support the features required to render this\
+    site. Please consider <a href="https://browsehappy.com"> upgrading to a\
+    modern browser</a>.';
+};
 
 window.addEventListener("load", () => {
   isSupported ? handleSupported() : handleUnsupported();

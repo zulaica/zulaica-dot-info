@@ -28,7 +28,15 @@
 }
 
 :root {
-  --img-container-color: #aaa3;
+  --border-radius: 2px;
+  --caption-padding: 2.5rem;
+  --clip-path: 0px 0px, 0px 100%, 100% 100%, 100% 0px, 0px 0px, 2.5% 2.5%,
+    5% 1px, 95% 1px, calc(var(--image-size) - 1px) 5%,
+    calc(var(--image-size) - 1px) 95%, 95% calc(var(--image-size) - 1px),
+    5% calc(var(--image-size) - 1px), 1px 95%, 1px 5%, 2.5% 2.5%;
+  --image-container-color: #000;
+  --image-size: 33vw;
+  --photo-corner-color: #fff;
   --shade: 0 0 0 2px var(--shade-color);
 }
 
@@ -43,7 +51,7 @@ html {
   -webkit-text-size-adjust: 100%;
 
   font-size: 16px;
-  line-height: 1.5em;
+  line-height: 1.5;
   vertical-align: baseline;
 
   text-rendering: geometricPrecision;
@@ -152,7 +160,6 @@ section #message {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.35rem;
-  line-height: 1.5;
 }
 
 section #context {

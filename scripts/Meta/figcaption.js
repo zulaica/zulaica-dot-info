@@ -9,15 +9,16 @@ export const figcaptionStyle = `
     width: 45vw;
     height: max-content;
     margin: auto 0;
-    padding: 2.5rem;
+    margin-right: calc(-1 * var(--border-radius));
+    padding: var(--caption-padding);
+    padding-right: calc(var(--caption-padding) + var(--border-radius));
     text-align: left;
     font-size: 1.125rem;
-    line-height: 1.5;
     color: var(--text-color);
     background: var(--background-color);
     border: 1px solid var(--border-color);
     border-right: transparent;
-    border-radius: 3px;
+    border-radius: var(--border-radius);
     box-shadow: var(--shade);
   }
 
