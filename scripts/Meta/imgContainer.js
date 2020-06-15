@@ -17,8 +17,8 @@ export const imgContainerStyle = `
   div::after {
     content: "";
     position: absolute;
-    width: 33vw;
-    height: 33vw;
+    width: var(--image-size);
+    height: var(--image-size);
     border-radius: 2px;
     background: var(--photo-corner-color);
     -webkit-clip-path: polygon(var(--clip-path));
