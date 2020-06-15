@@ -28,6 +28,9 @@
 }
 
 :root {
+  --clip-path: 0px 0px, 0px 100%, 100% 100%, 100% 0px, 0px 0px, 2.5% 2.5%,
+    5% 1px, 95% 1px, calc(33vw - 1px) 5%, calc(33vw - 1px) 95%,
+    95% calc(33vw - 1px), 5% calc(33vw - 1px), 1px 95%, 1px 5%, 2.5% 2.5%;
   --img-container-color: #000;
   --shade: 0 0 0 2px var(--shade-color);
 }
