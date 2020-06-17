@@ -67,6 +67,14 @@
         script.type = "module";
         document.querySelector("head").appendChild(script);
       }
+
+      function displayMessage() {
+        document.getElementById("message").innerText = "⚠️ Unsupported Browser";
+        document.getElementById("context").innerHTML =
+          'Your browser does not support the features required to render this\
+          site. Please consider <a href="https://browsehappy.com">\
+          upgrading to a modern browser</a>.';
+      }
     </script>
     <script src="scripts/index.js" defer type="module"></script>
 
