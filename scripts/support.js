@@ -5,7 +5,7 @@ const fetchSupported = "fetch" in self;
 
 const historySupported = "pushState" in window.history;
 
-const dynamicImportSupported = () => {
+function dynamicImportSupported() {
   try {
     new Function("import('')");
     return true;
@@ -17,7 +17,7 @@ const dynamicImportSupported = () => {
         throw new Error(error);
     }
   }
-};
+}
 
 const isSupported =
   shadowDomSupported &&
