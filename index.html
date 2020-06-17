@@ -75,8 +75,12 @@
           site. Please consider <a href="https://browsehappy.com">\
           upgrading to a modern browser</a>.';
       }
+
+      window.addEventListener(
+        "DOMContentLoaded",
+        dynamicImportSupported() ? loadScript : displayUnsupportedMessage
+      );
     </script>
-    <script src="scripts/index.js" defer type="module"></script>
 
     <link rel="stylesheet" href="https://use.typekit.net/yff7pow.css" />
     <link href="styles/meta.min.css" media="screen" rel="stylesheet" />
