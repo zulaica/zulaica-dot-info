@@ -45,6 +45,21 @@
       gtag("js", new Date());
       gtag("config", "UA-57573923-1");
     </script>
+    <script>
+      function dynamicImportSupported() {
+        try {
+          new Function("import('')");
+          return true;
+        } catch (error) {
+          switch (error instanceof SyntaxError) {
+            case true:
+              return false;
+            default:
+              throw new Error(error);
+          }
+        }
+      }
+    </script>
     <script src="scripts/index.js" defer type="module"></script>
 
     <link rel="stylesheet" href="https://use.typekit.net/yff7pow.css" />
