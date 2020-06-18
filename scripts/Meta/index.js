@@ -27,7 +27,7 @@ const scaffold = payload => {
 
   return new Promise((resolve, reject) => {
     img.src = payload.image;
-    img.setAttribute("alt", payload.accessibility_caption);
+    img.alt = payload.accessibility_caption;
     img.onload = () => {
       resolve(payload);
     };
@@ -48,7 +48,7 @@ const handleSuccess = payload => {
   content.innerHTML = `${payload.caption
     .replace(/(\n\n)/g, "</p><p>")
     .replace(/(\n)/g, "<br />")}`;
-  time.setAttribute("datetime", `${payload.date.toISOString()}`);
+  time.dateTime = `${payload.date.toISOString()}`;
   time.textContent = `${payload.date.toLocaleDateString(
     "en-US",
     localizedDateFormat
@@ -65,10 +65,10 @@ const handleError = error => {
   prevents images loading from Instagram if this site is not allowed in\
   Facebook Container.';
 
-  title.setAttribute("style", "font-style: normal");
+  title.style = "font-style: normal";
   title.textContent = error;
   content.innerHTML = `${isFirefox && fbContainerMessage}`;
-  time.setAttribute("datetime", `${date.toISOString()}`);
+  time.dateTime = `${date.toISOString()}`;
   time.textContent = `${date.toLocaleDateString(
     "en-US",
     dateFormat

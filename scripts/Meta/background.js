@@ -1,7 +1,7 @@
 const background = document.createElement("canvas");
-background.setAttribute("id", "background");
-background.setAttribute("role", "presentation");
-background.setAttribute("aria-hidden", "true");
+background.id = "background";
+background.role = "presentation";
+background.ariaHidden = true;
 
 export const context = background.getContext("2d", { alpha: true });
 const canvasBlurSupported = context && context.filter;
