@@ -5,12 +5,12 @@ import { imgStyle } from "./img.js";
 import { figcaptionStyle } from "./figcaption.js";
 
 const style = document.createElement("style");
-style.textContent = `
+style.append(`
   ${backgroundStyle}
   ${figureStyle}
   ${imgContainerStyle}
   ${imgStyle}
   ${figcaptionStyle}
-`;
+`);
 
 export default style;

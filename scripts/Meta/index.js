@@ -44,15 +44,17 @@ const handleSuccess = payload => {
     context.drawImage(bg, 0, 0, background.width, background.height);
   background.style.setProperty("--background-image", `url(${payload.image})`);
 
-  title.textContent = "Instagram";
+  title.append("Instagram");
   content.innerHTML = `${payload.caption
     .replace(/(\n\n)/g, "</p><p>")
     .replace(/(\n)/g, "<br />")}`;
   time.dateTime = `${payload.date.toISOString()}`;
-  time.textContent = `${payload.date.toLocaleDateString(
-    "en-US",
-    localizedDateFormat
-  )} at ${payload.date.toLocaleTimeString("en-US", localizedTimeFormat)}`;
+  time.append(
+    `${payload.date.toLocaleDateString(
+      "en-US",
+      localizedDateFormat
+    )} at ${payload.date.toLocaleTimeString("en-US", localizedTimeFormat)}`
+  );
 };
 
 const handleError = error => {
@@ -66,13 +68,15 @@ const handleError = error => {
   Facebook Container.';
 
   title.style = "font-style: normal";
-  title.textContent = error;
+  title.append(error);
   content.innerHTML = `${isFirefox && fbContainerMessage}`;
   time.dateTime = `${date.toISOString()}`;
-  time.textContent = `${date.toLocaleDateString(
-    "en-US",
-    dateFormat
-  )} at ${date.toLocaleTimeString("en-US", timeFormat)}`;
+  time.append(
+    `${date.toLocaleDateString(
+      "en-US",
+      dateFormat
+    )} at ${date.toLocaleTimeString("en-US", timeFormat)}`
+  );
 };
 
 const Meta = payload => {
