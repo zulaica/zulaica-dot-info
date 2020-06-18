@@ -1,8 +1,8 @@
 const figcaption = document.createElement("figcaption");
 export const title = document.createElement("h1");
-export const content = figcaption.appendChild(document.createElement("p"));
+export const content = document.createElement("p");
 export const footer = document.createElement("footer");
-export const time = footer.appendChild(document.createElement("time"));
+export const time = document.createElement("time");
 
 export const figcaptionStyle = `
   figcaption {
