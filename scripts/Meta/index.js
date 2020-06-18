@@ -16,6 +16,14 @@ import figcaption, {
 
 const section = document.querySelector("section");
 const shadowRoot = section.attachShadow({ mode: "open" });
+const formatDateTime = (dateObject, localized = false) =>
+  `${dateObject.toLocaleDateString(
+    "en-US",
+    localized ? localizedDateFormat : dateFormat
+  )} at ${dateObject.toLocaleTimeString(
+    "en-US",
+    localized ? localizedTimeFormat : timeFormat
+  )}`;
 
 const scaffold = payload => {
   shadowRoot.append(style, background, figure);
@@ -49,12 +57,7 @@ const handleSuccess = payload => {
     .replace(/(\n\n)/g, "</p><p>")
     .replace(/(\n)/g, "<br />")}`;
   time.dateTime = `${payload.date.toISOString()}`;
-  time.append(
-    `${payload.date.toLocaleDateString(
-      "en-US",
-      localizedDateFormat
-    )} at ${payload.date.toLocaleTimeString("en-US", localizedTimeFormat)}`
-  );
+  time.append(formatDateTime(payload.date, true));
 };
 
 const handleError = error => {
@@ -71,12 +74,7 @@ const handleError = error => {
   title.append(error);
   content.innerHTML = `${isFirefox && fbContainerMessage}`;
   time.dateTime = `${date.toISOString()}`;
-  time.append(
-    `${date.toLocaleDateString(
-      "en-US",
-      dateFormat
-    )} at ${date.toLocaleTimeString("en-US", timeFormat)}`
-  );
+  time.append(formatDateTime(date));
 };
 
 const Meta = payload => {
