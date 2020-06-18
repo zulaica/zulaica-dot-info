@@ -69,7 +69,6 @@ html {
   font-weight: 400;
   color: var(--text-color);
 
-  background: #333;
   background: var(--background-color);
 }
 

@@ -45,7 +45,42 @@
       gtag("js", new Date());
       gtag("config", "UA-57573923-1");
     </script>
-    <script src="scripts/index.js" defer type="module"></script>
+    <script>
+      function dynamicImportSupported() {
+        try {
+          new Function("import('')");
+          return true;
+        } catch (error) {
+          switch (error instanceof SyntaxError) {
+            case true:
+              return false;
+            default:
+              throw error;
+          }
+        }
+      }
+
+      function loadScript() {
+        var script = document.createElement("script");
+        script.src = "scripts/index.js";
+        script.defer = true;
+        script.type = "module";
+        document.querySelector("head").appendChild(script);
+      }
+
+      function displayUnsupportedMessage() {
+        document.getElementById("message").innerText = "⚠️ Unsupported Browser";
+        document.getElementById("context").innerHTML =
+          'Your browser does not support the features required to render this\
+          site. Please consider <a href="https://browsehappy.com">\
+          upgrading to a modern browser</a>.';
+      }
+
+      window.addEventListener(
+        "DOMContentLoaded",
+        dynamicImportSupported() ? loadScript : displayUnsupportedMessage
+      );
+    </script>
 
     <link rel="stylesheet" href="https://use.typekit.net/yff7pow.css" />
     <link href="styles/meta.min.css" media="screen" rel="stylesheet" />
@@ -76,15 +111,10 @@
     </main>
     <footer role="contentinfo">
       <p role="presentation" aria-hidden="true">▶︎▲▼⬆︎▶︎ made this.</p>
-      <!-- <p><a href="/meta" title="Meta">/meta</a></p> -->
     </footer>
 
     <script nomodule>
-      document.getElementById("message").textContent = "⚠️ Unsupported Browser";
-      document.getElementById("context").innerHTML =
-        'Your browser does not support the features required to render this\
-        site. Please consider <a href="https://browsehappy.com">\
-        upgrading to a modern browser</a>.';
+      displayUnsupportedMessage();
     </script>
   </body>
 </html>

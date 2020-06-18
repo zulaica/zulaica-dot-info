@@ -48,6 +48,6 @@ window.addEventListener("load", () => {
   isSupported ? handleSupported() : handleUnsupported();
 });
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
   console.info(`%c ${CONTACT_INFO}`, "font-family: monospace;");
 });
