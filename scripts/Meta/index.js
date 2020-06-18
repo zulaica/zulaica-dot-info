@@ -18,16 +18,12 @@ const section = document.querySelector("section");
 const shadowRoot = section.attachShadow({ mode: "open" });
 
 const scaffold = payload => {
-  shadowRoot.appendChild(style);
-  shadowRoot.appendChild(background);
-  shadowRoot.appendChild(figure);
-  figure.appendChild(imgContainer);
-  imgContainer.appendChild(img);
-  figure.appendChild(figcaption);
-  figcaption.appendChild(title);
-  figcaption.appendChild(content);
-  figcaption.appendChild(footer);
-  footer.appendChild(time);
+  shadowRoot.append(style, background, figure);
+  figure.append(imgContainer);
+  imgContainer.append(img);
+  figure.append(figcaption);
+  figcaption.append(title, content, footer);
+  footer.append(time);
 
   return new Promise((resolve, reject) => {
     img.src = payload.image;
