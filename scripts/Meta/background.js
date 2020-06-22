@@ -11,7 +11,6 @@ if (canvasBlurSupported) {
 }
 
 const cssBlur = `
-  background: var(--background-image);
   background-position: center;
   background-size: cover;
   filter: blur(50px);

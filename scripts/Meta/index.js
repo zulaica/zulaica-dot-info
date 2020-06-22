@@ -50,7 +50,6 @@ const handleSuccess = payload => {
   bg.src = payload.image;
   bg.onload = () =>
     context.drawImage(bg, 0, 0, background.width, background.height);
-  background.style.setProperty("--background-image", `url(${payload.image})`);
 
   title.append("Instagram");
   content.innerHTML = `${payload.caption
