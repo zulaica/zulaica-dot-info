@@ -1,17 +1,16 @@
 const background = document.createElement("canvas");
-background.setAttribute("id", "background");
-background.setAttribute("role", "presentation");
-background.setAttribute("aria-hidden", "true");
+background.id = "background";
+background.role = "presentation";
+background.ariaHidden = true;
 
 export const context = background.getContext("2d", { alpha: true });
-const canvasBlurSupported = context && context.filter;
+const canvasBlurSupported = !!context.filter;
 
 if (canvasBlurSupported) {
   context.filter = "blur(10px)";
 }
 
 const cssBlur = `
-  background: var(--background-image);
   background-position: center;
   background-size: cover;
   filter: blur(50px);

@@ -33,15 +33,18 @@ const handleSupported = () =>
       );
     })
     .catch(error => {
-      document.getElementById("message").textContent = `⛔️ ${error}`;
+      document.getElementById("message").append(`⛔️ ${error}`);
     });
 
 const handleUnsupported = () => {
-  document.getElementById("message").textContent = "⚠️ Unsupported Browser";
-  document.getElementById("context").innerHTML =
-    'Your browser does not support the features required to render this\
-    site. Please consider <a href="https://browsehappy.com"> upgrading to a\
-    modern browser</a>.';
+  document.getElementById("message").append("⚠️ Unsupported Browser");
+  document
+    .getElementById("context")
+    .append(
+      'Your browser does not support the features required to render this\
+      site. Please consider <a href="https://browsehappy.com"> upgrading to a\
+      modern browser</a>.'
+    );
 };
 
 window.addEventListener("load", () => {
