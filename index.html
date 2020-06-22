@@ -48,8 +48,9 @@
     <script>
       function dynamicImportSupported() {
         try {
-          new Function("import('')");
-          return true;
+          return new Function(
+            "return import('data:text/javascript;base64,Cg==').then(() => true)"
+          );
         } catch (error) {
           switch (error instanceof SyntaxError) {
             case true:
