@@ -4,7 +4,7 @@ background.role = "presentation";
 background.ariaHidden = true;
 
 export const context = background.getContext("2d", { alpha: true });
-const canvasBlurSupported = context && context.filter;
+const canvasBlurSupported = !!context.filter;
 
 if (canvasBlurSupported) {
   context.filter = "blur(10px)";
