@@ -3,8 +3,8 @@ const imgContainer = document.createElement("div");
 export const imgContainerStyle = `
   div {
     display: flex;
-    align-items: center;
-    justify-items: center;
+    align-content: center;
+    justify-content: center;
     width: var(--image-size);
     height: var(--image-size);
     margin: auto;
