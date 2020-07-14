@@ -2,7 +2,7 @@ const img = document.createElement("img");
 
 export const imgStyle = `
   img {
-    width: 100%;
+    object-fit: contain;
     text-align: center;
     border-radius: var(--border-radius);
   }

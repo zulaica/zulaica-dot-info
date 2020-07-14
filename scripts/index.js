@@ -29,7 +29,9 @@ const handleSupported = () =>
     .then(payload => {
       import("./Meta/index.js").then(module => module.default(payload));
       import("./Meta/parallax.js").then(module =>
-        document.addEventListener("mousemove", module.default)
+        document.addEventListener("mousemove", module.default, {
+          passive: true
+        })
       );
     })
     .catch(error => {
