@@ -52,9 +52,11 @@ const handleSuccess = payload => {
     context.drawImage(bg, 0, 0, background.width, background.height);
 
   title.append("Instagram");
-  content.innerHTML = `${payload.caption
-    .replace(/(\n\n)/g, "</p><p>")
-    .replace(/(\n)/g, "<br />")}`;
+  content.innerHTML = payload.caption
+    ? `${payload.caption
+        .replace(/(\n\n)/g, "</p><p>")
+        .replace(/(\n)/g, "<br />")}`
+    : "&nbsp;";
   time.dateTime = `${payload.date.toISOString()}`;
   time.append(formatDateTime(payload.date, true));
 };
