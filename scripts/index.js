@@ -25,7 +25,7 @@ const handleSupported = async () => {
     Meta.default(data);
     document.addEventListener("mousemove", Parallax.default, { passive: true });
   } catch (error) {
-    document.getElementById("message").append(`⛔️ ${error.message}`);
+    document.getElementById("message").textContent = `⛔️ ${error.message}`;
   }
 };
 
