@@ -25,6 +25,7 @@ JavaScript, and <abbr title="Cascading Style Sheets">CSS</abbr> APIs.
 - [`calc()` CSS Function](https://developer.mozilla.org/en-US/docs/Web/CSS/calc)
 - [CSS Feature Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports)
 - [Default Function Parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters)
+- [Async Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 
 > Aren't you concerned about **LEGACY-BROWSER**?
 
