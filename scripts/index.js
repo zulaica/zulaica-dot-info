@@ -17,12 +17,12 @@ const normalizeResponse = response => {
 const handleSupported = async () => {
   try {
     const response = await fetch(instagramURL);
-    const data = response.ok ? await response.json() : undefined;
+    const responseBody = response.ok ? await response.json() : undefined;
     const Meta = await import("./Meta/index.js");
     const Parallax = await import("./Meta/parallax.js");
-    const payload = normalizeResponse(data);
+    const data = normalizeResponse(responseBody);
 
-    Meta.default(payload);
+    Meta.default(data);
     document.addEventListener("mousemove", Parallax.default, { passive: true });
   } catch (error) {
     document.getElementById("message").append(`⛔️ ${error.message}`);

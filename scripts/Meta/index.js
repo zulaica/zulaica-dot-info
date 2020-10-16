@@ -25,7 +25,7 @@ const formatDateTime = (dateObject, localized = false) =>
     localized ? localizedTimeFormat : timeFormat
   )}`;
 
-const scaffold = payload => {
+const scaffold = data => {
   shadowRoot.append(style, background, figure);
   figure.append(imgContainer);
   imgContainer.append(img);
@@ -34,10 +34,10 @@ const scaffold = payload => {
   footer.append(time);
 
   return new Promise((resolve, reject) => {
-    img.src = payload.image;
-    img.alt = payload.accessibility_caption;
+    img.src = data.image;
+    img.alt = data.accessibility_caption;
     img.onload = () => {
-      resolve(payload);
+      resolve(data);
     };
     img.onerror = () => {
       reject("⛔️ Error: Unable to load image.");
@@ -45,20 +45,18 @@ const scaffold = payload => {
   });
 };
 
-const handleSuccess = payload => {
+const handleSuccess = data => {
   const bg = new Image();
-  bg.src = payload.image;
+  bg.src = data.image;
   bg.onload = () =>
     context.drawImage(bg, 0, 0, background.width, background.height);
 
   title.append("Instagram");
-  content.innerHTML = payload.caption
-    ? `${payload.caption
-        .replace(/(\n\n)/g, "</p><p>")
-        .replace(/(\n)/g, "<br />")}`
+  content.innerHTML = data.caption
+    ? `${data.caption.replace(/(\n\n)/g, "</p><p>").replace(/(\n)/g, "<br />")}`
     : "&nbsp;";
-  time.dateTime = `${payload.date.toISOString()}`;
-  time.append(formatDateTime(payload.date, true));
+  time.dateTime = `${data.date.toISOString()}`;
+  time.append(formatDateTime(data.date, true));
 };
 
 const handleError = error => {
@@ -78,9 +76,9 @@ const handleError = error => {
   time.append(formatDateTime(date));
 };
 
-const Meta = payload => {
-  scaffold(payload)
-    .then(() => handleSuccess(payload))
+const Meta = data => {
+  scaffold(data)
+    .then(() => handleSuccess(data))
     .catch(error => handleError(error));
 };
 
