@@ -20,9 +20,8 @@ const handleSupported = async () => {
     const responseBody = response.ok ? await response.json() : undefined;
     const Meta = await import("./Meta/index.js");
     const Parallax = await import("./Meta/parallax.js");
-    const data = normalizeResponse(responseBody);
 
-    Meta.default(data);
+    Meta.default(normalizeResponse(responseBody));
     document.addEventListener("mousemove", Parallax.default, { passive: true });
   } catch (error) {
     document.getElementById("message").textContent = `⛔️ ${error.message}`;
