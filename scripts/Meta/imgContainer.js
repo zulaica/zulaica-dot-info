@@ -12,6 +12,7 @@ export const imgContainerStyle = `
     border: 1px solid var(--image-container-color);
     border-radius: var(--border-radius);
     box-shadow: var(--shade);
+    overflow: hidden;
   }
 
   @supports (clip-path: polygon(0% 0%)){
