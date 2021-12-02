@@ -1,7 +1,7 @@
 import CONTACT_INFO from "./contact.js";
 import isSupported from "./support.js";
 
-const instagramURL = "https://zulaica.dev/instagram";
+const instagramURL = "https://www.zulaica.dev/instagram";
 
 const normalizeResponse = response => {
   const latestPost = response.data[0];
