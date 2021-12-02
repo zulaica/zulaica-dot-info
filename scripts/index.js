@@ -1,7 +1,7 @@
 import CONTACT_INFO from "./contact.js";
 import isSupported from "./support.js";
 
-const instagramURL = "https://zulaica.dev/instagram";
+const instagramURL = "https://www.zulaica.dev/instagram";
 
 const normalizeResponse = response => {
   const latestPost = response.data[0];
@@ -14,29 +14,20 @@ const normalizeResponse = response => {
   };
 };
 
-const handleSupported = () =>
-  fetch(instagramURL)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(
-          `⛔️ ${response.statusText}` || "😞 An unknown error has occurred."
-        );
-      }
+const handleSupported = async () => {
+  try {
+    const response = await fetch(instagramURL);
+    const responseBody = response.ok ? await response.json() : undefined;
+    const Meta = await import("./Meta/index.js");
+    const Parallax = await import("./Meta/parallax.js");
 
-      return response.json();
-    })
-    .then(response => normalizeResponse(response))
-    .then(payload => {
-      import("./Meta/index.js").then(module => module.default(payload));
-      import("./Meta/parallax.js").then(module =>
-        document.addEventListener("mousemove", module.default, {
-          passive: true
-        })
-      );
-    })
-    .catch(error => {
-      document.getElementById("message").append(`⛔️ ${error}`);
-    });
+    Meta.default(normalizeResponse(responseBody));
+    document.addEventListener("mousemove", Parallax.default, { passive: true });
+  } catch (error) {
+    document.getElementById("message").textContent = `⛔️ ${error.name}`;
+    document.getElementById("context").textContent = `${error.message}`;
+  }
+};
 
 const handleUnsupported = () => {
   document.getElementById("message").append("⚠️ Unsupported Browser");
