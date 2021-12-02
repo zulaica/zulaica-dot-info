@@ -1,13 +1,13 @@
-const background = document.createElement("canvas");
-background.id = "background";
-background.role = "presentation";
+const background = document.createElement('canvas');
+background.id = 'background';
+background.role = 'presentation';
 background.ariaHidden = true;
 
-export const context = background.getContext("2d", { alpha: true });
+export const context = background.getContext('2d', { alpha: true });
 const canvasBlurSupported = !!context.filter;
 
 if (canvasBlurSupported) {
-  context.filter = "blur(10px)";
+  context.filter = 'blur(10px)';
 }
 
 const cssBlur = `
@@ -24,7 +24,7 @@ export const backgroundStyle = `
     position: absolute;
     z-index: -10;
     transform: scale3d(1.25, 1.25, 1.25) translate3d(0, 0, 0);
-    ${canvasBlurSupported ? "" : cssBlur}
+    ${canvasBlurSupported ? '' : cssBlur}
   }
 `;
 

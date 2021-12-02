@@ -1,4 +1,4 @@
-const imgContainer = document.createElement("div");
+const imgContainer = document.createElement('div');
 
 export const imgContainerStyle = `
   div {
