@@ -25,6 +25,12 @@
     />
     <link
       rel="modulepreload"
+      href="scripts/spinner.js"
+      crossorigin="use-credentials"
+      as="script"
+    />
+    <link
+      rel="modulepreload"
       href="scripts/contact.js"
       crossorigin="use-credentials"
       as="script"
@@ -130,7 +136,10 @@
     </header>
     <main>
       <section>
-        <div id="message">🕐 Loading&hellip;</div>
+        <div id="message">
+          <span id="spinner" role="presentation" aria-hidden="true"></span>
+          Loading&hellip;
+        </div>
         <p id="context"></p>
       </section>
     </main>

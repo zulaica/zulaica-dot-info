@@ -90,18 +90,19 @@ const handleError = (error) => {
   time.append(formatDateTime(date));
 };
 
-const renderContent = () => {
+const renderContent = (stopSpinner) => {
   const shadowRoot = section.attachShadow({ mode: 'open' });
   shadowRoot.append(style, background, figure);
+  stopSpinner();
 };
 
-const Meta = (data) => {
+const Meta = (data, stopSpinner) => {
   scaffoldLayout(data)
     .then(
       () => handleSuccess(data),
       (error) => handleError(error)
     )
-    .then(() => renderContent());
+    .then(() => renderContent(stopSpinner));
 };
 
 export default Meta;
