@@ -26,6 +26,10 @@ export const mediaContainerStyle = `
       clip-path: polygon(var(--clip-path));
     }
   }
+
+  :host(.error) div {
+    display: none;
+  }
 `;
 
 export default mediaContainer;

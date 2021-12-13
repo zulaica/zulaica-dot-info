@@ -26,6 +26,10 @@ export const backgroundStyle = `
     transform: scale3d(1.25, 1.25, 1.25) translate3d(0, 0, 0);
     ${canvasBlurSupported ? '' : cssBlur}
   }
+
+  :host(.error) #background {
+    display: none;
+  }
 `;
 
 export default background;

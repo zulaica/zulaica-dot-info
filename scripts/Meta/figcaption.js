@@ -41,6 +41,15 @@ export const figcaptionStyle = `
     font-size: 0.8125rem;
     text-align: right;
   }
+
+  :host(.error) figcaption {
+    margin: auto;
+    border: 1px solid var(--border-color);
+  }
+
+  :host(.error) figcaption h1 {
+    font-style: normal;
+  }
 `;
 
 export const dateFormat = {

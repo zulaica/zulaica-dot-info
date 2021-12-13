@@ -13,6 +13,8 @@ import figcaption, {
   title
 } from './figcaption.js';
 
+const section = document.querySelector('section');
+
 const formatDateTime = (dateObject, localized = false) =>
   `${dateObject.toLocaleDateString(
     'en-US',
@@ -77,7 +79,7 @@ const handleError = (error) => {
   prevents images loading from Instagram if this site is not allowed in\
   Facebook Container.';
 
-  title.style = 'font-style: normal';
+  section.className = 'error';
   title.append(error);
   content.innerHTML = isFirefox ? `${fbContainerMessage}` : '&nbsp;';
   time.dateTime = `${date.toISOString()}`;
@@ -85,7 +87,6 @@ const handleError = (error) => {
 };
 
 const renderContent = () => {
-  const section = document.querySelector('section');
   const shadowRoot = section.attachShadow({ mode: 'open' });
   shadowRoot.append(style, background, figure);
 };
