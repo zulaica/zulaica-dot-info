@@ -1,15 +1,15 @@
-import CONTACT_INFO from "./contact.js";
-import isSupported from "./support.js";
+import CONTACT_INFO from './contact.js';
+import isSupported from './support.js';
 
-const instagramURL = "https://www.zulaica.dev/instagram";
+const instagramURL = 'https://www.zulaica.dev/instagram';
 
-const normalizeResponse = response => {
+const normalizeResponse = (response) => {
   const latestPost = response.data[0];
   return {
     accessibility_caption:
-      latestPost.accessibility_caption || "Accessibility caption not provided.",
+      latestPost.accessibility_caption || 'Accessibility caption not provided.',
     caption: latestPost.caption,
-    date: new Date(latestPost.timestamp.replace(/\+0000/g, "Z")),
+    date: new Date(latestPost.timestamp.replace(/\+0000/g, 'Z')),
     image: latestPost.media_url
   };
 };
@@ -18,21 +18,21 @@ const handleSupported = async () => {
   try {
     const response = await fetch(instagramURL);
     const responseBody = response.ok ? await response.json() : undefined;
-    const Meta = await import("./Meta/index.js");
-    const Parallax = await import("./Meta/parallax.js");
+    const Meta = await import('./Meta/index.js');
+    const Parallax = await import('./Meta/parallax.js');
 
     Meta.default(normalizeResponse(responseBody));
-    document.addEventListener("mousemove", Parallax.default, { passive: true });
+    document.addEventListener('mousemove', Parallax.default, { passive: true });
   } catch (error) {
-    document.getElementById("message").textContent = `⛔️ ${error.name}`;
-    document.getElementById("context").textContent = `${error.message}`;
+    document.getElementById('message').textContent = `⛔️ ${error.name}`;
+    document.getElementById('context').textContent = `${error.message}`;
   }
 };
 
 const handleUnsupported = () => {
-  document.getElementById("message").append("⚠️ Unsupported Browser");
+  document.getElementById('message').append('⚠️ Unsupported Browser');
   document
-    .getElementById("context")
+    .getElementById('context')
     .append(
       'Your browser does not support the features required to render this\
       site. Please consider <a href="https://browsehappy.com"> upgrading to a\
@@ -40,10 +40,10 @@ const handleUnsupported = () => {
     );
 };
 
-window.addEventListener("load", () => {
+window.addEventListener('load', () => {
   isSupported ? handleSupported() : handleUnsupported();
 });
 
-window.addEventListener("load", () => {
-  console.info(`%c ${CONTACT_INFO}`, "font-family: monospace;");
+window.addEventListener('load', () => {
+  console.info(`%c ${CONTACT_INFO}`, 'font-family: monospace;');
 });

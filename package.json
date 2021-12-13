@@ -1,0 +1,11 @@
+{
+  "name": "zulaica-dot-info",
+  "author": "David Zulaica",
+  "version": "0.0.0",
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "start": "python3 -m http.server"
+  }
+}

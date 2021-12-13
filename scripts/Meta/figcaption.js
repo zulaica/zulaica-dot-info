@@ -1,8 +1,8 @@
-const figcaption = document.createElement("figcaption");
-export const title = document.createElement("h1");
-export const content = document.createElement("p");
-export const footer = document.createElement("footer");
-export const time = document.createElement("time");
+const figcaption = document.createElement('figcaption');
+export const title = document.createElement('h1');
+export const content = document.createElement('p');
+export const footer = document.createElement('footer');
+export const time = document.createElement('time');
 
 export const figcaptionStyle = `
   figcaption {
@@ -44,24 +44,24 @@ export const figcaptionStyle = `
 `;
 
 export const dateFormat = {
-  weekday: "long",
-  year: "numeric",
-  month: "long",
-  day: "numeric"
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
 };
 
 export const timeFormat = {
-  hour: "2-digit",
-  minute: "2-digit"
+  hour: '2-digit',
+  minute: '2-digit'
 };
 
 export const localizedDateFormat = Object.assign(
-  { timeZone: "America/Los_Angeles" },
+  { timeZone: 'America/Los_Angeles' },
   dateFormat
 );
 
 export const localizedTimeFormat = Object.assign(
-  { timeZone: "America/Los_Angeles" },
+  { timeZone: 'America/Los_Angeles' },
   timeFormat
 );
 
