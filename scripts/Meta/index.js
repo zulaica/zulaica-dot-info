@@ -13,8 +13,6 @@ import figcaption, {
   title
 } from './figcaption.js';
 
-const section = document.querySelector('section');
-const shadowRoot = section.attachShadow({ mode: 'open' });
 const formatDateTime = (dateObject, localized = false) =>
   `${dateObject.toLocaleDateString(
     'en-US',
@@ -24,14 +22,13 @@ const formatDateTime = (dateObject, localized = false) =>
     localized ? localizedTimeFormat : timeFormat
   )}`;
 
-const scaffold = async (data) => {
+const scaffoldLayout = async (data) => {
   const isImage = data.media_type === 'IMAGE';
   const { default: media, mediaStyle } = isImage
     ? await import('./img.js')
     : await import('./video.js');
 
   style.append(mediaStyle);
-  shadowRoot.append(style, background, figure);
   figure.append(mediaContainer);
   mediaContainer.append(media);
   figure.append(figcaption);
@@ -87,10 +84,17 @@ const handleError = (error) => {
   time.append(formatDateTime(date));
 };
 
+const renderContent = () => {
+  const section = document.querySelector('section');
+  const shadowRoot = section.attachShadow({ mode: 'open' });
+  shadowRoot.append(style, background, figure);
+};
+
 const Meta = (data) => {
-  scaffold(data)
+  scaffoldLayout(data)
     .then(() => handleSuccess(data))
-    .catch((error) => handleError(error));
+    .catch((error) => handleError(error))
+    .finally(renderContent());
 };
 
 export default Meta;
