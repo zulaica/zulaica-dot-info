@@ -91,7 +91,7 @@ const handleError = (error) => {
 };
 
 const renderContent = (stopSpinner) => {
-  const shadowRoot = section.attachShadow({ mode: 'open' });
+  const shadowRoot = section.attachShadow({ mode: 'closed' });
   shadowRoot.append(style, background, figure);
   stopSpinner();
 };
