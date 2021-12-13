@@ -1,7 +1,7 @@
 import style from './style.js';
 import background, { context } from './background.js';
 import figure from './figure.js';
-import imgContainer from './imgContainer.js';
+import mediaContainer from './mediaContainer.js';
 import img from './img.js';
 import figcaption, {
   content,
@@ -27,8 +27,8 @@ const formatDateTime = (dateObject, localized = false) =>
 
 const scaffold = (data) => {
   shadowRoot.append(style, background, figure);
-  figure.append(imgContainer);
-  imgContainer.append(img);
+  figure.append(mediaContainer);
+  mediaContainer.append(img);
   figure.append(figcaption);
   figcaption.append(title, content, footer);
   footer.append(time);

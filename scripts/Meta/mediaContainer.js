@@ -1,6 +1,6 @@
-const imgContainer = document.createElement('div');
+const mediaContainer = document.createElement('div');
 
-export const imgContainerStyle = `
+export const mediaContainerStyle = `
   div {
     display: flex;
     align-content: center;
@@ -28,4 +28,4 @@ export const imgContainerStyle = `
   }
 `;
 
-export default imgContainer;
+export default mediaContainer;
