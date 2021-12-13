@@ -24,7 +24,7 @@ const updateSpinner = () => {
 
 export let startSpinner = () => {
   if (!spinnerId) {
-    spinnerId = setInterval(updateSpinner, 88.3333333333);
+    spinnerId = setInterval(updateSpinner, 1000 / FRAMES.length);
   }
 };
 
