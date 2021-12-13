@@ -13,7 +13,7 @@ const FRAMES = Object.freeze([
   '🕚 '
 ]);
 
-const spinner = document.querySelector('#spinner');
+const spinner = document.getElementById('spinner');
 let index = 0;
 let spinnerId;
 
