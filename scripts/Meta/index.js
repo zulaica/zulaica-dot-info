@@ -56,17 +56,21 @@ const scaffoldLayout = async (data) => {
 };
 
 const handleSuccess = (data) => {
-  const bg = new Image();
-  bg.src = data.thumbnail || data.media;
-  bg.onload = () =>
-    context.drawImage(bg, 0, 0, background.width, background.height);
-
   title.append('Instagram');
   content.innerHTML = data.caption
     ? `${data.caption.replace(/(\n\n)/g, '</p><p>').replace(/(\n)/g, '<br />')}`
     : '&nbsp;';
   time.dateTime = `${data.date.toISOString()}`;
   time.append(formatDateTime(data.date, true));
+
+  return new Promise((resolve) => {
+    const bg = new Image();
+    bg.src = data.thumbnail || data.media;
+    bg.onload = () => {
+      context.drawImage(bg, 0, 0, background.width, background.height);
+      resolve();
+    };
+  });
 };
 
 const handleError = (error) => {
@@ -93,9 +97,11 @@ const renderContent = () => {
 
 const Meta = (data) => {
   scaffoldLayout(data)
-    .then(() => handleSuccess(data))
-    .catch((error) => handleError(error))
-    .finally(renderContent());
+    .then(
+      () => handleSuccess(data),
+      (error) => handleError(error)
+    )
+    .then(() => renderContent());
 };
 
 export default Meta;
