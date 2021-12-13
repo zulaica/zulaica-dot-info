@@ -7,7 +7,8 @@ const normalizeResponse = (response) => {
   const latestPost = response.data[0];
   return {
     accessibility_caption:
-      latestPost.accessibility_caption || 'Accessibility caption not provided.',
+      latestPost.accessibility_caption ||
+      'Accessibility caption was not provided.',
     caption: latestPost.caption,
     date: new Date(latestPost.timestamp.replace(/\+0000/g, 'Z')),
     image: latestPost.media_url
