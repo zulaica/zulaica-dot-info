@@ -12,6 +12,7 @@ const normalizeResponse = (response) => {
     caption: latestPost.caption,
     date: new Date(latestPost.timestamp.replace(/\+0000/g, 'Z')),
     media: latestPost.media_url,
+    media_type: latestPost.media_type,
     // `thumbnail_url` is only made available for video content
     thumbnail: latestPost.thumbnail_url || null
   };

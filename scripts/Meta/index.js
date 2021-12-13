@@ -2,7 +2,6 @@ import style from './style.js';
 import background, { context } from './background.js';
 import figure from './figure.js';
 import mediaContainer from './mediaContainer.js';
-import img from './img.js';
 import figcaption, {
   content,
   dateFormat,
@@ -25,22 +24,34 @@ const formatDateTime = (dateObject, localized = false) =>
     localized ? localizedTimeFormat : timeFormat
   )}`;
 
-const scaffold = (data) => {
+const scaffold = async (data) => {
+  const isImage = data.media_type === 'IMAGE';
+  const { default: media, mediaStyle } = isImage
+    ? await import('./img.js')
+    : await import('./video.js');
+
+  style.append(mediaStyle);
   shadowRoot.append(style, background, figure);
   figure.append(mediaContainer);
-  mediaContainer.append(img);
+  mediaContainer.append(media);
   figure.append(figcaption);
   figcaption.append(title, content, footer);
   footer.append(time);
 
   return new Promise((resolve, reject) => {
-    img.src = data.media;
-    img.alt = data.accessibility_caption;
-    img.onload = () => {
-      resolve(data);
-    };
-    img.onerror = () => {
-      reject('⛔️ Error: Unable to load image.');
+    media.src = data.media;
+    media.alt = data.accessibility_caption;
+
+    isImage
+      ? (media.onload = () => {
+          resolve(data);
+        })
+      : (media.oncanplaythrough = () => {
+          resolve(data);
+        });
+
+    media.onerror = () => {
+      reject('⛔️ Error: Unable to load media.');
     };
   });
 };
