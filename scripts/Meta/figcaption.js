@@ -17,7 +17,6 @@ export const figcaptionStyle = `
     color: var(--text-color);
     background: var(--background-color);
     border: 1px solid var(--border-color);
-    border-right: transparent;
     border-radius: var(--border-radius);
     box-shadow: var(--shade);
   }
@@ -40,6 +39,18 @@ export const figcaptionStyle = `
     margin-top: 1rem;
     font-size: 0.8125rem;
     text-align: right;
+  }
+
+  :host:not(.error) figcaption {
+    border-right: transparent;
+  }
+
+  :host(.error) figcaption {
+    margin: auto;
+  }
+
+  :host(.error) figcaption h1 {
+    font-style: normal;
   }
 `;
 

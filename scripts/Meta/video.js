@@ -1,7 +1,10 @@
-const media = document.createElement('img');
+const media = document.createElement('video');
+media.autoplay = true;
+media.loop = true;
+media.muted = true;
 
 export const mediaStyle = `
-  img {
+  video {
     object-fit: contain;
     width: 100%;
     text-align: center;

@@ -1,8 +1,7 @@
 import style from './style.js';
 import background, { context } from './background.js';
 import figure from './figure.js';
-import imgContainer from './imgContainer.js';
-import img from './img.js';
+import mediaContainer from './mediaContainer.js';
 import figcaption, {
   content,
   dateFormat,
@@ -15,7 +14,7 @@ import figcaption, {
 } from './figcaption.js';
 
 const section = document.querySelector('section');
-const shadowRoot = section.attachShadow({ mode: 'open' });
+
 const formatDateTime = (dateObject, localized = false) =>
   `${dateObject.toLocaleDateString(
     'en-US',
@@ -25,38 +24,53 @@ const formatDateTime = (dateObject, localized = false) =>
     localized ? localizedTimeFormat : timeFormat
   )}`;
 
-const scaffold = (data) => {
-  shadowRoot.append(style, background, figure);
-  figure.append(imgContainer);
-  imgContainer.append(img);
+const scaffoldLayout = async (data) => {
+  const isImage = data.media_type === 'IMAGE';
+  const { default: media, mediaStyle } = isImage
+    ? await import('./img.js')
+    : await import('./video.js');
+
+  style.append(mediaStyle);
+  figure.append(mediaContainer);
+  mediaContainer.append(media);
   figure.append(figcaption);
   figcaption.append(title, content, footer);
   footer.append(time);
 
   return new Promise((resolve, reject) => {
-    img.src = data.image;
-    img.alt = data.accessibility_caption;
-    img.onload = () => {
-      resolve(data);
-    };
-    img.onerror = () => {
-      reject('⛔️ Error: Unable to load image.');
+    media.src = data.media;
+    media.alt = data.accessibility_caption;
+
+    isImage
+      ? (media.onload = () => {
+          resolve(data);
+        })
+      : (media.oncanplaythrough = () => {
+          resolve(data);
+        });
+
+    media.onerror = () => {
+      reject('⛔️ Error: Unable to load media.');
     };
   });
 };
 
 const handleSuccess = (data) => {
-  const bg = new Image();
-  bg.src = data.image;
-  bg.onload = () =>
-    context.drawImage(bg, 0, 0, background.width, background.height);
-
   title.append('Instagram');
   content.innerHTML = data.caption
     ? `${data.caption.replace(/(\n\n)/g, '</p><p>').replace(/(\n)/g, '<br />')}`
     : '&nbsp;';
   time.dateTime = `${data.date.toISOString()}`;
   time.append(formatDateTime(data.date, true));
+
+  return new Promise((resolve) => {
+    const bg = new Image();
+    bg.src = data.thumbnail || data.media;
+    bg.onload = () => {
+      context.drawImage(bg, 0, 0, background.width, background.height);
+      resolve();
+    };
+  });
 };
 
 const handleError = (error) => {
@@ -69,17 +83,25 @@ const handleError = (error) => {
   prevents images loading from Instagram if this site is not allowed in\
   Facebook Container.';
 
-  title.style = 'font-style: normal';
+  section.className = 'error';
   title.append(error);
-  content.innerHTML = `${isFirefox && fbContainerMessage}`;
+  content.innerHTML = isFirefox ? `${fbContainerMessage}` : '&nbsp;';
   time.dateTime = `${date.toISOString()}`;
   time.append(formatDateTime(date));
 };
 
+const renderContent = () => {
+  const shadowRoot = section.attachShadow({ mode: 'open' });
+  shadowRoot.append(style, background, figure);
+};
+
 const Meta = (data) => {
-  scaffold(data)
-    .then(() => handleSuccess(data))
-    .catch((error) => handleError(error));
+  scaffoldLayout(data)
+    .then(
+      () => handleSuccess(data),
+      (error) => handleError(error)
+    )
+    .then(() => renderContent());
 };
 
 export default Meta;

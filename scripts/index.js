@@ -7,10 +7,14 @@ const normalizeResponse = (response) => {
   const latestPost = response.data[0];
   return {
     accessibility_caption:
-      latestPost.accessibility_caption || 'Accessibility caption not provided.',
+      latestPost.accessibility_caption ||
+      'Accessibility caption was not provided.',
     caption: latestPost.caption,
     date: new Date(latestPost.timestamp.replace(/\+0000/g, 'Z')),
-    image: latestPost.media_url
+    media: latestPost.media_url,
+    media_type: latestPost.media_type,
+    // `thumbnail_url` is only made available for video content
+    thumbnail: latestPost.thumbnail_url || null
   };
 };
 

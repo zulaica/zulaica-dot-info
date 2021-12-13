@@ -11,9 +11,7 @@
   :root {
     --background-color: #0004;
     --border-color: #fff6;
-    --shade-color: #0004;
     --text-color: #fff;
-    --title-border-color: #fff6;
   }
 }
 
@@ -21,23 +19,8 @@
   :root {
     --background-color: #fff6;
     --border-color: #0004;
-    --shade-color: #fff6;
     --text-color: #000;
-    --title-border-color: #0004;
   }
-}
-
-:root {
-  --border-radius: 2px;
-  --caption-padding: 2.5rem;
-  --clip-path: 0px 0px, 0px 100%, 100% 100%, 100% 0px, 0px 0px, 2.5% 2.5%,
-    5% 1px, 95% 1px, calc(var(--image-size) - 1px) 5%,
-    calc(var(--image-size) - 1px) 95%, 95% calc(var(--image-size) - 1px),
-    5% calc(var(--image-size) - 1px), 1px 95%, 1px 5%, 2.5% 2.5%;
-  --image-container-color: #000;
-  --image-size: 33vw;
-  --photo-corner-color: #fff;
-  --shade: 0 0 0 2px var(--shade-color);
 }
 
 html,
@@ -59,13 +42,13 @@ html {
     no-discretionary-ligatures no-historical-ligatures;
   font-variant-numeric: proportional-nums diagonal-fractions;
   font-kerning: normal;
-  font-feature-settings: "kern" 1, "clig" 1, "liga" 1, "pnum" 1, "frac" 1,
-    "dlig" 0, "calt" 0, "hlig" 0;
+  font-feature-settings: 'kern' 1, 'clig' 1, 'liga' 1, 'pnum' 1, 'frac' 1,
+    'dlig' 0, 'calt' 0, 'hlig' 0;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  font-family: "Calluna", serif;
+  font-family: 'Calluna', serif;
   font-weight: 400;
   color: var(--text-color);
 
@@ -96,13 +79,13 @@ footer {
   border-top: 2px groove var(--border-color);
 }
 
-[role="group"] {
+[role='group'] {
   display: inline-block;
   vertical-align: middle;
 }
 
 h1 {
-  font-family: "futura-pt", sans-serif;
+  font-family: 'futura-pt', sans-serif;
   font-size: 2.125rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -154,7 +137,7 @@ section {
 section #message {
   margin: auto auto 0 auto;
   width: 700px;
-  font-family: "futura-pt", sans-serif;
+  font-family: 'futura-pt', sans-serif;
   font-size: 2.125rem;
   font-weight: 700;
   text-transform: uppercase;
