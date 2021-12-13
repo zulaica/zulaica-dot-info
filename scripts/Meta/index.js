@@ -47,7 +47,7 @@ const scaffold = (data) => {
 
 const handleSuccess = (data) => {
   const bg = new Image();
-  bg.src = data.media;
+  bg.src = data.thumbnail || data.media;
   bg.onload = () =>
     context.drawImage(bg, 0, 0, background.width, background.height);
 

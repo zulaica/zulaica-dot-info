@@ -12,7 +12,8 @@ const normalizeResponse = (response) => {
     caption: latestPost.caption,
     date: new Date(latestPost.timestamp.replace(/\+0000/g, 'Z')),
     media: latestPost.media_url,
-    thumbnail: latestPost.thumbnail_url
+    // `thumbnail_url` is only made available for video content
+    thumbnail: latestPost.thumbnail_url || null
   };
 };
 
