@@ -79,7 +79,7 @@ const handleError = (error) => {
 
   title.style = 'font-style: normal';
   title.append(error);
-  content.innerHTML = `${isFirefox && fbContainerMessage}`;
+  content.innerHTML = isFirefox ? `${fbContainerMessage}` : '&nbsp;';
   time.dateTime = `${date.toISOString()}`;
   time.append(formatDateTime(date));
 };
