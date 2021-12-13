@@ -2,8 +2,6 @@ import { startSpinner, stopSpinner } from './spinner.js';
 import CONTACT_INFO from './contact.js';
 import isSupported from './support.js';
 
-startSpinner();
-
 const instagramURL = 'https://www.zulaica.dev/instagram';
 
 const normalizeResponse = (response) => {
@@ -22,6 +20,8 @@ const normalizeResponse = (response) => {
 };
 
 const handleSupported = async () => {
+  startSpinner();
+
   try {
     const response = await fetch(instagramURL);
     const responseBody = response.ok ? await response.json() : undefined;
@@ -31,6 +31,7 @@ const handleSupported = async () => {
     Meta.default(normalizeResponse(responseBody), stopSpinner);
     document.addEventListener('mousemove', Parallax.default, { passive: true });
   } catch (error) {
+    stopSpinner();
     document.getElementById('message').textContent = `⛔️ ${error.name}`;
     document.getElementById('context').textContent = `${error.message}`;
   }
