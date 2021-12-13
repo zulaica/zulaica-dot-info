@@ -24,7 +24,7 @@ const handleSupported = async () => {
 
   try {
     const response = await fetch(instagramURL);
-    const responseBody = response.ok ? await response.json() : undefined;
+    const responseBody = response.ok && (await response.json());
     const Meta = await import('./Meta/index.js');
     const Parallax = await import('./Meta/parallax.js');
 
