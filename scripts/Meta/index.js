@@ -34,7 +34,7 @@ const scaffold = (data) => {
   footer.append(time);
 
   return new Promise((resolve, reject) => {
-    img.src = data.image;
+    img.src = data.media;
     img.alt = data.accessibility_caption;
     img.onload = () => {
       resolve(data);
@@ -47,7 +47,7 @@ const scaffold = (data) => {
 
 const handleSuccess = (data) => {
   const bg = new Image();
-  bg.src = data.image;
+  bg.src = data.media;
   bg.onload = () =>
     context.drawImage(bg, 0, 0, background.width, background.height);
 

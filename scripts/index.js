@@ -11,7 +11,8 @@ const normalizeResponse = (response) => {
       'Accessibility caption was not provided.',
     caption: latestPost.caption,
     date: new Date(latestPost.timestamp.replace(/\+0000/g, 'Z')),
-    image: latestPost.media_url
+    media: latestPost.media_url,
+    thumbnail: latestPost.thumbnail_url
   };
 };
 
