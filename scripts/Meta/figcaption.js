@@ -17,7 +17,6 @@ export const figcaptionStyle = `
     color: var(--text-color);
     background: var(--background-color);
     border: 1px solid var(--border-color);
-    border-right: transparent;
     border-radius: var(--border-radius);
     box-shadow: var(--shade);
   }
@@ -42,9 +41,12 @@ export const figcaptionStyle = `
     text-align: right;
   }
 
+  :host:not(.error) figcaption {
+    border-right: transparent;
+  }
+
   :host(.error) figcaption {
     margin: auto;
-    border: 1px solid var(--border-color);
   }
 
   :host(.error) figcaption h1 {

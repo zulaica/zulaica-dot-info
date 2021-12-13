@@ -6,12 +6,6 @@ export const figureStyle = `
     width: 100vw;
     display: flex;
   }
-
-  :host(.error) figure {
-    --background-color: #9334;
-    --border-color: #9339;
-    --shade-color: var(--background-color);
-  }
 `;
 
 export default figure;

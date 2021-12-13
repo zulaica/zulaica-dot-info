@@ -11,9 +11,7 @@
   :root {
     --background-color: #0004;
     --border-color: #fff6;
-    --shade-color: #0004;
     --text-color: #fff;
-    --title-border-color: #fff6;
   }
 }
 
@@ -21,23 +19,8 @@
   :root {
     --background-color: #fff6;
     --border-color: #0004;
-    --shade-color: #fff6;
     --text-color: #000;
-    --title-border-color: #0004;
   }
-}
-
-:root {
-  --border-radius: 2px;
-  --caption-padding: 2.5rem;
-  --clip-path: 0px 0px, 0px 100%, 100% 100%, 100% 0px, 0px 0px, 2.5% 2.5%,
-    5% 1px, 95% 1px, calc(var(--media-size) - 1px) 5%,
-    calc(var(--media-size) - 1px) 95%, 95% calc(var(--media-size) - 1px),
-    5% calc(var(--media-size) - 1px), 1px 95%, 1px 5%, 2.5% 2.5%;
-  --media-container-color: #000;
-  --media-size: 33vw;
-  --photo-corner-color: #fff;
-  --shade: 0 0 0 2px var(--shade-color);
 }
 
 html,
