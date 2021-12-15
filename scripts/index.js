@@ -1,3 +1,4 @@
+import { startSpinner, stopSpinner } from './spinner.js';
 import CONTACT_INFO from './contact.js';
 import isSupported from './support.js';
 
@@ -19,15 +20,18 @@ const normalizeResponse = (response) => {
 };
 
 const handleSupported = async () => {
+  startSpinner();
+
   try {
     const response = await fetch(instagramURL);
-    const responseBody = response.ok ? await response.json() : undefined;
+    const responseBody = response.ok && (await response.json());
     const Meta = await import('./Meta/index.js');
     const Parallax = await import('./Meta/parallax.js');
 
-    Meta.default(normalizeResponse(responseBody));
+    Meta.default(normalizeResponse(responseBody), stopSpinner);
     document.addEventListener('mousemove', Parallax.default, { passive: true });
   } catch (error) {
+    stopSpinner();
     document.getElementById('message').textContent = `⛔️ ${error.name}`;
     document.getElementById('context').textContent = `${error.message}`;
   }

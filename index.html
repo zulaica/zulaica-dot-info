@@ -25,6 +25,12 @@
     />
     <link
       rel="modulepreload"
+      href="scripts/spinner.js"
+      crossorigin="use-credentials"
+      as="script"
+    />
+    <link
+      rel="modulepreload"
       href="scripts/contact.js"
       crossorigin="use-credentials"
       as="script"
@@ -86,7 +92,7 @@
       }
 
       function loadScript() {
-        var script = document.createElement('script');
+        const script = document.createElement('script');
         script.src = 'scripts/index.js';
         script.defer = true;
         script.type = 'module';
@@ -123,14 +129,21 @@
               david@zulaica.info
             </a>
           </li>
-          <li><a href="//twitter.com/zulaica" title="Twitter">@zulaica</a></li>
-          <li><a href="//github.com/zulaica" title="Github">/zulaica</a></li>
+          <li>
+            <a href="https://twitter.com/zulaica" title="Twitter">@zulaica</a>
+          </li>
+          <li>
+            <a href="https://github.com/zulaica" title="Github">/zulaica</a>
+          </li>
         </ul>
       </address>
     </header>
     <main>
       <section>
-        <div id="message">🕐 Loading&hellip;</div>
+        <div id="message">
+          <span id="spinner" role="presentation" aria-hidden="true"></span>
+          Loading&hellip;
+        </div>
         <p id="context"></p>
       </section>
     </main>
