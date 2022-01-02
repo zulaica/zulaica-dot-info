@@ -1,27 +1,10 @@
 import style from './style.js';
 import figure from './figure.js';
 import mediaContainer from './mediaContainer.js';
-import figcaption, {
-  content,
-  dateFormat,
-  footer,
-  localizedDateFormat,
-  localizedTimeFormat,
-  time,
-  timeFormat,
-  title
-} from './figcaption.js';
+import figcaption, { content, footer, time, title } from './figcaption.js';
+import formatDateTime from './formatDateTime.js';
 
 const section = document.querySelector('section');
-
-const formatDateTime = (dateObject, localized = false) =>
-  `${dateObject.toLocaleDateString(
-    'en-US',
-    localized ? localizedDateFormat : dateFormat
-  )} at ${dateObject.toLocaleTimeString(
-    'en-US',
-    localized ? localizedTimeFormat : timeFormat
-  )}`;
 
 const scaffoldLayout = async (data) => {
   const isImage = data.media_type === 'IMAGE';
