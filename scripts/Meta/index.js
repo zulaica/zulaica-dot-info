@@ -80,19 +80,20 @@ const handleError = (error) => {
   time.append(formatDateTime(date));
 };
 
-const renderContent = (stopSpinner) => {
+const renderContent = () => {
   const shadowRoot = section.attachShadow({ mode: 'closed' });
   shadowRoot.append(style, figure);
-  stopSpinner();
 };
 
-const Meta = (data, stopSpinner) => {
-  scaffoldLayout(data)
-    .then(
-      () => handleSuccess(data),
-      (error) => handleError(error)
-    )
-    .then(() => renderContent(stopSpinner));
+const Meta = async (data) => {
+  try {
+    await scaffoldLayout(data);
+    handleSuccess(data);
+  } catch (error) {
+    handleError(error);
+  }
+
+  return renderContent();
 };
 
 export default Meta;
