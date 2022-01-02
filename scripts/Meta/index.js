@@ -1,5 +1,4 @@
 import style from './style.js';
-import { updateBackgroundOffset } from './background.js';
 import figure from './figure.js';
 import mediaContainer from './mediaContainer.js';
 import figcaption, { content, footer, time, title } from './figcaption.js';
@@ -12,9 +11,6 @@ const scaffoldLayout = async (data) => {
   const { default: media, mediaStyle } = isImage
     ? await import('./img.js')
     : await import('./video.js');
-
-  document.documentElement.style.setProperty('--offset-x', '0px');
-  document.documentElement.style.setProperty('--offset-y', '0px');
 
   style.append(mediaStyle);
   figure.append(mediaContainer);
@@ -56,11 +52,6 @@ const handleSuccess = (data) => {
     : '&nbsp;';
   time.dateTime = `${data.date.toISOString()}`;
   time.append(formatDateTime(data.date, true));
-
-  document.addEventListener('mousemove', updateBackgroundOffset, {
-    capture: true,
-    passive: true
-  });
 };
 
 const handleError = (error) => {
