@@ -19,8 +19,8 @@ export const backgroundStyle = `
 export const updateBackgroundOffset = (event) => {
   const width = document.body.clientWidth;
   const height = document.body.clientHeight;
-  const offsetX = Math.floor(width / 2 - event.clientX) / 50;
-  const offsetY = Math.floor(height / 2 - event.clientY) / 50;
+  const offsetX = -(Math.floor(width / 2 - event.clientX) / 50);
+  const offsetY = -(Math.floor(height / 2 - event.clientY) / 50);
   document.documentElement.style.setProperty('--offset-x', `${offsetX}px`);
   document.documentElement.style.setProperty('--offset-y', `${offsetY}px`);
 };
