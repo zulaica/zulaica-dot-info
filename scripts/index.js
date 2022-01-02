@@ -26,10 +26,7 @@ const handleSupported = async () => {
     const response = await fetch(instagramURL);
     const responseBody = response.ok && (await response.json());
     const Meta = await import('./Meta/index.js');
-    const Parallax = await import('./Meta/parallax.js');
-
     Meta.default(normalizeResponse(responseBody), stopSpinner);
-    document.addEventListener('mousemove', Parallax.default, { passive: true });
   } catch (error) {
     stopSpinner();
     document.getElementById('message').textContent = `⛔️ ${error.name}`;
