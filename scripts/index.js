@@ -25,16 +25,15 @@ const handleSupported = async () => {
   try {
     const response = await fetch(instagramURL);
     const responseBody = response.ok && (await response.json());
-    const Meta = await import('./Meta/index.js');
-    const Parallax = await import('./Meta/parallax.js');
+    const { default: Meta } = await import('./Meta/index.js');
 
-    Meta.default(normalizeResponse(responseBody), stopSpinner);
-    document.addEventListener('mousemove', Parallax.default, { passive: true });
+    await Meta(normalizeResponse(responseBody));
   } catch (error) {
-    stopSpinner();
     document.getElementById('message').textContent = `⛔️ ${error.name}`;
     document.getElementById('context').textContent = `${error.message}`;
   }
+
+  stopSpinner();
 };
 
 const handleUnsupported = () => {

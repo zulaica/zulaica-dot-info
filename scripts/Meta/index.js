@@ -1,34 +1,20 @@
 import style from './style.js';
-import background, { context } from './background.js';
+import { updateBackgroundOffset } from './background.js';
 import figure from './figure.js';
 import mediaContainer from './mediaContainer.js';
-import figcaption, {
-  content,
-  dateFormat,
-  footer,
-  localizedDateFormat,
-  localizedTimeFormat,
-  time,
-  timeFormat,
-  title
-} from './figcaption.js';
+import figcaption, { content, footer, time, title } from './figcaption.js';
+import formatDateTime from './formatDateTime.js';
 
 const section = document.querySelector('section');
-
-const formatDateTime = (dateObject, localized = false) =>
-  `${dateObject.toLocaleDateString(
-    'en-US',
-    localized ? localizedDateFormat : dateFormat
-  )} at ${dateObject.toLocaleTimeString(
-    'en-US',
-    localized ? localizedTimeFormat : timeFormat
-  )}`;
 
 const scaffoldLayout = async (data) => {
   const isImage = data.media_type === 'IMAGE';
   const { default: media, mediaStyle } = isImage
     ? await import('./img.js')
     : await import('./video.js');
+
+  document.documentElement.style.setProperty('--offset-x', '0px');
+  document.documentElement.style.setProperty('--offset-y', '0px');
 
   style.append(mediaStyle);
   figure.append(mediaContainer);
@@ -43,9 +29,17 @@ const scaffoldLayout = async (data) => {
 
     isImage
       ? (media.onload = () => {
+          document.documentElement.style.setProperty(
+            '--image-url',
+            `url('${media.src}')`
+          );
           resolve(data);
         })
       : (media.oncanplaythrough = () => {
+          document.documentElement.style.setProperty(
+            '--image-url',
+            `url('${media.src}')`
+          );
           resolve(data);
         });
 
@@ -63,13 +57,9 @@ const handleSuccess = (data) => {
   time.dateTime = `${data.date.toISOString()}`;
   time.append(formatDateTime(data.date, true));
 
-  return new Promise((resolve) => {
-    const bg = new Image();
-    bg.src = data.thumbnail || data.media;
-    bg.onload = () => {
-      context.drawImage(bg, 0, 0, background.width, background.height);
-      resolve();
-    };
+  document.addEventListener('mousemove', updateBackgroundOffset, {
+    capture: true,
+    passive: true
   });
 };
 
@@ -90,19 +80,20 @@ const handleError = (error) => {
   time.append(formatDateTime(date));
 };
 
-const renderContent = (stopSpinner) => {
+const renderContent = () => {
   const shadowRoot = section.attachShadow({ mode: 'closed' });
-  shadowRoot.append(style, background, figure);
-  stopSpinner();
+  shadowRoot.append(style, figure);
 };
 
-const Meta = (data, stopSpinner) => {
-  scaffoldLayout(data)
-    .then(
-      () => handleSuccess(data),
-      (error) => handleError(error)
-    )
-    .then(() => renderContent(stopSpinner));
+const Meta = async (data) => {
+  try {
+    await scaffoldLayout(data);
+    handleSuccess(data);
+  } catch (error) {
+    handleError(error);
+  }
+
+  return renderContent();
 };
 
 export default Meta;

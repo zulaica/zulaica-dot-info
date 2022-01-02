@@ -1,34 +1,32 @@
 const FRAMES = Object.freeze([
-  '🕛 ',
-  '🕐 ',
-  '🕑 ',
-  '🕒 ',
-  '🕓 ',
-  '🕔 ',
-  '🕕 ',
-  '🕖 ',
-  '🕗 ',
-  '🕘 ',
-  '🕙 ',
-  '🕚 '
+  '🕛',
+  '🕐',
+  '🕑',
+  '🕒',
+  '🕓',
+  '🕔',
+  '🕕',
+  '🕖',
+  '🕗',
+  '🕘',
+  '🕙',
+  '🕚'
 ]);
 
 const spinner = document.getElementById('spinner');
-let index = 0;
+const interval = 1000 / FRAMES.length;
+let frame = 0;
+let startTime = 0;
 let spinnerId;
 
-const updateSpinner = () => {
-  spinner.innerHTML = FRAMES[index];
-  index = ++index % FRAMES.length;
-};
-
-export let startSpinner = () => {
-  if (!spinnerId) {
-    spinnerId = setInterval(updateSpinner, 1000 / FRAMES.length);
+export const startSpinner = (timeOrigin) => {
+  if (timeOrigin >= startTime + interval) {
+    spinner.innerHTML = FRAMES[frame];
+    frame = ++frame % FRAMES.length;
+    startTime = timeOrigin;
   }
+
+  spinnerId = requestAnimationFrame(startSpinner);
 };
 
-export const stopSpinner = () => {
-  clearInterval(spinnerId);
-  spinnerId = null;
-};
+export const stopSpinner = () => cancelAnimationFrame(spinnerId);

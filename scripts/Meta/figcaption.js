@@ -54,26 +54,4 @@ export const figcaptionStyle = `
   }
 `;
 
-export const dateFormat = {
-  weekday: 'long',
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric'
-};
-
-export const timeFormat = {
-  hour: '2-digit',
-  minute: '2-digit'
-};
-
-export const localizedDateFormat = Object.assign(
-  { timeZone: 'America/Los_Angeles' },
-  dateFormat
-);
-
-export const localizedTimeFormat = Object.assign(
-  { timeZone: 'America/Los_Angeles' },
-  timeFormat
-);
-
 export default figcaption;
