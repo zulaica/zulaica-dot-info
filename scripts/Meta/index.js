@@ -1,5 +1,4 @@
 import style from './style.js';
-import background, { context } from './background.js';
 import figure from './figure.js';
 import mediaContainer from './mediaContainer.js';
 import figcaption, {
@@ -62,15 +61,8 @@ const handleSuccess = (data) => {
     : '&nbsp;';
   time.dateTime = `${data.date.toISOString()}`;
   time.append(formatDateTime(data.date, true));
-
-  return new Promise((resolve) => {
-    const bg = new Image();
-    bg.src = data.thumbnail || data.media;
-    bg.onload = () => {
-      context.drawImage(bg, 0, 0, background.width, background.height);
-      resolve();
-    };
-  });
+  const src = data.thumbnail || data.media;
+  document.documentElement.style.setProperty('--image-url', `url('${src}')`);
 };
 
 const handleError = (error) => {
@@ -92,7 +84,7 @@ const handleError = (error) => {
 
 const renderContent = (stopSpinner) => {
   const shadowRoot = section.attachShadow({ mode: 'closed' });
-  shadowRoot.append(style, background, figure);
+  shadowRoot.append(style, figure);
   stopSpinner();
 };
 
