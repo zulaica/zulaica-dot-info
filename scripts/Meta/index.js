@@ -13,6 +13,9 @@ const scaffoldLayout = async (data) => {
     ? await import('./img.js')
     : await import('./video.js');
 
+  document.documentElement.style.setProperty('--offset-x', '0px');
+  document.documentElement.style.setProperty('--offset-y', '0px');
+
   style.append(mediaStyle);
   figure.append(mediaContainer);
   mediaContainer.append(media);
@@ -26,9 +29,17 @@ const scaffoldLayout = async (data) => {
 
     isImage
       ? (media.onload = () => {
+          document.documentElement.style.setProperty(
+            '--image-url',
+            `url('${media.src}')`
+          );
           resolve(data);
         })
       : (media.oncanplaythrough = () => {
+          document.documentElement.style.setProperty(
+            '--image-url',
+            `url('${media.src}')`
+          );
           resolve(data);
         });
 
@@ -45,10 +56,7 @@ const handleSuccess = (data) => {
     : '&nbsp;';
   time.dateTime = `${data.date.toISOString()}`;
   time.append(formatDateTime(data.date, true));
-  const src = data.thumbnail || data.media;
-  document.documentElement.style.setProperty('--image-url', `url('${src}')`);
-  document.documentElement.style.setProperty('--offset-x', '0px');
-  document.documentElement.style.setProperty('--offset-y', '0px');
+
   document.addEventListener('mousemove', updateBackgroundOffset, {
     capture: true,
     passive: true
