@@ -1,4 +1,5 @@
 import style from './style.js';
+import { updateBackgroundOffset } from './background.js';
 import figure from './figure.js';
 import mediaContainer from './mediaContainer.js';
 import figcaption, { content, footer, time, title } from './figcaption.js';
@@ -46,6 +47,12 @@ const handleSuccess = (data) => {
   time.append(formatDateTime(data.date, true));
   const src = data.thumbnail || data.media;
   document.documentElement.style.setProperty('--image-url', `url('${src}')`);
+  document.documentElement.style.setProperty('--offset-x', '0px');
+  document.documentElement.style.setProperty('--offset-y', '0px');
+  document.addEventListener('mousemove', updateBackgroundOffset, {
+    capture: true,
+    passive: true
+  });
 };
 
 const handleError = (error) => {
