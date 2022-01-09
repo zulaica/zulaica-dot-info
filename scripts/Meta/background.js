@@ -1,16 +1,38 @@
 export const backgroundStyle = `
-:host::before {
+:host {
+  --background-filter: contrast(.75) blur(50px);
+}
+
+:host::before,
+:host::after {
   content: '';
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: -1;
-  filter: blur(50px);
-  margin: -100px;
+}
+
+:host::before {
   background-image: var(--image-url);
   background-position: center;
   background-size: cover;
+}
+
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  :host::before {
+    background-size: 125%;
+  }
+
+  :host::after {
+    -webkit-backdrop-filter: var(--background-filter);
+    backdrop-filter: var(--background-filter);
+  }
+}
+
+@supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  :host::before {
+    filter: var(--background-filter);
+    transform: scale(1.25);
+  }
 }
 `;
