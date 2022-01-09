@@ -27,7 +27,7 @@ const scaffoldLayout = async (data) => {
       ? (media.onload = () => {
           document.documentElement.style.setProperty(
             '--image-url',
-            `url('${media.src}')`
+            `url('${data.thumbnail}')`
           );
           resolve(data);
         })

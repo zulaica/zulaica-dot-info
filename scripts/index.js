@@ -15,7 +15,7 @@ const normalizeResponse = (response) => {
     media: latestPost.media_url,
     media_type: latestPost.media_type,
     // `thumbnail_url` is only made available for video content
-    thumbnail: latestPost.thumbnail_url || null
+    thumbnail: latestPost.thumbnail_url || latestPost.media_url
   };
 };
 
