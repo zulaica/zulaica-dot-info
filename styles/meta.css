@@ -7,6 +7,16 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+:root {
+  --base-font-size: 16px;
+}
+
+@media screen and (max-width: 640px) {
+  :root {
+    --base-font-size: 12px;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background-color: #0004;
@@ -25,7 +35,7 @@
 
 html {
   font-family: 'Calluna', serif;
-  font-size: 16px;
+  font-size: var(--base-font-size);
   font-weight: 400;
   line-height: 1.5;
   vertical-align: baseline;
@@ -43,9 +53,9 @@ footer {
   position: fixed;
   z-index: 1;
   margin: 0 auto;
-  padding: 1rem 2rem;
-  width: 100%;
-  height: 8vh;
+  padding: 1em 2em;
+  width: 100vw;
+  height: 5em;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -62,28 +72,18 @@ footer {
   border-top: 2px groove var(--border-color);
 }
 
-[role='group'] {
-  display: inline-block;
-  vertical-align: middle;
-}
-
 h1 {
   font-family: 'futura-pt', sans-serif;
   font-size: 2.125rem;
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.35rem;
+  letter-spacing: 0.25em;
 }
 
 h1,
-h2,
 address {
   display: inline-block;
   vertical-align: middle;
-}
-
-h2 {
-  display: none;
 }
 
 ul {
@@ -104,7 +104,7 @@ a {
 
 ul li a {
   display: block;
-  padding: 0 1rem;
+  padding: 0 1em;
   text-decoration: none;
 }
 
@@ -125,7 +125,7 @@ section #message {
   font-size: 2.125rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.35rem;
+  letter-spacing: 0.25em;
 }
 
 section #context {
