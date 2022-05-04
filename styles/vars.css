@@ -1,0 +1,25 @@
+:root {
+  --base-font-size: 16px;
+}
+
+@media screen and (max-width: 640px) {
+  :root {
+    --base-font-size: 12px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #0004;
+    --border-color: #fff6;
+    --text-color: #fff;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background-color: #fff6;
+    --border-color: #0004;
+    --text-color: #000;
+  }
+}
