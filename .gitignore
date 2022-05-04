@@ -1,7 +1,9 @@
+# OS-generated files
 .DS_Store
-.htaccess
-*.pdf
-*.codekit*
-*.min.*
-keybase.txt
-BingSiteAuth.xml
+Thumbs.db
+
+# Dependencies
+node_modules
+
+# Build Artifacts
+styles/*.min.css
