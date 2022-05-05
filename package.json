@@ -8,7 +8,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "build:styles": "postcss source/styles/main.css --output build/stylesheet.min.css",
-    "start": "python3 -m http.server",
+    "start": "python3 -m http.server --directory ./source/",
     "watch:styles": "npm run build:styles -- --watch"
   },
   "devDependencies": {
