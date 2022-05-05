@@ -30,7 +30,6 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--background-color);
 }
 
 header {

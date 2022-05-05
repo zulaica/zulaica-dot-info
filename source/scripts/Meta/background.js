@@ -18,6 +18,10 @@ export const backgroundStyle = `
   background-size: cover;
 }
 
+:host::after {
+  background-color: var(--background-color);
+}
+
 @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
   :host::before {
     background-size: 125%;
