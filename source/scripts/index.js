@@ -2,7 +2,8 @@ import { startSpinner, stopSpinner } from './spinner.js';
 import CONTACT_INFO from './contact.js';
 import isSupported from './support.js';
 
-const instagramURL = 'https://www.zulaica.dev/instagram';
+// const instagramURL = 'https://www.zulaica.dev/instagram';
+const instagramURL = 'http://127.0.0.1:3001/instagram';
 
 const normalizeResponse = (response) => {
   const latestPost = response.data[0];

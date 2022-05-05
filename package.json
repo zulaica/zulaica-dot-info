@@ -7,7 +7,7 @@
   },
   "license": "UNLICENSED",
   "scripts": {
-    "build:styles": "postcss styles/main.css --output styles/bundle.min.css",
+    "build:styles": "postcss source/styles/main.css --output build/stylesheet.min.css",
     "start": "python3 -m http.server",
     "watch:styles": "npm run build:styles -- --watch"
   },
