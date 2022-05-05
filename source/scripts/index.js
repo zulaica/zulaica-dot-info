@@ -2,20 +2,12 @@ import { startSpinner, stopSpinner } from './spinner.js';
 import CONTACT_INFO from './contact.js';
 import isSupported from './support.js';
 
-// const instagramURL = 'https://www.zulaica.dev/instagram';
-const instagramURL = 'http://127.0.0.1:3001/instagram';
+const instagramURL = 'https://www.zulaica.dev/instagram';
 
 const normalizeResponse = (response) => {
   const latestPost = response.data[0];
   return {
-    accessibility_caption:
-      latestPost.accessibility_caption ||
-      'Accessibility caption was not provided.',
-    caption: latestPost.caption,
-    date: new Date(latestPost.timestamp.replace(/\+0000/g, 'Z')),
-    media: latestPost.media_url,
-    media_type: latestPost.media_type,
-    // `thumbnail_url` is only made available for video content
+    // `thumbnail_url` is provided for video posts, `media_url` for image posts
     thumbnail: latestPost.thumbnail_url || latestPost.media_url
   };
 };
