@@ -38,12 +38,10 @@ footer {
 
 header {
   top: 0;
-  border-bottom: 2px ridge var(--border-color);
 }
 
 footer {
   bottom: 0;
-  border-top: 2px groove var(--border-color);
 }
 
 h1 {
