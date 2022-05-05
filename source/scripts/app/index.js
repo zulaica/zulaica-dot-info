@@ -41,7 +41,7 @@ const renderContent = () => {
   shadowRoot.append(style);
 };
 
-const Meta = async (data) => {
+const app = async (data) => {
   try {
     await scaffoldLayout(data);
     handleSuccess(data);
@@ -52,4 +52,4 @@ const Meta = async (data) => {
   return renderContent();
 };
 
-export default Meta;
+export default app;

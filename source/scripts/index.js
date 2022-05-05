@@ -18,9 +18,9 @@ const handleSupported = async () => {
   try {
     const response = await fetch(instagramURL);
     const responseBody = response.ok && (await response.json());
-    const { default: Meta } = await import('./Meta/index.js');
+    const { default: app } = await import('./app/index.js');
 
-    await Meta(normalizeResponse(responseBody));
+    await app(normalizeResponse(responseBody));
   } catch (error) {
     document.getElementById('message').textContent = `⛔️ ${error.name}`;
     document.getElementById('context').textContent = `${error.message}`;
