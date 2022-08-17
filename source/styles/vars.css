@@ -1,25 +1,46 @@
 :root {
-  --base-font-size: 16px;
+  /**
+   * Typography
+   */
+  --font-size-base: 24px;
+  --font-family-body: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+  /**
+   * Colors
+   */
+  /* #282428 */
+  --color-dark: 40, 36, 40;
+  /* LightCyan */
+  --color-light: 224, 255, 255;
+  /* PaleTurquoise */
+  /* --color-light: 175, 238, 238; */
+
+  --color-link: DarkTurquoise;
+  --color-link-hover: Cyan;
+  --color-link-active: Turquoise; /* MediumTurquoise */
+  --color-link-visited: CadetBlue; /* DarkCyan */
+
+  --backdrop-filter: saturate(100%) contrast(1.75) blur(25px);
+
+  --color-preference: blue;
 }
 
 @media screen and (max-width: 640px) {
   :root {
-    --base-font-size: 12px;
+    --font-size-base: 12px;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-color: #0004;
-    --border-color: #fff6;
-    --text-color: #fff;
+    --background-color: rgba(var(--color-dark), 0.85);
+    --text-color: rgb(var(--color-light));
   }
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --background-color: #fff6;
-    --border-color: #0004;
-    --text-color: #000;
+    --background-color: rgba(var(--color-light), 0.75);
+    --text-color: rgb(var(--color-dark));
   }
 }

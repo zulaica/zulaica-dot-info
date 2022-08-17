@@ -2,37 +2,21 @@
 <html lang="en" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta name="theme-color" content="#898989" />
 
     <title>
       David Zulaica&thinsp;&mdash;&thinsp;Person Familiar with the Matter
     </title>
 
     <link rel="dns-prefetch" href="https://www.zulaica.dev" />
-    <link rel="dns-prefetch" href="https://use.typekit.net" />
 
     <link
       rel="icon"
       href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🧑‍💻</text></svg>'
     />
 
-    <link rel="preload" href="https://use.typekit.net/yff7pow.css" as="style" />
     <link rel="preload" href="styles/main.css" as="style" />
-    <link
-      rel="modulepreload"
-      href="scripts/support.js?1641728981"
-      as="script"
-    />
-    <link
-      rel="modulepreload"
-      href="scripts/spinner.js?1641728981"
-      as="script"
-    />
-    <link
-      rel="modulepreload"
-      href="scripts/contact.js?1641728981"
-      as="script"
-    />
+    <link rel="modulepreload" href="scripts/index.js" as="script" />
+    <link rel="modulepreload" href="scripts/contact.js" as="script" />
 
     <meta
       name="viewport"
@@ -62,46 +46,7 @@
       content="https://www.gravatar.com/avatar/da0a821c09edbd8369777d622b446cc2?size=1024"
     />
 
-    <script>
-      function dynamicImportSupported() {
-        try {
-          return new Function(
-            "return import('data:text/javascript;base64,Cg==').then(() => true)"
-          );
-        } catch (error) {
-          switch (error instanceof SyntaxError) {
-            case true:
-              return false;
-            default:
-              throw error;
-          }
-        }
-      }
-
-      function loadScript() {
-        const script = document.createElement('script');
-        script.src = 'scripts/index.js?1641728981';
-        script.defer = true;
-        script.type = 'module';
-        document.querySelector('head').appendChild(script);
-      }
-
-      function displayUnsupportedMessage() {
-        document.getElementById('message').textContent =
-          '⚠️ Unsupported Browser';
-        document.getElementById('context').innerHTML =
-          'Your browser does not support the features required to render this\
-          site. Please consider <a href="https://browsehappy.com">\
-          upgrading to a modern browser</a>.';
-      }
-
-      window.addEventListener(
-        'DOMContentLoaded',
-        dynamicImportSupported() ? loadScript : displayUnsupportedMessage
-      );
-    </script>
-
-    <link rel="stylesheet" href="https://use.typekit.net/yff7pow.css" />
+    <script src="scripts/index.js" defer="true" type="module"></script>
     <link rel="stylesheet" href="styles/main.css" media="screen" />
   </head>
   <body>
@@ -111,34 +56,15 @@
     </header>
     <main>
       <section>
-        <div id="message">
-          <span id="spinner" role="presentation" aria-hidden="true"></span>
-          Loading&hellip;
-        </div>
-        <p id="context"></p>
+        <h2>Hello!</h2>
+        <p>
+          I
+          <a href="https://github.com/zulaica" title="Github">write code</a> and
+          <a href="https:/www.erasedfiles.biz" title="Erased Files"
+            >make music</a
+          >.
+        </p>
       </section>
     </main>
-    <footer role="contentinfo">
-      <p role="presentation" aria-hidden="true">▶︎▲▼⬆︎▶︎ made this.</p>
-      <address>
-        <ul>
-          <li>
-            <a href="mailto:david@zulaica.info" title="E-Mail">
-              david@zulaica.info
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/zulaica" title="Twitter">@zulaica</a>
-          </li>
-          <li>
-            <a href="https://github.com/zulaica" title="Github">/zulaica</a>
-          </li>
-        </ul>
-      </address>
-    </footer>
-
-    <script nomodule>
-      displayUnsupportedMessage();
-    </script>
   </body>
 </html>

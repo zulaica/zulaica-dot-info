@@ -1,6 +1,4 @@
-import { startSpinner, stopSpinner } from './spinner.js';
 import CONTACT_INFO from './contact.js';
-import isSupported from './support.js';
 
 const instagramURL = 'https://www.zulaica.dev/instagram';
 
@@ -12,33 +10,31 @@ const normalizeResponse = (response) => {
   };
 };
 
-const handleSupported = async () => {
-  startSpinner();
+const loadBackgroundImage = async () => {
+  const image = document.createElement('img');
+  const response = await fetch(instagramURL);
+  const responseBody = response.ok && (await response.json());
+  const { thumbnail } = normalizeResponse(responseBody);
 
-  try {
-    const response = await fetch(instagramURL);
-    const responseBody = response.ok && (await response.json());
-    const { default: app } = await import('./app/index.js');
+  return new Promise((resolve, reject) => {
+    image.src = thumbnail;
 
-    await app(normalizeResponse(responseBody));
-  } catch (error) {
-    document.getElementById('message').textContent = `⛔️ ${error.name}`;
-    document.getElementById('context').textContent = `${error.message}`;
-  }
+    image.onload = () => {
+      document.documentElement.style.setProperty(
+        '--image-url',
+        `url('${thumbnail}')`
+      );
+      resolve(thumbnail);
+    };
 
-  stopSpinner();
-};
-
-const handleUnsupported = () => {
-  document.getElementById('message').textContent = '⚠️ Unsupported Browser';
-  document.getElementById('context').innerHTML =
-    'Your browser does not support the features required to render this\
-      site. Please consider <a href="https://browsehappy.com">upgrading to a\
-      modern browser</a>.';
+    image.onerror = () => {
+      reject('⛔️ Error: Unable to load image.');
+    };
+  });
 };
 
 window.addEventListener('load', () => {
-  isSupported ? handleSupported() : handleUnsupported();
+  loadBackgroundImage();
 });
 
 window.addEventListener('load', () => {
