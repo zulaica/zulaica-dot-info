@@ -3,7 +3,7 @@
   "author": "David Zulaica",
   "version": "2.0.0",
   "engines": {
-    "node": ">=16"
+    "node": ">=16.16.0"
   },
   "license": "UNLICENSED",
   "scripts": {
@@ -17,5 +17,9 @@
     "postcss": "^8.4.13",
     "postcss-cli": "^9.1.0",
     "postcss-import": "^14.1.0"
+  },
+  "volta": {
+    "node": "16.16.0",
+    "npm": "8.13.2"
   }
 }
