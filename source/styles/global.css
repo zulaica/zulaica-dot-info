@@ -7,6 +7,15 @@
     border-color var(--transition-settings);
 }
 
+:focus {
+  outline: 0;
+}
+
+:focus-visible {
+  outline: 1px dotted var(--color-link);
+  outline-offset: 3px;
+}
+
 html {
   font-family: var(--font-family-body);
   font-size: var(--font-size-base);
@@ -61,7 +70,9 @@ a {
 }
 
 a:hover,
-a:focus {
+a:focus-visible,
+a:visited:hover,
+a:visited:focus-visible {
   color: var(--color-link-hover);
 }
 
