@@ -46,9 +46,9 @@
 [data-theme='light'] {
   --color-background: var(--color-light-alpha);
   --color-border: var(--color-dark-alpha);
-  --color-link: RoyalBlue;
-  --color-link-hover: DodgerBlue;
-  --color-link-active: CornflowerBlue;
-  --color-link-visited: SteelBlue;
+  --color-link: #d900ff;
+  --color-link-hover: #ff00ff;
+  --color-link-active: #ab09e2;
+  --color-link-visited: #995ead;
   --color-text: var(--color-dark);
 }
