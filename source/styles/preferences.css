@@ -76,7 +76,7 @@
 #menu-toggle:focus-visible {
   background: var(--color-link-hover);
   border-color: var(--color-link-visited);
-  color: var(--color-background);
+  color: var(--color-text-inverse);
 }
 
 #menu-toggle[aria-expanded='true'] {
