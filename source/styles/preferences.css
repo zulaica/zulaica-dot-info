@@ -17,6 +17,8 @@
 
 #menu {
   display: none;
+  flex-direction: column;
+  gap: 0.5em;
   position: absolute;
   right: 0;
   list-style: none;
@@ -86,5 +88,5 @@
 }
 
 #menu-toggle[aria-expanded='true'] + #menu {
-  display: block;
+  display: flex;
 }

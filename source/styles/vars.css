@@ -55,3 +55,11 @@
   --color-text: var(--color-dark);
   --color-text-inverse: var(--color-light);
 }
+
+[data-background='enabled'] body::before {
+  background-image: var(--image-url);
+}
+
+[data-background='disabled'] body::before {
+  background-image: none;
+}
