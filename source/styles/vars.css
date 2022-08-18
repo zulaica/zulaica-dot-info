@@ -19,32 +19,36 @@
   --color-dark: rgb(var(--color-dark-values));
   --color-dark-alpha: rgba(var(--color-dark-values), 0.85);
   --color-light: rgb(var(--color-light-values));
-  --color-light-alpha: rgba(var(--color-light-values), 0.75);
-  --color-link: DarkTurquoise;
-  --color-link-hover: Cyan;
-  --color-link-active: Turquoise; /* MediumTurquoise */
-  --color-link-visited: CadetBlue; /* DarkCyan */
-  /* --color-link: CadetBlue;
-  --color-link-hover: CadetBlue;
-  --color-link-active: CadetBlue;
-  --color-link-visited: CadetBlue; */
+  --color-light-alpha: rgba(var(--color-light-values), 0.85);
 
   /**
    * Default Theme (Dark)
    */
   --color-background: var(--color-dark-alpha);
   --color-border: var(--color-light-alpha);
+  --color-link: DarkTurquoise;
+  --color-link-hover: Cyan;
+  --color-link-active: Turquoise;
+  --color-link-visited: CadetBlue;
   --color-text: var(--color-light);
 }
 
 [data-theme='dark'] {
   --color-background: var(--color-dark-alpha);
   --color-border: var(--color-light-alpha);
+  --color-link: DarkTurquoise;
+  --color-link-hover: Cyan;
+  --color-link-active: Turquoise;
+  --color-link-visited: CadetBlue;
   --color-text: var(--color-light);
 }
 
 [data-theme='light'] {
   --color-background: var(--color-light-alpha);
   --color-border: var(--color-dark-alpha);
+  --color-link: RoyalBlue;
+  --color-link-hover: DodgerBlue;
+  --color-link-active: CornflowerBlue;
+  --color-link-visited: SteelBlue;
   --color-text: var(--color-dark);
 }
