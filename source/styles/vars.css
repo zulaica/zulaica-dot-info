@@ -8,7 +8,7 @@
   /**
    * Settings
    */
-  --backdrop-filter: saturate(100%) contrast(1.75) blur(25px);
+  --backdrop-filter: saturate(15%) contrast(2) blur(15px);
   --transition-settings: ease 0.125s;
 
   /**
