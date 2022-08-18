@@ -53,8 +53,7 @@ body::after {
 body {
   background-color: var(--color-background);
   margin: 0;
-  width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 header,
