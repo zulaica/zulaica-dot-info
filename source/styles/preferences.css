@@ -27,7 +27,7 @@
   border-radius: 0.25rem;
   background: var(--color-background);
   color: var(--color-text);
-  box-shadow: 0 0 1rem var(--color-background);
+  box-shadow: 0 0 1rem var(--color-dark-alpha);
 }
 
 #menu li {
