@@ -29,6 +29,9 @@ const loadBackgroundImage = async () => {
     };
 
     image.onerror = () => {
+      document
+        .getElementById('background-item')
+        .style.setProperty('display', 'none');
       reject('⛔️ Error: Unable to load background image.');
     };
   });
