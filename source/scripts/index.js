@@ -29,7 +29,7 @@ const loadBackgroundImage = async () => {
     };
 
     image.onerror = () => {
-      reject('⛔️ Error: Unable to load image.');
+      reject('⛔️ Error: Unable to load background image.');
     };
   });
 };
