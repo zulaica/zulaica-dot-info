@@ -2,17 +2,20 @@
 *::after,
 * {
   box-sizing: border-box;
+  transition: color var(--transition-settings),
+    background var(--transition-settings),
+    border-color var(--transition-settings);
 }
 
 html {
   font-family: var(--font-family-body);
   font-size: var(--font-size-base);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.5;
   vertical-align: baseline;
 
-  color: var(--text-color);
-  background: var(--background-color);
+  color: var(--color-text);
+  background: var(--color-background);
 }
 
 body::before,
@@ -39,7 +42,7 @@ body::after {
 }
 
 body {
-  background-color: var(--background-color);
+  background-color: var(--color-background);
   margin: 0;
   width: 100vw;
   height: 100vh;

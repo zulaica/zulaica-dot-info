@@ -1,4 +1,5 @@
 import CONTACT_INFO from './contact.js';
+import applyUserPreferences from './preferences.js';
 
 const instagramURL = 'https://www.zulaica.dev/instagram';
 
@@ -35,6 +36,7 @@ const loadBackgroundImage = async () => {
 
 window.addEventListener('load', () => {
   loadBackgroundImage();
+  applyUserPreferences();
 });
 
 window.addEventListener('load', () => {
