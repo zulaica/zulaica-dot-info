@@ -8,8 +8,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "build:styles": "postcss source/styles/main.css --output build/stylesheet.min.css",
-    "dev": "browser-sync source --watch --no-ui --port 50001",
-    "watch:styles": "npm run build:styles -- --watch"
+    "dev": "browser-sync source --watch --no-ui --port 50001"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",
