@@ -1,7 +1,4 @@
 const CONTACT_INFO = `
-
-     ▶︎ ▲ ▼ ⬆︎ ▶︎  m a d e  t h i s .
-
            ┌───╴GITHUB╶────┐
              ┌──────╴WEBSITE╶────────┐
 
