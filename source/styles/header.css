@@ -11,11 +11,6 @@ header h1 {
   grid-column: 1;
 }
 
-header h1::before {
-  content: '🧑‍💻';
-  margin-right: 0.5em;
-}
-
 header p {
   margin: 0;
   grid-row: 2;

@@ -56,6 +56,13 @@ body {
   min-height: 100vh;
 }
 
+hr {
+  border: 0;
+  margin: 0;
+  height: 1px;
+  background: var(--color-link-visited);
+}
+
 header,
 main,
 footer {
@@ -66,9 +73,27 @@ footer {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  gap: 3em;
+  padding: 0 2em;
+}
+
+section {
+  padding: 4em 0;
+}
+
+section + section {
+  border-top: 1px solid var(--color-link-visited);
+}
+
+section h2 {
+  margin-top: 0;
+}
+
+section p {
+  margin: 2.5em auto;
+}
+
+section :last-child {
+  margin-bottom: 0;
 }
 
 footer p {
@@ -78,10 +103,6 @@ footer p {
 
 a {
   color: var(--color-link);
-}
-
-h2 span[aria-hidden='true'] {
-  margin-right: 0.5em;
 }
 
 a:hover,
@@ -100,6 +121,7 @@ a:visited {
 }
 
 dl {
+  margin: 2.5em auto;
   border-top: 0.25em solid var(--color-border);
   display: grid;
   grid-template-columns: auto 1fr;
