@@ -39,8 +39,6 @@ body::after {
 }
 
 body::before {
-  background-image: var(--image-url);
-
   background-position: center;
   background-size: 125%;
 }
