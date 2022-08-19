@@ -82,7 +82,7 @@ html {
     rgba(7, 81, 181, 0) 100%
   );
   color: #b1a3b1;
-  font-family: Calluna, serif;
+  font-family: 'Calluna', serif;
   font-weight: 400;
   animation: fadeIn 0.5s;
 }
