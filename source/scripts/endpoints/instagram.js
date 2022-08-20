@@ -16,25 +16,30 @@ const setLatestImageURL = async () => {
 };
 
 const applyImage = async () => {
-  await setLatestImageURL();
-  const image = document.createElement('img');
-  const imageHREF = localStorage.getItem('image_href');
+  try {
+    await setLatestImageURL().catch(({ message }) => console.error(message));
+  } finally {
+    const imageHREF = localStorage.getItem('image_href');
 
-  image.src = imageHREF;
+    if (imageHREF) {
+      const image = document.createElement('img');
+      image.src = imageHREF;
 
-  image.onload = () => {
-    document.documentElement.style.setProperty(
-      '--image-url',
-      `url('${imageHREF}')`
-    );
-  };
+      image.onload = () => {
+        document.documentElement.style.setProperty(
+          '--image-url',
+          `url('${imageHREF}')`
+        );
+      };
 
-  // Hide background image preference toggle on error
-  image.onerror = () => {
-    document
-      .getElementById('background-item')
-      .style.setProperty('display', 'none');
-  };
+      // Hide background image preference toggle on error
+      image.onerror = () => {
+        document
+          .getElementById('background-item')
+          .style.setProperty('display', 'none');
+      };
+    }
+  }
 };
 
 export default applyImage;

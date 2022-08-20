@@ -21,17 +21,22 @@ const setLatestSong = async () => {
 };
 
 const applyLatestSong = async () => {
-  await setLatestSong();
-  const { artist, title, url } = JSON.parse(
-    localStorage.getItem('latest_track')
-  );
-  const aboutList = document.getElementById('about-list');
-  const trackTerm = document.createElement('dt');
-  const trackDetails = document.createElement('dd');
-  trackTerm.textContent = 'Listening to';
-  trackDetails.innerHTML = `&ldquo;<a href="${url}" title="${title} on Last.fm">${title}</a>&rdquo; by ${artist}`;
+  try {
+    await setLatestSong().catch(({ message }) => console.error(message));
+  } finally {
+    const trackData = localStorage.getItem('latest_track');
 
-  aboutList.append(trackTerm, trackDetails);
+    if (trackData) {
+      const { artist, title, url } = JSON.parse(trackData);
+      const aboutList = document.getElementById('about-list');
+      const trackTerm = document.createElement('dt');
+      const trackDetails = document.createElement('dd');
+      trackTerm.textContent = 'Listening to';
+      trackDetails.innerHTML = `&ldquo;<a href="${url}" title="${title} on Last.fm">${title}</a>&rdquo; by ${artist}`;
+
+      aboutList.append(trackTerm, trackDetails);
+    }
+  }
 };
 
 export default applyLatestSong;
