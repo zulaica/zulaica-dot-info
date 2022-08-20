@@ -25,9 +25,13 @@ const applyLatestSong = async () => {
   const { artist, title, url } = JSON.parse(
     localStorage.getItem('latest_track')
   );
-  const trackNode = document.getElementById('lastfm-recent-track');
-  console.info(trackNode);
-  trackNode.innerHTML = `&ldquo;<a href="${url}" title="${title} on Last.fm">${title}</a>&rdquo; by ${artist}`;
+  const aboutList = document.getElementById('about-list');
+  const trackTerm = document.createElement('dt');
+  const trackDetails = document.createElement('dd');
+  trackTerm.textContent = 'Listening to';
+  trackDetails.innerHTML = `&ldquo;<a href="${url}" title="${title} on Last.fm">${title}</a>&rdquo; by ${artist}`;
+
+  aboutList.append(trackTerm, trackDetails);
 };
 
 export default applyLatestSong;
