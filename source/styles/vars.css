@@ -1,0 +1,65 @@
+:root {
+  /**
+   * Typography
+   */
+  --font-size-base: 24px;
+  --font-family-body: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+  /**
+   * Settings
+   */
+  --backdrop-filter: saturate(15%) contrast(2) blur(15px);
+  --transition-settings: ease 0.125s;
+
+  /**
+   * Colors
+   */
+  --color-dark-values: 40, 36, 40; /* #282428 */
+  --color-light-values: 215, 219, 215; /* #d7dbd7 */
+  --color-dark: rgb(var(--color-dark-values));
+  --color-dark-alpha: rgba(var(--color-dark-values), 0.85);
+  --color-light: rgb(var(--color-light-values));
+  --color-light-alpha: rgba(var(--color-light-values), 0.85);
+
+  /**
+   * Default Theme (Dark)
+   */
+  --color-background: var(--color-dark-alpha);
+  --color-border: var(--color-light-alpha);
+  --color-link: DarkTurquoise;
+  --color-link-hover: Cyan;
+  --color-link-active: Turquoise;
+  --color-link-visited: CadetBlue;
+  --color-text: var(--color-light);
+  --color-text-inverse: var(--color-dark);
+}
+
+[data-theme='dark'] {
+  --color-background: var(--color-dark-alpha);
+  --color-border: var(--color-light-alpha);
+  --color-link: DarkTurquoise;
+  --color-link-hover: Cyan;
+  --color-link-active: Turquoise;
+  --color-link-visited: CadetBlue;
+  --color-text: var(--color-light);
+  --color-text-inverse: var(--color-dark);
+}
+
+[data-theme='light'] {
+  --color-background: var(--color-light-alpha);
+  --color-border: var(--color-dark-alpha);
+  --color-link: #d900ff;
+  --color-link-hover: #ff00ff;
+  --color-link-active: #ab09e2;
+  --color-link-visited: #995ead;
+  --color-text: var(--color-dark);
+  --color-text-inverse: var(--color-light);
+}
+
+[data-background='enabled'] body::before {
+  background-image: var(--image-url);
+}
+
+[data-background='disabled'] body::before {
+  background-image: none;
+}
