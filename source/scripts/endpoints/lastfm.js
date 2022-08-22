@@ -47,6 +47,27 @@ const applyLatestSong = async () => {
       trackTerm.textContent = nowPlaying ? 'Listening to' : 'Listened to';
       trackDetails.innerHTML = `&ldquo;<a href="${url}" title="${name} on Last.fm">${name}</a>&rdquo; by ${artist}`;
 
+      if (timestamp) {
+        const datetime = new Date(timestamp).toISOString();
+        const localizedTimeString = new Intl.DateTimeFormat('en-US', {
+          timeZone: 'America/Los_Angeles',
+          timeZoneName: 'short',
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit'
+        }).format(timestamp);
+
+        const lineBreak = document.createElement('br');
+        const time = document.createElement('time');
+        time.dateTime = datetime;
+        time.textContent = localizedTimeString;
+
+        trackDetails.append(lineBreak, time);
+      }
+
       aboutList.append(trackTerm, trackDetails);
     }
   }
