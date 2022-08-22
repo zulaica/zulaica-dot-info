@@ -11,7 +11,7 @@ const normalizeTrack = (responseBody) => {
     '@attr': attr
   } = responseBody.recenttracks.track[0];
   const timestamp = date ? date.uts * 1000 : null;
-  const nowPlaying = attr.nowplaying ?? null;
+  const nowPlaying = attr?.nowplaying ?? null;
 
   return {
     artist,
