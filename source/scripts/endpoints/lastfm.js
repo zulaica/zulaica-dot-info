@@ -3,10 +3,22 @@ import proxyURL from './proxyURL.js';
 const endpoint = new URL('/lastfm', proxyURL);
 
 const normalizeTrack = (responseBody) => {
+  const {
+    artist: { '#text': artist },
+    date,
+    name,
+    url,
+    '@attr': attr
+  } = responseBody.recenttracks.track[0];
+  const timestamp = date ? date.uts * 1000 : null;
+  const nowPlaying = attr?.nowplaying ?? null;
+
   return {
-    artist: responseBody.recenttracks.track[0].artist['#text'],
-    title: responseBody.recenttracks.track[0].name,
-    url: responseBody.recenttracks.track[0].url
+    artist,
+    name,
+    nowPlaying,
+    timestamp,
+    url
   };
 };
 
@@ -27,12 +39,34 @@ const applyLatestSong = async () => {
     const trackData = localStorage.getItem('latest_track');
 
     if (trackData) {
-      const { artist, title, url } = JSON.parse(trackData);
+      const { artist, name, nowPlaying, timestamp, url } =
+        JSON.parse(trackData);
       const aboutList = document.getElementById('about-list');
       const trackTerm = document.createElement('dt');
       const trackDetails = document.createElement('dd');
-      trackTerm.textContent = 'Listening to';
-      trackDetails.innerHTML = `&ldquo;<a href="${url}" title="${title} on Last.fm">${title}</a>&rdquo; by ${artist}`;
+      trackTerm.textContent = nowPlaying ? 'Listening to' : 'Listened to';
+      trackDetails.innerHTML = `&ldquo;<a href="${url}" title="${name} on Last.fm">${name}</a>&rdquo; by ${artist}`;
+
+      if (timestamp) {
+        const datetime = new Date(timestamp).toISOString();
+        const formattedDateTime = new Intl.DateTimeFormat('en-US', {
+          timeZone: 'America/Los_Angeles',
+          timeZoneName: 'short',
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit'
+        }).format(timestamp);
+
+        const lineBreak = document.createElement('br');
+        const time = document.createElement('time');
+        time.dateTime = datetime;
+        time.textContent = formattedDateTime;
+
+        trackDetails.append(lineBreak, time);
+      }
 
       aboutList.append(trackTerm, trackDetails);
     }
