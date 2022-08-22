@@ -39,7 +39,9 @@ jobs:
           git commit -m "Update release ${{ github.event.repository.updated_at}}"
       - name: Configure release branch
         run: |
-          git pull origin release --ff-only
-          git branch --set-upstream-to=origin/release temp
+          git checkout -b release
+          git fetch origin release
+          git branch --set-upstream-to=origin/release release
+          git pull --rebase
       - name: Push updates
         run: git push
