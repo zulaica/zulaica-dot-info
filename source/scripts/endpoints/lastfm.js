@@ -3,10 +3,16 @@ import proxyURL from './proxyURL.js';
 const endpoint = new URL('/lastfm', proxyURL);
 
 const normalizeTrack = (responseBody) => {
+  const {
+    artist: { '#text': artist },
+    name,
+    url
+  } = responseBody.recenttracks.track[0];
+
   return {
-    artist: responseBody.recenttracks.track[0].artist['#text'],
-    title: responseBody.recenttracks.track[0].name,
-    url: responseBody.recenttracks.track[0].url
+    artist,
+    name,
+    url
   };
 };
 
@@ -27,12 +33,12 @@ const applyLatestSong = async () => {
     const trackData = localStorage.getItem('latest_track');
 
     if (trackData) {
-      const { artist, title, url } = JSON.parse(trackData);
+      const { artist, name, url } = JSON.parse(trackData);
       const aboutList = document.getElementById('about-list');
       const trackTerm = document.createElement('dt');
       const trackDetails = document.createElement('dd');
       trackTerm.textContent = 'Listening to';
-      trackDetails.innerHTML = `&ldquo;<a href="${url}" title="${title} on Last.fm">${title}</a>&rdquo; by ${artist}`;
+      trackDetails.innerHTML = `&ldquo;<a href="${url}" title="${name} on Last.fm">${name}</a>&rdquo; by ${artist}`;
 
       aboutList.append(trackTerm, trackDetails);
     }
