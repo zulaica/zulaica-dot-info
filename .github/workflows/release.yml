@@ -42,6 +42,6 @@ jobs:
           git checkout -b release
           git fetch origin release
           git branch --set-upstream-to=origin/release release
-          git pull --rebase
+          git pull --merge
       - name: Push updates
         run: git push
