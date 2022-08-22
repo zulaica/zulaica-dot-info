@@ -1,4 +1,8 @@
 header {
+  background: var(--color-background);
+}
+
+header div {
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: auto auto;

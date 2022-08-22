@@ -61,9 +61,9 @@ hr {
   background: var(--color-link-visited);
 }
 
-header,
+header div,
 main,
-footer {
+footer div {
   width: 80%;
   max-width: 80ch;
   margin: 0 auto;

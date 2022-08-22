@@ -21,8 +21,10 @@
   gap: 0.5em;
   position: absolute;
   right: 0;
+  top: 0;
+  transform: translateY(4rem);
   list-style: none;
-  margin-top: 0.25em;
+  margin: 0;
   padding: 0.5em 1em;
   min-width: 20ch;
   border: 1px solid var(--color-link-hover);
