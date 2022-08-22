@@ -49,7 +49,7 @@ const applyLatestSong = async () => {
 
       if (timestamp) {
         const datetime = new Date(timestamp).toISOString();
-        const localizedTimeString = new Intl.DateTimeFormat('en-US', {
+        const formattedDateTime = new Intl.DateTimeFormat('en-US', {
           timeZone: 'America/Los_Angeles',
           timeZoneName: 'short',
           weekday: 'long',
@@ -63,7 +63,7 @@ const applyLatestSong = async () => {
         const lineBreak = document.createElement('br');
         const time = document.createElement('time');
         time.dateTime = datetime;
-        time.textContent = localizedTimeString;
+        time.textContent = formattedDateTime;
 
         trackDetails.append(lineBreak, time);
       }
