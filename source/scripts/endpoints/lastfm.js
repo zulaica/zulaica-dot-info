@@ -5,13 +5,19 @@ const endpoint = new URL('/lastfm', proxyURL);
 const normalizeTrack = (responseBody) => {
   const {
     artist: { '#text': artist },
+    date,
     name,
-    url
+    url,
+    '@attr': attr
   } = responseBody.recenttracks.track[0];
+  const timestamp = date ? date.uts * 1000 : null;
+  const nowPlaying = attr.nowplaying ?? null;
 
   return {
     artist,
     name,
+    nowPlaying,
+    timestamp,
     url
   };
 };
@@ -33,7 +39,8 @@ const applyLatestSong = async () => {
     const trackData = localStorage.getItem('latest_track');
 
     if (trackData) {
-      const { artist, name, url } = JSON.parse(trackData);
+      const { artist, name, nowPlaying, timestamp, url } =
+        JSON.parse(trackData);
       const aboutList = document.getElementById('about-list');
       const trackTerm = document.createElement('dt');
       const trackDetails = document.createElement('dd');
