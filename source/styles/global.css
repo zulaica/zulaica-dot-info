@@ -136,3 +136,7 @@ dd {
   padding: 0.5em 1em;
   border-bottom: 1px solid var(--color-border);
 }
+
+time {
+  font-size: 0.75rem;
+}
