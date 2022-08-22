@@ -44,7 +44,7 @@ const applyLatestSong = async () => {
       const aboutList = document.getElementById('about-list');
       const trackTerm = document.createElement('dt');
       const trackDetails = document.createElement('dd');
-      trackTerm.textContent = 'Listening to';
+      trackTerm.textContent = nowPlaying ? 'Listening to' : 'Listened to';
       trackDetails.innerHTML = `&ldquo;<a href="${url}" title="${name} on Last.fm">${name}</a>&rdquo; by ${artist}`;
 
       aboutList.append(trackTerm, trackDetails);
