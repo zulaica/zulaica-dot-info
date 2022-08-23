@@ -72,7 +72,7 @@ header div,
 main,
 footer div {
   width: 80%;
-  max-width: 80ch;
+  max-width: 70ch;
   margin: 0 auto;
   padding: 2.5rem 2.5rem;
 }
