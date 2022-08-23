@@ -2,7 +2,7 @@ footer {
   background: var(--color-text-inverse);
 }
 
-footer div {
+footer .container {
   padding: 2.5rem;
 }
 

@@ -67,9 +67,9 @@ hr {
   margin-right: 0.5em;
 }
 
-header div,
+header .container,
 main,
-footer div {
+footer .container {
   width: 80%;
   max-width: 70ch;
   margin: 0 auto;
