@@ -36,15 +36,17 @@ jobs:
         run: |
           git config user.name "Github Actions"
           git config user.email noreply@github.com
-      - name: Commit changes
-        run: |
-          git add .
-          git commit -m "Update release ${{ steps.date.outputs.date }}"
+      - name: Stash changes
+        run: git stash
       - name: Configure release branch
         run: |
+          git pull origin release
           git checkout -b release
-          git fetch origin release
           git branch --set-upstream-to=origin/release release
-          git pull --no-rebase
+      - name: Commit changes
+        run: |
+          git stash pop
+          git add .
+          git commit -m "Update release ${{ steps.date.outputs.date }}"
       - name: Push updates
         run: git push
