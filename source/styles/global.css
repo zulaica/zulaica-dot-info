@@ -13,7 +13,7 @@
 
 :focus-visible {
   outline: 0.0416rem ridge var(--color-link);
-  outline-offset: 0.0833rem;
+  outline-offset: 0.125rem;
 }
 
 html {
