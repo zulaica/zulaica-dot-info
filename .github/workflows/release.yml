@@ -42,8 +42,8 @@ jobs:
           git stash
       - name: Configure release branch
         run: |
-          git pull origin release --no-rebase -f
-          git checkout release
+          git pull origin release
+          git switch release
       - name: Commit changes
         run: |
           git stash pop
