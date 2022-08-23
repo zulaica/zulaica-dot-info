@@ -10,6 +10,7 @@
    * Settings
    */
   --backdrop-filter: saturate(15%) contrast(2) blur(15px);
+  --border-radius: 0.25rem;
   --transition-settings-fast: ease 0.125s;
   --transition-settings-slow: ease 0.25s;
   --linear-gradient: var(--color-link-visited) 10%, var(--color-link-active) 25%,
