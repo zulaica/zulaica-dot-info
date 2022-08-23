@@ -15,8 +15,8 @@
   --linear-gradient: var(--color-link-visited) 10%, var(--color-link-active) 25%,
     var(--color-link) 50%, var(--color-link-hover) 75%,
     var(--color-link-visited) 90%;
-  --linear-gradient-alt: var(--color-link-hover) 10%, var(--color-link) 30%,
-    var(--color-link-active) 50%, var(--color-link-visited) 70%;
+  --linear-gradient-alt: var(--color-link-hover) 10%,
+    var(--color-link-visited) 70%, var(--color-text) 90%;
 
   /**
    * Colors
