@@ -3,7 +3,8 @@
    * Typography
    */
   --font-size-base: 24px;
-  --font-family-body: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  --font-family-body: system-ui, 'Helvetica Neue', 'Helvetica', 'Arial',
+    sans-serif;
 
   /**
    * Settings
