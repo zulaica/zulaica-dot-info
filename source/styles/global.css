@@ -57,8 +57,9 @@ body {
 hr {
   border: 0;
   margin: 0;
-  height: 1px;
-  background: var(--color-link-visited);
+  height: 0.325em;
+  background-color: var(--color-link-visited);
+  background-image: linear-gradient(to right, var(--linear-gradient));
 }
 
 header div,
@@ -80,6 +81,7 @@ section {
 
 section + section {
   border-top: 1px solid var(--color-link-visited);
+  border-image: linear-gradient(to right, var(--linear-gradient)) 1;
 }
 
 section h2 {
