@@ -70,15 +70,15 @@ footer div {
   width: 80%;
   max-width: 80ch;
   margin: 0 auto;
-  padding: 2em 2em;
+  padding: 2.5rem 2.5rem;
 }
 
 main {
-  padding: 0 2em;
+  padding: 0 2.5rem;
 }
 
 section {
-  padding: 4em 0;
+  padding: 5em 0;
 }
 
 section + section {
