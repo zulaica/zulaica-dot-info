@@ -99,11 +99,18 @@ section h2 {
 
 section h2::before,
 section h2::after {
-  background-image: linear-gradient(to right, var(--linear-gradient));
   content: '';
   width: 100%;
   height: 1px;
   display: block;
+}
+
+section h2::before {
+  background-image: linear-gradient(to right, var(--linear-gradient-alt));
+}
+
+section h2::after {
+  background-image: linear-gradient(to left, var(--linear-gradient-alt));
 }
 
 section p {
