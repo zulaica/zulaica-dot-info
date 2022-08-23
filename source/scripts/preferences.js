@@ -21,7 +21,7 @@ const toggleTheme = (event) => {
 };
 
 const renderMenu = () => {
-  const header = document.querySelector('header');
+  const header = document.querySelector('header div');
   const menuWrapper = document.createElement('div');
   menuWrapper.className = 'menu-wrapper';
   menuWrapper.setAttribute('aria-hidden', true);

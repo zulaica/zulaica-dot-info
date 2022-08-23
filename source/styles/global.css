@@ -2,9 +2,10 @@
 *::after,
 * {
   box-sizing: border-box;
-  transition: color var(--transition-settings),
-    background var(--transition-settings),
-    border-color var(--transition-settings);
+  transition: color var(--transition-settings-fast),
+    background var(--transition-settings-fast),
+    border-color var(--transition-settings-fast),
+    opacity var(--transition-settings-slow);
 }
 
 :focus {
@@ -39,6 +40,7 @@ body::after {
 }
 
 body::before {
+  background-image: var(--image-url);
   background-position: center;
   background-size: 125%;
 }
@@ -49,6 +51,8 @@ body::after {
 }
 
 body {
+  border-top: 1px solid var(--color-link-visited);
+  border-image: linear-gradient(to right, var(--linear-gradient)) 1;
   background-color: var(--color-background);
   margin: 0;
   min-height: 100vh;
@@ -57,33 +61,58 @@ body {
 hr {
   border: 0;
   margin: 0;
-  height: 1px;
-  background: var(--color-link-visited);
+  height: 0.325em;
+  background-color: var(--color-link-visited);
+  background-image: linear-gradient(to right, var(--linear-gradient));
 }
 
-header,
+:where(h1, h2) span {
+  margin-right: 0.5em;
+}
+
+header div,
 main,
-footer {
+footer div {
   width: 80%;
   max-width: 80ch;
   margin: 0 auto;
-  padding: 2em 2em;
+  padding: 2.5rem 2.5rem;
 }
 
 main {
-  padding: 0 2em;
+  padding: 0 2.5rem;
 }
 
 section {
-  padding: 4em 0;
+  padding: 5rem 0;
 }
 
 section + section {
-  border-top: 1px solid var(--color-link-visited);
+  padding-top: 2.5rem;
 }
 
 section h2 {
   margin-top: 0;
+  display: grid;
+  gap: 1em;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+section h2::before,
+section h2::after {
+  content: '';
+  width: 100%;
+  height: 1px;
+  display: block;
+}
+
+section h2::before {
+  background-image: linear-gradient(to right, var(--linear-gradient-alt));
+}
+
+section h2::after {
+  background-image: linear-gradient(to left, var(--linear-gradient-alt));
 }
 
 section p {
@@ -94,13 +123,12 @@ section :last-child {
   margin-bottom: 0;
 }
 
-footer p {
-  font-size: 0.75rem;
-  margin: 0;
-}
-
 a {
   color: var(--color-link);
+  text-decoration: underline;
+  text-decoration-color: var(--color-link);
+  text-decoration-thickness: 0.0625em;
+  text-underline-offset: 0.2625em;
 }
 
 a:hover,
@@ -120,7 +148,7 @@ a:visited {
 
 dl {
   margin: 2.5em auto;
-  border-top: 0.25em solid var(--color-border);
+  border-top: 0.325em solid var(--color-border);
   display: grid;
   grid-template-columns: auto 1fr;
 }
