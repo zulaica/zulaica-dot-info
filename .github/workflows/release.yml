@@ -44,6 +44,7 @@ jobs:
           git checkout release
       - name: Commit changes
         run: |
+          git add .
           git stash pop
           git add .
           git commit -m "Update release ${{ steps.date.outputs.date }}"
