@@ -34,10 +34,10 @@
    */
   --color-background: var(--color-dark-alpha);
   --color-border: var(--color-light-alpha);
-  --color-link: DarkTurquoise;
-  --color-link-hover: Cyan;
-  --color-link-active: Turquoise;
-  --color-link-visited: CadetBlue;
+  --color-link: #00ced1;
+  --color-link-hover: #00ffff;
+  --color-link-active: #40e0d0;
+  --color-link-visited: #5f9ea0;
   --color-text: var(--color-light);
   --color-text-inverse: var(--color-dark);
 }
