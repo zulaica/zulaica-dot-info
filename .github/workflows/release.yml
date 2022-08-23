@@ -17,6 +17,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%dT%H:%M:%S')"
       - name: Check out codebase
         uses: actions/checkout@v3
       - name: Create temporary branch
@@ -33,15 +36,23 @@ jobs:
         run: |
           git config user.name "Github Actions"
           git config user.email noreply@github.com
+      - name: Stash changes
+        run: |
+          git add .
+          git stash
+          git status
+      - name: Configure release branch
+        run: |
+          git fetch origin release
+          git checkout release
+          rm index.html
+          rm script.*.js
+          rm stylesheet.*.css
       - name: Commit changes
         run: |
           git add .
-          git commit -m "Update release ${{ github.event.repository.updated_at}}"
-      - name: Configure release branch
-        run: |
-          git checkout -b release
-          git fetch origin release
-          git branch --set-upstream-to=origin/release release
-          git pull --rebase
+          git stash pop
+          git add .
+          git commit -m "Update release ${{ steps.date.outputs.date }}"
       - name: Push updates
         run: git push
