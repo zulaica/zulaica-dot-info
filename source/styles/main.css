@@ -13,9 +13,13 @@ main section + section {
 main section h2 {
   margin-top: 0;
   display: grid;
-  gap: 1em;
+  gap: 0.5em;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
+  font-size: 1.75rem;
+  font-family: ui-serif, serif;
+  font-style: oblique;
+  letter-spacing: -0.03125em;
 }
 
 main section h2::before,
