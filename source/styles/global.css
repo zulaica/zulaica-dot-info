@@ -124,11 +124,6 @@ section :last-child {
   margin-bottom: 0;
 }
 
-footer p {
-  font-size: 0.75rem;
-  margin: 0;
-}
-
 a {
   color: var(--color-link);
   text-decoration: underline;
