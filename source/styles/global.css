@@ -2,9 +2,11 @@
 *::after,
 * {
   box-sizing: border-box;
-  transition: color var(--transition-settings),
-    background var(--transition-settings),
-    border-color var(--transition-settings);
+  transition: color var(--transition-settings-fast),
+    background var(--transition-settings-fast),
+    background-image var(--transition-settings-fast),
+    border-color var(--transition-settings-fast),
+    opacity var(--transition-settings-slow);
 }
 
 :focus {
@@ -39,6 +41,7 @@ body::after {
 }
 
 body::before {
+  background-image: var(--image-url);
   background-position: center;
   background-size: 125%;
 }

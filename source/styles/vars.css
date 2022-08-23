@@ -10,7 +10,8 @@
    * Settings
    */
   --backdrop-filter: saturate(15%) contrast(2) blur(15px);
-  --transition-settings: ease 0.125s;
+  --transition-settings-fast: ease 0.125s;
+  --transition-settings-slow: ease 0.25s;
   --linear-gradient: var(--color-link-visited) 10%, var(--color-link-active) 25%,
     var(--color-link) 50%, var(--color-link-hover) 75%,
     var(--color-link-visited) 90%;
@@ -54,9 +55,9 @@
 }
 
 [data-background='enabled'] body::before {
-  background-image: var(--image-url);
+  opacity: 1;
 }
 
 [data-background='disabled'] body::before {
-  background-image: none;
+  opacity: 0;
 }
