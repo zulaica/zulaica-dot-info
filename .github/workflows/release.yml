@@ -37,14 +37,13 @@ jobs:
           git config user.name "Github Actions"
           git config user.email noreply@github.com
       - name: Stash changes
-        run: git stash
+        run: |
+          git stash
+          git status
       - name: Configure release branch
         run: |
           git fetch origin release
           git checkout release
-          rm index.html
-          rm script.*.js
-          rm stylesheet.*.css
       - name: Commit changes
         run: |
           git add .
