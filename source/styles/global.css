@@ -127,7 +127,7 @@ a:visited {
 
 dl {
   margin: 2.5em auto;
-  border-top: 0.25em solid var(--color-border);
+  border-top: 0.325em solid var(--color-border);
   display: grid;
   grid-template-columns: auto 1fr;
 }
