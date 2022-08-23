@@ -6,6 +6,7 @@ header div {
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: auto auto;
+  padding: 2.5rem;
 }
 
 header h1 {
