@@ -21,9 +21,9 @@
   --color-dark-values: 40, 36, 40; /* #282428 */
   --color-light-values: 215, 219, 215; /* #d7dbd7 */
   --color-dark: rgb(var(--color-dark-values));
-  --color-dark-alpha: rgba(var(--color-dark-values), 0.85);
+  --color-dark-alpha: rgba(var(--color-dark-values), 0.95);
   --color-light: rgb(var(--color-light-values));
-  --color-light-alpha: rgba(var(--color-light-values), 0.85);
+  --color-light-alpha: rgba(var(--color-light-values), 0.9);
 
   /**
    * Default Theme (Dark)
