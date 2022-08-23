@@ -101,6 +101,10 @@ footer p {
 
 a {
   color: var(--color-link);
+  text-decoration: underline;
+  text-decoration-color: var(--color-link);
+  text-decoration-thickness: 0.0625em;
+  text-underline-offset: 0.2625em;
 }
 
 a:hover,
@@ -108,6 +112,7 @@ a:focus-visible,
 a:visited:hover,
 a:visited:focus-visible {
   color: var(--color-link-hover);
+  background: var(--color-link-background);
 }
 
 a:active {
