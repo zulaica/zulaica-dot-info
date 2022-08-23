@@ -37,7 +37,6 @@
   --color-link-hover: Cyan;
   --color-link-active: Turquoise;
   --color-link-visited: CadetBlue;
-  --color-link-background: rgba(var(--color-light-values), 0.1);
   --color-text: var(--color-light);
   --color-text-inverse: var(--color-dark);
 }
@@ -49,7 +48,6 @@
   --color-link-hover: #f10df1;
   --color-link-active: #ab09e2;
   --color-link-visited: #995ead;
-  --color-link-background: rgba(var(--color-dark-values), 0.1);
   --color-text: var(--color-dark);
   --color-text-inverse: var(--color-light);
 }
