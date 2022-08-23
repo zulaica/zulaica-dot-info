@@ -64,6 +64,10 @@ hr {
   background-image: linear-gradient(to right, var(--linear-gradient));
 }
 
+:where(h1, h2) span {
+  margin-right: 0.5em;
+}
+
 header div,
 main,
 footer div {
