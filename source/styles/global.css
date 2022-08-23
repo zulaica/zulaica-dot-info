@@ -4,7 +4,6 @@
   box-sizing: border-box;
   transition: color var(--transition-settings-fast),
     background var(--transition-settings-fast),
-    background-image var(--transition-settings-fast),
     border-color var(--transition-settings-fast),
     opacity var(--transition-settings-slow);
 }
