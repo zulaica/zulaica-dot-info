@@ -40,7 +40,7 @@ jobs:
         run: git stash
       - name: Configure release branch
         run: |
-          git pull origin release
+          git pull origin release -f
           git checkout -b release
           git branch --set-upstream-to=origin/release release
       - name: Commit changes
