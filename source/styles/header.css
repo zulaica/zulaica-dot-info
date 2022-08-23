@@ -6,7 +6,6 @@ header div {
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: auto auto;
-  align-items: center;
 }
 
 header h1 {
