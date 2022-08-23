@@ -42,7 +42,7 @@ jobs:
           git stash
       - name: Configure release branch
         run: |
-          git pull origin release --rebase
+          git pull origin release --no-rebase
           git checkout release
       - name: Commit changes
         run: |
