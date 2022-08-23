@@ -80,7 +80,7 @@
 #menu-toggle:hover,
 #menu-toggle:focus-visible {
   background: var(--color-link-hover);
-  border-color: var(--color-link-visited);
+  border-color: var(--color-link-hover);
   color: var(--color-text-inverse);
 }
 
