@@ -79,50 +79,6 @@ footer div {
   padding: 2.5rem 2.5rem;
 }
 
-main {
-  padding: 0 2.5rem;
-}
-
-section {
-  padding: 5rem 0;
-}
-
-section + section {
-  padding-top: 2.5rem;
-}
-
-section h2 {
-  margin-top: 0;
-  display: grid;
-  gap: 1em;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-}
-
-section h2::before,
-section h2::after {
-  content: '';
-  width: 100%;
-  height: 1px;
-  display: block;
-}
-
-section h2::before {
-  background-image: linear-gradient(to right, var(--linear-gradient-alt));
-}
-
-section h2::after {
-  background-image: linear-gradient(to left, var(--linear-gradient-alt));
-}
-
-section p {
-  margin: 2.5em auto;
-}
-
-section :last-child {
-  margin-bottom: 0;
-}
-
 a {
   color: var(--color-link);
   text-decoration: underline;
