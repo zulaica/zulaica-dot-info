@@ -12,8 +12,8 @@
 }
 
 :focus-visible {
-  outline: 1px dotted var(--color-link);
-  outline-offset: 3px;
+  outline: 0.0416rem ridge var(--color-link);
+  outline-offset: 0.125rem;
 }
 
 html {
@@ -48,8 +48,7 @@ body::after {
 }
 
 body {
-  border-top: 1px solid var(--color-link-visited);
-  border-image: linear-gradient(to right, var(--linear-gradient)) 1;
+  border-top: 0.0833rem solid var(--color-link-visited);
   background-color: var(--color-background);
   margin: 0;
   min-height: 100vh;
@@ -72,10 +71,11 @@ footer .container {
 }
 
 a {
+  font-weight: 500;
   color: var(--color-link);
   text-decoration: underline;
   text-decoration-color: var(--color-link);
-  text-decoration-thickness: 0.0625em;
+  text-decoration-thickness: 0.0833rem;
   text-underline-offset: 0.2625em;
 }
 
@@ -104,13 +104,13 @@ dl {
 dt {
   margin: 0;
   padding: 0.5em 1em;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 0.0416rem solid var(--color-border);
 }
 
 dd {
   margin: 0;
   padding: 0.5em 1em;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 0.0416rem solid var(--color-border);
 }
 
 time {
