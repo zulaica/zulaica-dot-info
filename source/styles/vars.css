@@ -33,11 +33,11 @@
   --color-link-visited: hsl(var(--color-link-hue), 25%, 50%);
 
   /**
-   * [data-theme='dark'] (Default Theme)
-   */
+  * [data-theme='dark'] (Default Theme)
+  */
   --color-link-hue: 180;
   --color-background: var(--color-dark-alpha);
-  --color-border: var(--color-light-alpha);
+  --color-border: rgba(var(--color-light-values), 0.25);
   --color-text: var(--color-light);
   --color-text-inverse: var(--color-dark);
 }
@@ -45,7 +45,7 @@
 [data-theme='light'] {
   --color-link-hue: 280;
   --color-background: var(--color-light-alpha);
-  --color-border: var(--color-dark-alpha);
+  --color-border: rgba(var(--color-dark-values), 0.25);
   --color-text: var(--color-dark);
   --color-text-inverse: var(--color-light);
 }
