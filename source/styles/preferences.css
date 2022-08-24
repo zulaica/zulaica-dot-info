@@ -17,13 +17,12 @@
 #menu {
   display: none;
   flex-direction: column;
-  gap: 0.5em;
   position: absolute;
   right: 0;
   transform: translateY(0.5rem);
   list-style: none;
   margin: 0;
-  padding: 1em 1em;
+  padding: 0 1em;
   min-width: 20ch;
   border: 0.0833rem solid var(--color-link-hover);
   border-radius: var(--border-radius);
@@ -36,12 +35,16 @@
   align-items: center;
 }
 
+#menu li + li {
+  border-top: 0.0416rem solid var(--color-border);
+}
+
 #menu label {
   cursor: pointer;
   flex: 1;
   font-size: 0.75rem;
   white-space: nowrap;
-  padding: 0.5em 0;
+  padding: 1em 0;
 }
 
 #menu input[type='checkbox'] {
@@ -64,7 +67,7 @@
 }
 
 #menu input[type='checkbox']::before {
-  content: '\2716';
+  content: '\2716\fe0e';
   color: var(--color-link);
   transform: scale(0);
 }
