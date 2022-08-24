@@ -33,8 +33,8 @@
   --color-link-visited: hsl(var(--color-link-hue), 25%, 50%);
 
   /**
-  * [data-theme='dark'] (Default Theme)
-  */
+   * [data-theme='dark'] (Default Theme)
+   */
   --color-link-hue: 180;
   --color-background: var(--color-dark-alpha);
   --color-border: rgba(var(--color-light-values), 0.25);
