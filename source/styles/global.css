@@ -65,7 +65,6 @@ hr {
 header .container,
 main,
 footer .container {
-  width: 80%;
   max-width: 70ch;
   margin: 0 auto;
 }
