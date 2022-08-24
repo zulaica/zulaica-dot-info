@@ -64,7 +64,7 @@
 }
 
 #menu input[type='checkbox']::before {
-  content: '\2716';
+  content: '\2716\fe0e';
   color: var(--color-link);
   transform: scale(0);
 }
