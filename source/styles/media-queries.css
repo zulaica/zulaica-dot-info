@@ -21,9 +21,3 @@
     --font-size-base: 14px;
   }
 }
-
-@media screen and (max-width: 640px) {
-  :root {
-    --font-size-base: 12px;
-  }
-}
