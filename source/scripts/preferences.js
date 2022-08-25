@@ -8,14 +8,20 @@ const setInitialTheme = () => {
     : localStorage.setItem('theme', 'light');
 };
 
-const toggleBackground = (event) => {
-  const background = event.target.checked ? 'enabled' : 'disabled';
+const toggleMenu = ({ target }) => {
+  isExpanded(target)
+    ? target.setAttribute('aria-expanded', false)
+    : target.setAttribute('aria-expanded', true);
+};
+
+const toggleBackground = ({ target }) => {
+  const background = target.checked ? 'enabled' : 'disabled';
   localStorage.setItem('background', background);
   document.documentElement.setAttribute('data-background', background);
 };
 
-const toggleTheme = (event) => {
-  const theme = event.target.checked ? 'dark' : 'light';
+const toggleTheme = ({ target }) => {
+  const theme = target.checked ? 'dark' : 'light';
   localStorage.setItem('theme', theme);
   document.documentElement.setAttribute('data-theme', theme);
 };
@@ -42,8 +48,6 @@ const renderMenu = () => {
 };
 
 const applyPreferences = () => {
-  renderMenu();
-
   if (!localStorage.getItem('theme')) {
     setInitialTheme();
   }
@@ -52,9 +56,11 @@ const applyPreferences = () => {
     localStorage.setItem('background', 'enabled');
   }
 
-  const theme = localStorage.getItem('theme');
-  const background = localStorage.getItem('background');
+  renderMenu();
+
   const menuToggle = document.getElementById('menu-toggle');
+  const background = localStorage.getItem('background');
+  const theme = localStorage.getItem('theme');
   const themeCheckbox = document.getElementById('theme');
   const backgroundCheckbox = document.getElementById('background');
 
@@ -63,14 +69,11 @@ const applyPreferences = () => {
   themeCheckbox.checked = theme === 'dark' ? true : false;
   backgroundCheckbox.checked = background === 'enabled' ? true : false;
 
-  themeCheckbox.addEventListener('change', toggleTheme);
-  backgroundCheckbox.addEventListener('change', toggleBackground);
-
-  menuToggle.addEventListener('click', () => {
-    isExpanded(menuToggle)
-      ? menuToggle.setAttribute('aria-expanded', false)
-      : menuToggle.setAttribute('aria-expanded', true);
+  menuToggle.addEventListener('click', toggleMenu, { passive: true });
+  backgroundCheckbox.addEventListener('change', toggleBackground, {
+    passive: true
   });
+  themeCheckbox.addEventListener('change', toggleTheme, { passive: true });
 };
 
 export default applyPreferences;
