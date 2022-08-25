@@ -4,11 +4,8 @@ import applyImage from './scripts/endpoints/instagram.js';
 import applyLatestSong from './scripts/endpoints/lastfm.js';
 
 window.addEventListener('load', () => {
+  console.info(`%c ${CONTACT_INFO}`, 'font-family: monospace;');
   applyImage();
   applyLatestSong();
   applyPreferences();
-});
-
-window.addEventListener('load', () => {
-  console.info(`%c ${CONTACT_INFO}`, 'font-family: monospace;');
 });
