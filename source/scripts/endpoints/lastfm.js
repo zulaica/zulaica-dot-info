@@ -28,7 +28,6 @@ const normalizeTrack = (responseBody) => {
 };
 
 const setLatestSong = async () => {
-  console.info('setLatestSong called');
   const response = await fetch(endpoint);
   const responseBody = response.ok && (await response.json());
   const latestTrack = normalizeTrack(responseBody);
@@ -39,8 +38,6 @@ const setLatestSong = async () => {
 };
 
 const updateLatestSong = () => {
-  console.info('updateLatestSong called');
-
   const trackData = JSON.parse(localStorage.getItem('latest_track'));
   const aboutList = document.getElementById('about-list');
 
