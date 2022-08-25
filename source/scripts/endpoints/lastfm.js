@@ -71,7 +71,7 @@ const updateLatestSong = () => {
 
 export const startPolling = () => {
   if (!intervalId) {
-    intervalId = setInterval(applyLatestSong, 300_000);
+    intervalId = setInterval(applyLatestSong, 210_000);
   }
 };
 
