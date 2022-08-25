@@ -1,4 +1,5 @@
 import proxyURL from './proxyURL.js';
+import { options } from '../helpers/dateTimeFormat.js';
 
 const endpoint = new URL('/lastfm', proxyURL);
 const trackTerm = document.createElement('dt');
@@ -27,7 +28,7 @@ const normalizeTrack = (responseBody) => {
   };
 };
 
-const setLatestSong = async () => {
+const cacheLatestSong = async () => {
   const response = await fetch(endpoint);
   const responseBody = response.ok && (await response.json());
   const latestTrack = normalizeTrack(responseBody);
@@ -37,7 +38,7 @@ const setLatestSong = async () => {
   localStorage.setItem('latest_track', JSON.stringify(latestTrack));
 };
 
-const updateLatestSong = () => {
+const renderLatestSong = () => {
   const trackData = JSON.parse(localStorage.getItem('latest_track'));
   const aboutList = document.getElementById('about-list');
 
@@ -48,20 +49,13 @@ const updateLatestSong = () => {
 
     if (timestamp) {
       const datetime = new Date(timestamp).toISOString();
-      const formattedDateTime = new Intl.DateTimeFormat('en-US', {
-        timeZone: 'America/Los_Angeles',
-        timeZoneName: 'short',
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit'
-      }).format(timestamp);
+      const formattedDateTime = new Intl.DateTimeFormat(
+        'en-US',
+        options
+      ).format(timestamp);
 
       time.dateTime = datetime;
       time.textContent = formattedDateTime;
-
       trackDetails.append(lineBreak, time);
     }
 
@@ -69,9 +63,9 @@ const updateLatestSong = () => {
   }
 };
 
-export const startPolling = () => {
+const startPolling = () => {
   if (!intervalId) {
-    intervalId = setInterval(applyLatestSong, 210_000);
+    intervalId = setInterval(latestSong, 210_000);
   }
 };
 
@@ -80,12 +74,12 @@ export const stopPolling = () => {
   intervalId = null;
 };
 
-const applyLatestSong = async () => {
+const latestSong = async () => {
   try {
-    await setLatestSong().catch(({ message }) => console.error(message));
-  } finally {
-    updateLatestSong();
+    await cacheLatestSong().then(() => renderLatestSong(), startPolling());
+  } catch ({ message }) {
+    console.error(message);
   }
 };
 
-export default applyLatestSong;
+export default latestSong;
