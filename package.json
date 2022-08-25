@@ -26,7 +26,7 @@
     "build": "npm run build:clean && npm run build:style && npm run build:script && npm run build:html",
     "build:clean": "node ./lib/processors/preflight.mjs",
     "build:html": "node ./lib/processors/posthtml.mjs",
-    "build:script": "browserify source/script.hash.js -o build/script.hash.js -t [ babelify ]",
+    "build:script": "node ./lib/processors/browserify.mjs",
     "build:style": "node ./lib/processors/postcss.mjs",
     "dev": "browser-sync source --watch --no-ui --port 50001",
     "lint": "npm run lint:js || true && npm run lint:css",
@@ -34,7 +34,6 @@
     "lint:js": "eslint \"source/**/*.js\" \"lib/**/*.*js\" --format ./lib/formatters/eslint.js"
   },
   "devDependencies": {
-    "@babel/cli": "^7.18.10",
     "@babel/core": "^7.18.13",
     "@babel/preset-env": "^7.18.10",
     "autoprefixer": "^10.4.8",
