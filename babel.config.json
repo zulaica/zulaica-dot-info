@@ -1,8 +1,0 @@
-{
-  "comments": false,
-  "presets": [
-    "@babel/preset-env"
-  ],
-  "minified": true,
-  "targets": "defaults"
-}
