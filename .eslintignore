@@ -1,6 +1,6 @@
 .github/
 .vscode/
-build/
+release/
 *.config.js
 *.config.json
 .eslintrc.json
