@@ -23,11 +23,7 @@
     ]
   },
   "scripts": {
-    "build": "npm run build:clean && npm run build:style && npm run build:script && npm run build:html",
-    "build:clean": "node ./lib/build/preflight.mjs",
-    "build:html": "node ./lib/build/posthtml.mjs",
-    "build:script": "node ./lib/build/browserify.mjs",
-    "build:style": "node ./lib/build/postcss.mjs",
+    "build": "node ./lib/build/index.mjs",
     "dev": "browser-sync source --watch --no-ui --port 50001",
     "lint": "npm run lint:js || true && npm run lint:css",
     "lint:css": "stylelint \"source/**/*.css\" --custom-formatter ./lib/formatters/stylelint.js",
