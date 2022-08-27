@@ -1,14 +1,17 @@
 import proxyURL from './proxyURL.js';
 
-const endpoint = new URL('/instagram', proxyURL);
 // `thumbnail_url` is provided for video posts, `media_url` for image posts
-const imageURL = ({ data }) => data[0].thumbnail_url || data[0].media_url;
+const imageURL = (postData) => postData.thumbnail_url || postData.media_url;
 
 export const fetchLatestImage = async () => {
+  const endpoint = new URL('/instagram', proxyURL);
+
   try {
     const response = await fetch(endpoint);
-    const responseBody = response.ok && (await response.json());
-    const imageHREF = imageURL(responseBody);
+    const {
+      data: { 0: postData }
+    } = response.ok && (await response.json());
+    const imageHREF = imageURL(postData);
 
     if (imageHREF === localStorage.getItem('image_href')) return;
 

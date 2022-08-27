@@ -1,21 +1,16 @@
 import proxyURL from './proxyURL.js';
 import { options } from '../helpers/dateTimeFormat.js';
 
-const endpoint = new URL('/lastfm', proxyURL);
-const trackTerm = document.createElement('dt');
-const trackDetails = document.createElement('dd');
-const lineBreak = document.createElement('br');
-const time = document.createElement('time');
 let intervalId;
 
-const normalizeTrack = (responseBody) => {
+const normalizeTrack = (trackData) => {
   const {
     artist: { '#text': artist },
     date,
     name,
     url,
     '@attr': attr
-  } = responseBody.recenttracks.track[0];
+  } = trackData;
   const timestamp = date ? date.uts * 1000 : null;
   const nowPlaying = attr?.nowplaying ?? null;
 
@@ -29,10 +24,16 @@ const normalizeTrack = (responseBody) => {
 };
 
 export const fetchLatestTrack = async () => {
+  const endpoint = new URL('/lastfm', proxyURL);
+
   try {
     const response = await fetch(endpoint);
-    const responseBody = response.ok && (await response.json());
-    const latestTrack = normalizeTrack(responseBody);
+    const {
+      recenttracks: {
+        track: { 0: trackData }
+      }
+    } = response.ok && (await response.json());
+    const latestTrack = normalizeTrack(trackData);
 
     if (latestTrack === JSON.parse(localStorage.getItem('latest_track')))
       return;
@@ -46,6 +47,8 @@ export const fetchLatestTrack = async () => {
 export const renderLatestTrack = () => {
   const trackData = JSON.parse(localStorage.getItem('latest_track'));
   const aboutList = document.getElementById('about-list');
+  const trackTerm = document.createElement('dt');
+  const trackDetails = document.createElement('dd');
 
   if (trackData) {
     const { artist, name, nowPlaying, timestamp, url } = trackData;
@@ -53,6 +56,8 @@ export const renderLatestTrack = () => {
     trackDetails.innerHTML = `&ldquo;<a href="${url}" title="${name} on Last.fm">${name}</a>&rdquo; by ${artist}`;
 
     if (timestamp) {
+      const lineBreak = document.createElement('br');
+      const time = document.createElement('time');
       const datetime = new Date(timestamp).toISOString();
       const formattedDateTime = new Intl.DateTimeFormat(
         'en-US',

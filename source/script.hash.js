@@ -17,10 +17,10 @@ const handleDomContentLoaded = async () => {
 };
 
 const handleLoad = () => {
-  console.info(`%c ${CONTACT_INFO}`, 'font-family: monospace;');
   applyLatestImage();
   renderLatestTrack();
   applyPreferences();
+  console.info(`%c ${CONTACT_INFO}`, 'font-family: monospace;');
 };
 
 window.addEventListener('DOMContentLoaded', handleDomContentLoaded, {
