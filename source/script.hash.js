@@ -5,22 +5,22 @@ import {
   fetchLatestImage
 } from './scripts/endpoints/instagram.js';
 import {
-  fetchLatestSong,
-  renderLatestSong,
+  fetchLatestTrack,
+  renderLatestTrack,
   startPolling,
   stopPolling
 } from './scripts/endpoints/lastfm.js';
 
 const handleDomContentLoaded = async () => {
   await fetchLatestImage();
-  await fetchLatestSong();
+  await fetchLatestTrack();
   startPolling();
 };
 
 const handleLoad = () => {
   console.info(`%c ${CONTACT_INFO}`, 'font-family: monospace;');
   applyLatestImage();
-  renderLatestSong();
+  renderLatestTrack();
   applyPreferences();
 };
 

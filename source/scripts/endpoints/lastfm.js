@@ -28,7 +28,7 @@ const normalizeTrack = (responseBody) => {
   };
 };
 
-export const fetchLatestSong = async () => {
+export const fetchLatestTrack = async () => {
   try {
     const response = await fetch(endpoint);
     const responseBody = response.ok && (await response.json());
@@ -43,7 +43,7 @@ export const fetchLatestSong = async () => {
   }
 };
 
-export const renderLatestSong = () => {
+export const renderLatestTrack = () => {
   const trackData = JSON.parse(localStorage.getItem('latest_track'));
   const aboutList = document.getElementById('about-list');
 
@@ -70,7 +70,7 @@ export const renderLatestSong = () => {
 
 export const startPolling = () => {
   if (!intervalId) {
-    intervalId = setInterval(fetchLatestSong, 210_000);
+    intervalId = setInterval(fetchLatestTrack, 210_000);
   }
 };
 
