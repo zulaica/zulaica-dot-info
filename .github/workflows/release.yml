@@ -47,7 +47,7 @@ jobs:
           git checkout release
           rm index.html
           rm script.*.js
-          rm stylesheet.*.css
+          rm style.*.css
       - name: Commit changes
         run: |
           git add .
