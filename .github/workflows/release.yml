@@ -45,9 +45,9 @@ jobs:
         run: |
           git fetch origin release
           git checkout release
-          rm index.html
-          rm script.*.js
-          rm style.*.css
+          rm *.html
+          rm *.js
+          rm *.css
       - name: Commit changes
         run: |
           git add .
