@@ -28,14 +28,19 @@ const normalizeTrack = (responseBody) => {
   };
 };
 
-const cacheLatestSong = async () => {
-  const response = await fetch(endpoint);
-  const responseBody = response.ok && (await response.json());
-  const latestTrack = normalizeTrack(responseBody);
+export const fetchLatestSong = async () => {
+  try {
+    const response = await fetch(endpoint);
+    const responseBody = response.ok && (await response.json());
+    const latestTrack = normalizeTrack(responseBody);
 
-  if (latestTrack === JSON.parse(localStorage.getItem('latest_track'))) return;
+    if (latestTrack === JSON.parse(localStorage.getItem('latest_track')))
+      return;
 
-  localStorage.setItem('latest_track', JSON.stringify(latestTrack));
+    localStorage.setItem('latest_track', JSON.stringify(latestTrack));
+  } catch ({ message }) {
+    console.error(message);
+  }
 };
 
 export const renderLatestSong = () => {
@@ -65,7 +70,7 @@ export const renderLatestSong = () => {
 
 export const startPolling = () => {
   if (!intervalId) {
-    intervalId = setInterval(latestSong, 210_000);
+    intervalId = setInterval(fetchLatestSong, 210_000);
   }
 };
 
@@ -73,13 +78,3 @@ export const stopPolling = () => {
   clearInterval(intervalId);
   intervalId = null;
 };
-
-const latestSong = async () => {
-  try {
-    await cacheLatestSong();
-  } catch ({ message }) {
-    console.error(message);
-  }
-};
-
-export default latestSong;

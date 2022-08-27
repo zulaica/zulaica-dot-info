@@ -1,9 +1,11 @@
 import CONTACT_INFO from './scripts/contact.js';
 import applyPreferences from './scripts/preferences.js';
-import fetchLatestImage, {
-  applyLatestImage
+import {
+  applyLatestImage,
+  fetchLatestImage
 } from './scripts/endpoints/instagram.js';
-import latestSong, {
+import {
+  fetchLatestSong,
   renderLatestSong,
   startPolling,
   stopPolling
@@ -11,7 +13,7 @@ import latestSong, {
 
 const handleDomContentLoaded = async () => {
   await fetchLatestImage();
-  await latestSong();
+  await fetchLatestSong();
   startPolling();
 };
 
