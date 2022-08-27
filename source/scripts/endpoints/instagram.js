@@ -15,7 +15,7 @@ const cacheImageURL = async () => {
   localStorage.setItem('image_href', imageHREF);
 };
 
-const applyLatestImage = () => {
+export const applyLatestImage = () => {
   const imageHREF = localStorage.getItem('image_href');
 
   if (imageHREF) {
@@ -38,12 +38,12 @@ const applyLatestImage = () => {
   }
 };
 
-const latestImage = async () => {
+const fetchLatestImage = async () => {
   try {
-    await cacheImageURL().then(() => applyLatestImage());
+    await cacheImageURL();
   } catch ({ message }) {
     console.error(message);
   }
 };
 
-export default latestImage;
+export default fetchLatestImage;

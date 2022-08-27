@@ -38,7 +38,7 @@ const cacheLatestSong = async () => {
   localStorage.setItem('latest_track', JSON.stringify(latestTrack));
 };
 
-const renderLatestSong = () => {
+export const renderLatestSong = () => {
   const trackData = JSON.parse(localStorage.getItem('latest_track'));
   const aboutList = document.getElementById('about-list');
 
@@ -63,7 +63,7 @@ const renderLatestSong = () => {
   }
 };
 
-const startPolling = () => {
+export const startPolling = () => {
   if (!intervalId) {
     intervalId = setInterval(latestSong, 210_000);
   }
@@ -76,7 +76,7 @@ export const stopPolling = () => {
 
 const latestSong = async () => {
   try {
-    await cacheLatestSong().then(() => renderLatestSong(), startPolling());
+    await cacheLatestSong();
   } catch ({ message }) {
     console.error(message);
   }
