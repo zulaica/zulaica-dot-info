@@ -50,6 +50,9 @@ jobs:
           rm *.css
       - name: Commit changes
         run: |
+          git rm --cached *.html
+          git rm --cached *.js
+          git rm --cached *.css
           git add .
           git stash pop
           git add .
