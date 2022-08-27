@@ -7,8 +7,7 @@ import {
 import {
   fetchLatestTrack,
   renderLatestTrack,
-  startPolling,
-  stopPolling
+  startPolling
 } from './scripts/endpoints/lastfm.js';
 
 const handleDomContentLoaded = async () => {
@@ -29,4 +28,3 @@ window.addEventListener('DOMContentLoaded', handleDomContentLoaded, {
   once: true
 });
 window.addEventListener('load', handleLoad, { passive: true, once: true });
-window.addEventListener('unload', stopPolling, { passive: true, once: true });
