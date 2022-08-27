@@ -3,10 +3,10 @@ import applyPreferences from './scripts/preferences.js';
 import latestImage from './scripts/endpoints/instagram.js';
 import latestSong, { stopPolling } from './scripts/endpoints/lastfm.js';
 
-const handleLoad = () => {
+const handleLoad = async () => {
   console.info(`%c ${CONTACT_INFO}`, 'font-family: monospace;');
-  latestImage();
-  latestSong();
+  await latestImage();
+  await latestSong();
   applyPreferences();
 };
 
