@@ -40,22 +40,21 @@ jobs:
         run: |
           git add .
           git stash
-          git status
       - name: Configure release branch
         run: |
           git fetch origin release
           git checkout release
-          rm *.html
-          rm *.js
-          rm *.css
-      - name: Commit changes
-        run: |
-          git rm --cached *.html
-          git rm --cached *.js
-          git rm --cached *.css
+          rm *.* 2>/dev/null || true
           git add .
           git stash pop
+      - name: Check if build has been updated
+        id: verify_diff
+        run: |
+          git diff --quiet || echo "::set-output name=build_updated::true"
+          echo "${{ steps.verify_diff.outputs.build_updated }}"
+      - name: Commit changes
+        if: steps.verify_diff.outputs.build_updated == 'true'
+        run: |
           git add .
           git commit -m "Update release ${{ steps.date.outputs.date }}"
-      - name: Push updates
-        run: git push
+          git push
