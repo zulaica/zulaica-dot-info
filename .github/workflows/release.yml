@@ -44,10 +44,20 @@ jobs:
         run: |
           git fetch origin release
           git checkout release
+          rm *.* 2>/dev/null || true
           git add .
           git stash pop
-      - name: Commit changes
+      - name: Check if build has been updated
+        id: verify_diff
         run: |
+          git diff --quiet || echo "::set-output name=build_updated::true"
+      - name: Test diff
+        if: steps.verify_diff.outputs.build_updated != 'true'
+        run: echo "${{ steps.verify_diff.outputs.build_updated }}"
+      - name: Commit changes
+        if: steps.verify_diff.outputs.build_updated == 'true'
+        run: |
+          echo "${{ steps.verify_diff.outputs.build_updated }}"
           git add .
           git commit -m "Update release ${{ steps.date.outputs.date }}"
-          git push
+
