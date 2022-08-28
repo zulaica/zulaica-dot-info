@@ -1,21 +1,27 @@
 import proxyURL from './proxyURL.js';
 
-const endpoint = new URL('/instagram', proxyURL);
-
 // `thumbnail_url` is provided for video posts, `media_url` for image posts
-const imageURL = ({ data }) => data[0].thumbnail_url || data[0].media_url;
+const imageURL = (postData) => postData.thumbnail_url || postData.media_url;
 
-const cacheImageURL = async () => {
-  const response = await fetch(endpoint);
-  const responseBody = response.ok && (await response.json());
-  const imageHREF = imageURL(responseBody);
+export const fetchLatestImage = async () => {
+  const endpoint = new URL('/instagram', proxyURL);
 
-  if (imageHREF === localStorage.getItem('image_href')) return;
+  try {
+    const response = await fetch(endpoint);
+    const {
+      data: { 0: postData }
+    } = response.ok && (await response.json());
+    const imageHREF = imageURL(postData);
 
-  localStorage.setItem('image_href', imageHREF);
+    if (imageHREF === localStorage.getItem('image_href')) return;
+
+    localStorage.setItem('image_href', imageHREF);
+  } catch ({ message }) {
+    console.error(message);
+  }
 };
 
-const applyLatestImage = () => {
+export const applyLatestImage = () => {
   const imageHREF = localStorage.getItem('image_href');
 
   if (imageHREF) {
@@ -37,13 +43,3 @@ const applyLatestImage = () => {
     };
   }
 };
-
-const latestImage = async () => {
-  try {
-    await cacheImageURL().then(() => applyLatestImage());
-  } catch ({ message }) {
-    console.error(message);
-  }
-};
-
-export default latestImage;
