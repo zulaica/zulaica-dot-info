@@ -47,43 +47,54 @@ export const fetchLatestTrack = async () => {
 export const renderLatestTrack = () => {
   const trackData = JSON.parse(localStorage.getItem('latest_track'));
   const aboutList = document.getElementById('about-list');
-  const trackTerm = document.createElement('dt');
-  const trackDetails = document.createElement('dd');
 
   if (trackData) {
-    const { artist, name, nowPlaying, timestamp, url } = trackData;
-    trackTerm.textContent = nowPlaying ? 'Listening to' : 'Listened to';
-    trackDetails.innerHTML = `&ldquo;<a href="${url}" title="${name} on Last.fm">${name}</a>&rdquo; by ${artist}`;
+    const trackTerm = document.createElement('dt');
+    trackTerm.id = 'track-term';
+    const trackDetails = document.createElement('dd');
+    trackDetails.id = 'track-details';
 
-    if (timestamp) {
-      const lineBreak = document.createElement('br');
-      const time = document.createElement('time');
-      const datetime = new Date(timestamp).toISOString();
-      const formattedDateTime = new Intl.DateTimeFormat(
-        'en-US',
-        DATE_TIME_FORMAT
-      ).format(timestamp);
-
-      time.dateTime = datetime;
-      time.textContent = formattedDateTime;
-      trackDetails.append(lineBreak, time);
-    }
+    updateTrackTerm(trackTerm, trackData);
+    updateTrackDetails(trackDetails, trackData);
 
     aboutList.append(trackTerm, trackDetails);
   }
 };
 
 const updateLatestTrack = async () => {
-  console.info('Polling...');
   try {
-    await fetchLatestTrack().then(() => renderLatestTrack());
+    await fetchLatestTrack();
+    const trackTerm = document.getElementById('track-term');
+    const trackDetails = document.getElementById('track-details');
+    const trackData = JSON.parse(localStorage.getItem('latest_track'));
+    updateTrackTerm(trackTerm, trackData);
+    updateTrackDetails(trackDetails, trackData);
   } catch ({ message }) {
     console.error(message);
   }
 };
 
+const updateTrackTerm = (element, { nowPlaying }) => {
+  element.textContent = nowPlaying ? 'Listening to' : 'Listened to';
+};
+
+const updateTrackDetails = (element, { url, name, artist, timestamp }) => {
+  let details = `&ldquo;<a href="${url}" title="${name} on Last.fm">${name}</a>&rdquo; by ${artist}`;
+
+  if (timestamp) {
+    const datetime = new Date(timestamp).toISOString();
+    const formattedDateTime = new Intl.DateTimeFormat(
+      'en-US',
+      DATE_TIME_FORMAT
+    ).format(timestamp);
+
+    details += `<br /><time datetime="${datetime}">${formattedDateTime}</time>`;
+  }
+
+  element.innerHTML = details;
+};
+
 export const startPolling = () => {
-  console.info('Polling started');
   if (!intervalId) {
     intervalId = setInterval(updateLatestTrack, 210_000);
   }
