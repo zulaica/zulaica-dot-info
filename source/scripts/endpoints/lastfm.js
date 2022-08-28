@@ -3,7 +3,6 @@ import DATE_TIME_FORMAT from '../helpers/dateTimeFormat.js';
 
 const trackTerm = document.createElement('dt');
 const trackDetails = document.createElement('dd');
-let intervalId;
 
 const normalizeTrack = (trackData) => {
   const {
@@ -25,7 +24,7 @@ const normalizeTrack = (trackData) => {
   };
 };
 
-const updateLatestTrack = async () => {
+export const updateLatestTrack = async () => {
   try {
     await fetchLatestTrack();
     const trackData = JSON.parse(localStorage.getItem('latest_track'));
@@ -88,15 +87,4 @@ export const renderLatestTrack = () => {
 
     aboutList.append(trackTerm, trackDetails);
   }
-};
-
-export const startPolling = () => {
-  if (!intervalId) {
-    intervalId = setInterval(updateLatestTrack, 210_000);
-  }
-};
-
-export const stopPolling = () => {
-  clearInterval(intervalId);
-  intervalId = null;
 };
