@@ -1,5 +1,5 @@
 import proxyURL from './proxyURL.js';
-import { options } from '../helpers/dateTimeFormat.js';
+import DATE_TIME_FORMAT from '../helpers/dateTimeFormat.js';
 
 let intervalId;
 
@@ -61,7 +61,7 @@ export const renderLatestTrack = () => {
       const datetime = new Date(timestamp).toISOString();
       const formattedDateTime = new Intl.DateTimeFormat(
         'en-US',
-        options
+        DATE_TIME_FORMAT
       ).format(timestamp);
 
       time.dateTime = datetime;
