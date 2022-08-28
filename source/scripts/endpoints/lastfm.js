@@ -73,9 +73,19 @@ export const renderLatestTrack = () => {
   }
 };
 
+const updateLatestTrack = async () => {
+  console.info('Polling...');
+  try {
+    await fetchLatestTrack().then(() => renderLatestTrack());
+  } catch ({ message }) {
+    console.error(message);
+  }
+};
+
 export const startPolling = () => {
+  console.info('Polling started');
   if (!intervalId) {
-    intervalId = setInterval(fetchLatestTrack, 210_000);
+    intervalId = setInterval(updateLatestTrack, 210_000);
   }
 };
 

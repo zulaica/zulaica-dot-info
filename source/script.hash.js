@@ -13,12 +13,12 @@ import {
 const handleDomContentLoaded = async () => {
   await fetchLatestImage();
   await fetchLatestTrack();
-  startPolling();
 };
 
 const handleLoad = () => {
   applyLatestImage();
   renderLatestTrack();
+  startPolling();
   applyPreferences();
   console.info(`%c ${CONTACT_INFO}`, 'font-family: monospace;');
 };
