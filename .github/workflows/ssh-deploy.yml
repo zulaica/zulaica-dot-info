@@ -1,0 +1,36 @@
+name: SSH Deploy
+
+on:
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+    inputs:
+      label:
+        description: 'Label'
+        type: string
+        required: true
+
+jobs:
+  ssh_deploy:
+    name: Bundle release and deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out codebase
+        uses: actions/checkout@v3
+      - name: Install Node.js
+        uses: volta-cli/action@v1
+      - name: Install dependencies
+        run: npm ci
+      - name: Bundle release
+        run: npm run build
+      - name: Deploy to Staging
+        uses: easingthemes/ssh-deploy@v2
+        env:
+          ARGS: '-az --delete'
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          SOURCE: 'release/'
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          TARGET: ${{ secrets.TARGET }}
