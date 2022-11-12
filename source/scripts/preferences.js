@@ -14,12 +14,6 @@ const toggleMenu = ({ target }) => {
     : target.setAttribute('aria-expanded', true);
 };
 
-const toggleBackground = ({ target }) => {
-  const background = target.checked ? 'enabled' : 'disabled';
-  localStorage.setItem('background', background);
-  document.documentElement.setAttribute('data-background', background);
-};
-
 const toggleTheme = ({ target }) => {
   const theme = target.checked ? 'dark' : 'light';
   localStorage.setItem('theme', theme);
@@ -38,10 +32,6 @@ const renderMenu = () => {
         <label for="theme">Dark Theme</label>
         <input id="theme" type="checkbox" role="menuitem" />
       </li>
-      <li id="background-item" role="presentation">
-        <label for="background">Background Image</label>
-        <input id="background" type="checkbox" role="menuitem" />
-      </li>
     </ul>
   `;
   header.append(menuWrapper);
@@ -52,27 +42,16 @@ const applyPreferences = () => {
     setInitialTheme();
   }
 
-  if (!localStorage.getItem('background')) {
-    localStorage.setItem('background', 'enabled');
-  }
-
   renderMenu();
 
   const menuToggle = document.getElementById('menu-toggle');
-  const background = localStorage.getItem('background');
   const theme = localStorage.getItem('theme');
   const themeCheckbox = document.getElementById('theme');
-  const backgroundCheckbox = document.getElementById('background');
 
   document.documentElement.setAttribute('data-theme', theme);
-  document.documentElement.setAttribute('data-background', background);
   themeCheckbox.checked = theme === 'dark' ? true : false;
-  backgroundCheckbox.checked = background === 'enabled' ? true : false;
 
   menuToggle.addEventListener('click', toggleMenu, { passive: true });
-  backgroundCheckbox.addEventListener('change', toggleBackground, {
-    passive: true
-  });
   themeCheckbox.addEventListener('change', toggleTheme, { passive: true });
 };
 
