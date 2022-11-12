@@ -9,7 +9,6 @@
   /**
    * Settings
    */
-  --backdrop-filter: saturate(15%) contrast(2) blur(15px);
   --border-radius: 0.25rem;
   --transition-settings: ease 0.125s;
   --linear-gradient: var(--color-link-visited) 10%, var(--color-link-active) 25%,
