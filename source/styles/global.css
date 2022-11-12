@@ -24,29 +24,6 @@ html {
   background: var(--color-background);
 }
 
-body::before,
-body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-}
-
-body::before {
-  background-image: var(--image-url);
-  background-position: center;
-  background-size: 125%;
-  transition: opacity ease 0.25s;
-}
-
-body::after {
-  -webkit-backdrop-filter: var(--backdrop-filter);
-  backdrop-filter: var(--backdrop-filter);
-}
-
 body {
   border-top: 0.0833rem solid var(--color-link-visited);
   background-color: var(--color-background);
