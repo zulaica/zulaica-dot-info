@@ -1,10 +1,6 @@
 import CONTACT_INFO from './scripts/contact.js';
 import applyPreferences from './scripts/preferences.js';
 import {
-  applyLatestImage,
-  fetchLatestImage
-} from './scripts/endpoints/instagram.js';
-import {
   fetchLatestTrack,
   renderLatestTrack,
   updateLatestTrack
@@ -12,12 +8,10 @@ import {
 import Poller from './scripts/helpers/poller.js';
 
 const handleDomContentLoaded = async () => {
-  await fetchLatestImage();
   await fetchLatestTrack();
 };
 
 const handleLoad = () => {
-  applyLatestImage();
   renderLatestTrack();
   applyPreferences();
 
