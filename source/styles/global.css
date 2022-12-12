@@ -7,6 +7,14 @@
     border-color var(--transition-settings);
 }
 
+::selection {
+  background: var(--color-link-visited);
+}
+
+a::selection {
+  color: var(--color-link-active);
+}
+
 :focus {
   outline: 0;
 }
