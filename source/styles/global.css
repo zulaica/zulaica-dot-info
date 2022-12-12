@@ -2,9 +2,14 @@
 *::after,
 * {
   box-sizing: border-box;
-  transition: color var(--transition-settings),
-    background var(--transition-settings),
-    border-color var(--transition-settings);
+}
+
+::selection {
+  background: var(--color-link-visited);
+}
+
+a::selection {
+  color: var(--color-text);
 }
 
 :focus {
@@ -24,42 +29,24 @@ html {
   background: var(--color-background);
 }
 
-body::before,
-body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-}
-
-body::before {
-  background-image: var(--image-url);
-  background-position: center;
-  background-size: 125%;
-  transition: opacity ease 0.25s;
-}
-
-body::after {
-  -webkit-backdrop-filter: var(--backdrop-filter);
-  backdrop-filter: var(--backdrop-filter);
-}
-
 body {
-  border-top: 0.0833rem solid var(--color-link-visited);
   background-color: var(--color-background);
   margin: 0;
   min-height: 100vh;
+  border-top: 1em solid;
+  border-image-source: linear-gradient(to right, var(--linear-gradient));
+  border-image-width: 0.325em 0;
+  border-image-slice: 1;
 }
 
 hr {
   border: 0;
+  border-top: 0.0416rem solid var(--color-border);
   margin: 0;
-  height: 0.325em;
-  background-color: var(--color-link-visited);
-  background-image: linear-gradient(to right, var(--linear-gradient));
+}
+
+hr:first-of-type {
+  border: 0;
 }
 
 header .container,
@@ -76,6 +63,7 @@ a {
   text-decoration-color: var(--color-link);
   text-decoration-thickness: 0.0833rem;
   text-underline-offset: 0.2625em;
+  transition: color var(--transition-settings);
 }
 
 a:hover,
@@ -95,21 +83,19 @@ a:visited {
 
 dl {
   margin: 2.5em auto;
-  border-top: 0.325em solid var(--color-border);
   display: grid;
   grid-template-columns: auto 1fr;
 }
 
-dt {
+dt,
+dd {
   margin: 0;
   padding: 0.5em 1em;
   border-bottom: 0.0416rem solid var(--color-border);
 }
 
-dd {
-  margin: 0;
-  padding: 0.5em 1em;
-  border-bottom: 0.0416rem solid var(--color-border);
+:is(dt, dd):last-of-type {
+  border-bottom: 0;
 }
 
 time {

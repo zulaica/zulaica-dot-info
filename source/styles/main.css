@@ -3,11 +3,7 @@ main {
 }
 
 main section {
-  padding: 5rem 0;
-}
-
-main section + section {
-  padding-top: 2.5rem;
+  padding: 0 0 5rem 0;
 }
 
 main section h2 {
