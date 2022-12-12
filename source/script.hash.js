@@ -9,9 +9,6 @@ import Poller from './scripts/helpers/poller.js';
 
 const handleDomContentLoaded = async () => {
   await fetchLatestTrack();
-};
-
-const handleLoad = () => {
   renderLatestTrack();
   applyPreferences();
 
@@ -25,4 +22,3 @@ window.addEventListener('DOMContentLoaded', handleDomContentLoaded, {
   passive: true,
   once: true
 });
-window.addEventListener('load', handleLoad, { passive: true, once: true });
