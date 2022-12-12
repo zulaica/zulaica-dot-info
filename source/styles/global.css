@@ -9,7 +9,7 @@
 }
 
 a::selection {
-  color: var(--color-link-active);
+  color: var(--color-text);
 }
 
 :focus {
