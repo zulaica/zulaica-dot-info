@@ -1,12 +1,8 @@
-header {
-  background: var(--color-text-inverse);
-}
-
 header .container {
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: auto auto;
-  padding: 2.5rem;
+  padding: 5rem 2.5rem;
 }
 
 header h1 {
