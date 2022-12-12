@@ -2,9 +2,6 @@
 *::after,
 * {
   box-sizing: border-box;
-  transition: color var(--transition-settings),
-    background var(--transition-settings),
-    border-color var(--transition-settings);
 }
 
 ::selection {
@@ -64,6 +61,7 @@ a {
   text-decoration-color: var(--color-link);
   text-decoration-thickness: 0.0833rem;
   text-underline-offset: 0.2625em;
+  transition: color var(--transition-settings);
 }
 
 a:hover,
