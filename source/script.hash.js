@@ -1,5 +1,4 @@
 import CONTACT_INFO from './scripts/contact.js';
-import applyPreferences from './scripts/preferences.js';
 import {
   fetchLatestTrack,
   renderLatestTrack,
@@ -10,7 +9,6 @@ import Poller from './scripts/helpers/poller.js';
 const handleDomContentLoaded = async () => {
   await fetchLatestTrack();
   renderLatestTrack();
-  applyPreferences();
 
   const poll = new Poller(210_000);
   poll.start(updateLatestTrack);
