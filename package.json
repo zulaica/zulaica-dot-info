@@ -1,7 +1,7 @@
 {
   "name": "zulaica-dot-info",
   "author": "David Zulaica",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "engines": {
     "node": ">=16.18.1"
   },
