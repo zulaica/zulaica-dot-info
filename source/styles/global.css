@@ -33,18 +33,21 @@ html {
 }
 
 body {
-  border-top: 0.0833rem solid var(--color-link-visited);
   background-color: var(--color-background);
   margin: 0;
   min-height: 100vh;
+  border-image-source: linear-gradient(to right, var(--linear-gradient));
+  border-image-width: 0.325em 0;
+  border-image-slice: 1;
 }
 
 hr {
-  border: 0;
+  border: 0.0416rem solid var(--color-border);
   margin: 0;
-  height: 0.325em;
-  background-color: var(--color-link-visited);
-  background-image: linear-gradient(to right, var(--linear-gradient));
+}
+
+hr:first-of-type {
+  border: 0;
 }
 
 header .container,
