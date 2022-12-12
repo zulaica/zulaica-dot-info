@@ -47,3 +47,13 @@
     --color-link-hue: 280;
   }
 }
+
+/* Workaround for Safari on iOS */
+@supports (background-color: -apple-system-control-background) and (color: Text) {
+  :root {
+    --color-background: -apple-system-control-background;
+    --color-text: Text;
+    --linear-gradient-alt: var(--color-link-hover) 0%,
+      var(--color-link-visited) 50%, -apple-system-control-background 100%;
+  }
+}
