@@ -48,11 +48,3 @@
   --color-text: var(--color-dark);
   --color-text-inverse: var(--color-light);
 }
-
-[data-background='enabled'] body::before {
-  opacity: 1;
-}
-
-[data-background='disabled'] body::before {
-  opacity: 0;
-}
