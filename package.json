@@ -23,7 +23,7 @@
     "lint:js": "eslint \"source/**/*.js\" \"lib/**/*.*js\" --format ./lib/formatters/eslint.js"
   },
   "devDependencies": {
-    "@zulaica/site-bundler": "github:zulaica/site-bundler#v0.4.1",
+    "@zulaica/site-bundler": "github:zulaica/site-bundler#v0.4.2",
     "browser-sync": "2.28.3",
     "eslint": "8.35.0",
     "eslint-config-prettier": "8.7.0",
