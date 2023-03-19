@@ -1,6 +1,6 @@
-@import 'styles/vars.css';
-@import 'styles/media-queries.css';
-@import 'styles/global.css';
-@import 'styles/header.css';
-@import 'styles/main.css';
-@import 'styles/footer.css';
+@import url('styles/vars.css');
+@import url('styles/media-queries.css');
+@import url('styles/global.css');
+@import url('styles/header.css');
+@import url('styles/main.css');
+@import url('styles/footer.css');
