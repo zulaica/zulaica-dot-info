@@ -21,10 +21,10 @@
   --color-border: GrayText;
   --color-text: CanvasText;
   --color-text-inverse: Canvas;
-  --color-link: hsl(var(--color-link-hue), 100%, 40%);
-  --color-link-hover: hsl(var(--color-link-hue), 100%, 50%);
-  --color-link-active: hsl(var(--color-link-hue), 75%, 60%);
-  --color-link-visited: hsl(var(--color-link-hue), 25%, 50%);
+  --color-link: hsl(var(--color-link-hue) 100% 40%);
+  --color-link-hover: hsl(var(--color-link-hue) 100% 50%);
+  --color-link-active: hsl(var(--color-link-hue) 75% 60%);
+  --color-link-visited: hsl(var(--color-link-hue) 25% 50%);
 
   /**
    * Gradients
@@ -49,10 +49,10 @@
 }
 
 /* Workaround for Safari on iOS */
-@supports (background-color: -apple-system-control-background) and (color: Text) {
+@supports (background-color: -apple-system-control-background) and (color: text) {
   :root {
     --color-background: -apple-system-control-background;
-    --color-text: Text;
+    --color-text: text;
     --linear-gradient-alt: var(--color-link-hover) 0%,
       var(--color-link-visited) 50%, -apple-system-control-background 100%;
   }
