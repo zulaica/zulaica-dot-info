@@ -4,6 +4,7 @@ on: pull_request
 
 jobs:
   lint_css:
+    name: Lint CSS Files
     uses: ./.github/workflows/lint.yml
     with:
       file-extension: css
