@@ -1,9 +1,9 @@
 {
   "name": "zulaica-dot-info",
   "author": "David Zulaica",
-  "version": "2.5.5",
+  "version": "2.6.0",
   "engines": {
-    "node": ">=16.18.1"
+    "node": ">=18.19.1"
   },
   "license": "UNLICENSED",
   "private": true,
@@ -16,25 +16,25 @@
   },
   "homepage": "https://github.com/zulaica/zulaica-dot-info#readme",
   "scripts": {
-    "build": "site-bundler --input source --output release",
+    "build": "site-bundler -i source -o release",
     "dev": "browser-sync source --watch --no-ui --port 50001",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:css": "stylelint \"source/**/*.css\" --custom-formatter ./lib/formatters/stylelint.js",
     "lint:js": "eslint \"source/**/*.js\" \"lib/**/*.*js\" --format ./lib/formatters/eslint.js"
   },
   "devDependencies": {
-    "@zulaica/site-bundler": "github:zulaica/site-bundler#v0.4.3",
-    "browser-sync": "2.29.0",
-    "eslint": "8.36.0",
-    "eslint-config-prettier": "8.7.0",
-    "eslint-plugin-prettier": "4.2.1",
-    "prettier": "2.8.4",
-    "stylelint": "15.3.0",
-    "stylelint-config-standard": "31.0.0",
-    "stylelint-prettier": "3.0.0"
+    "@zulaica/site-bundler": "0.6.2",
+    "browser-sync": "3.0.3",
+    "eslint": "8.57.1",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-prettier": "5.2.1",
+    "prettier": "3.3.3",
+    "stylelint": "16.10.0",
+    "stylelint-config-standard": "36.0.1",
+    "stylelint-prettier": "5.0.2"
   },
   "volta": {
-    "node": "16.18.1",
-    "npm": "8.19.2"
+    "node": "18.19.1",
+    "npm": "10.2.4"
   }
 }
