@@ -1,19 +1,13 @@
 import CONTACT_INFO from './scripts/contact.js';
-import {
-  fetchLatestTrack,
-  renderLatestTrack,
-  updateLatestTrack
-} from './scripts/endpoints/lastfm.js';
+import LastFM from './scripts/apis/lastfm.js';
 import Poller from './scripts/helpers/poller.js';
 
 const handleDomContentLoaded = async () => {
-  await fetchLatestTrack();
-  renderLatestTrack();
-
-  const poll = new Poller(210_000);
-  poll.start(updateLatestTrack);
-
   console.info(`%c ${CONTACT_INFO}`, 'font-family: monospace;');
+  const poll = new Poller(210_000);
+
+  await LastFM.render();
+  poll.start(LastFM.update);
 };
 
 window.addEventListener('DOMContentLoaded', handleDomContentLoaded, {
