@@ -2,11 +2,19 @@ main {
   padding: 0 2.5rem;
 }
 
-main section {
+section {
   padding: 0 0 5rem 0;
+
+  p {
+    margin: 2.5em auto;
+  }
+
+  :last-child {
+    margin-bottom: 0;
+  }
 }
 
-main section h2 {
+h2 {
   margin-top: 0;
   display: grid;
   gap: 0.5em;
@@ -16,26 +24,39 @@ main section h2 {
   font-family: ui-serif, serif;
   font-style: oblique;
   letter-spacing: -0.03125em;
+
+  &::before,
+  &::after {
+    content: "";
+    height: 0.0833rem;
+  }
+
+  &::before {
+    background-image: linear-gradient(to right, var(--linear-gradient-alt));
+  }
+
+  &::after {
+    background-image: linear-gradient(to left, var(--linear-gradient-alt));
+  }
 }
 
-main section h2::before,
-main section h2::after {
-  content: '';
-  height: 0.0833rem;
-}
-
-main section h2::before {
-  background-image: linear-gradient(to right, var(--linear-gradient-alt));
-}
-
-main section h2::after {
-  background-image: linear-gradient(to left, var(--linear-gradient-alt));
-}
-
-main section p {
+dl {
   margin: 2.5em auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
 }
 
-main section :last-child {
-  margin-bottom: 0;
+dt,
+dd {
+  margin: 0;
+  padding: 0.5em 1em;
+  border-bottom: 0.0416rem solid var(--color-border);
+
+  &:last-of-type {
+    border-bottom: 0;
+  }
+}
+
+time {
+  font-size: 0.75rem;
 }

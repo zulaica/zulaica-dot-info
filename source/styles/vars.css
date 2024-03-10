@@ -5,8 +5,8 @@
    * Typography
    */
   --font-size-base: 24px;
-  --font-family-body: ui-sans-serif, 'Helvetica Neue', 'Helvetica', system-ui,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-family-body: ui-sans-serif, "Helvetica Neue", "Helvetica", system-ui,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   /**
    * Settings
