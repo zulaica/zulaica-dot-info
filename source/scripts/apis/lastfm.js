@@ -1,14 +1,14 @@
-import proxyURL from './proxyURL.js';
-import { DATETIME_OPTIONS, EMOJI } from '../helpers/constants.js';
+import { DATETIME_OPTIONS, EMOJI } from "../helpers/constants.js";
+import proxyURL from "./proxyURL.js";
 
-const aboutList = document.getElementById('about-list');
-const endpoint = new URL('/lastfm', proxyURL);
-const trackStatus = document.createElement('dt');
-const trackDetails = document.createElement('dd');
+const aboutList = document.getElementById("about-list");
+const endpoint = new URL("/lastfm", proxyURL);
+const trackStatus = document.createElement("dt");
+const trackDetails = document.createElement("dd");
 
 async function render() {
   await update();
-  localStorage.getItem('latest_track') &&
+  localStorage.getItem("latest_track") &&
     aboutList.append(trackStatus, trackDetails);
 }
 
@@ -35,7 +35,7 @@ async function _fetchData() {
     } = await response.json();
     const latestTrack = _formatData(data);
 
-    localStorage.setItem('latest_track', JSON.stringify(latestTrack));
+    localStorage.setItem("latest_track", JSON.stringify(latestTrack));
     console.info(`[LastFM] ${EMOJI.partyingFace} Latest track data updated.`);
 
     return latestTrack;
@@ -44,17 +44,17 @@ async function _fetchData() {
       `[LastFM] ${EMOJI.personShrugging} Unable to update latest track data; using cache.`
     );
 
-    return JSON.parse(localStorage.getItem('latest_track'));
+    return JSON.parse(localStorage.getItem("latest_track"));
   }
 }
 
 function _formatData(data) {
   const {
-    artist: { '#text': artist },
+    artist: { "#text": artist },
     date,
     name: title,
     url,
-    '@attr': attr
+    "@attr": attr
   } = data;
   const timestamp = date ? date.uts * 1000 : null;
   const nowPlaying = attr?.nowplaying ?? null;
@@ -64,19 +64,19 @@ function _formatData(data) {
 
 function _updateDetails({ url, title, artist, timestamp }) {
   const details = `&ldquo;<a href="${url}" title="${title} on Last.fm">${title}</a>&rdquo; by ${artist}`;
-  const time = timestamp ? _updateTime(timestamp) : '';
+  const time = timestamp ? _updateTime(timestamp) : "";
 
   trackDetails.innerHTML = details + time;
 }
 
 function _updateStatus(nowPlaying) {
-  trackStatus.textContent = nowPlaying ? 'Listening to' : 'Listened to';
+  trackStatus.textContent = nowPlaying ? "Listening to" : "Listened to";
 }
 
 function _updateTime(timestamp) {
   const datetime = new Date(timestamp).toISOString();
   const formattedDateTime = new Intl.DateTimeFormat(
-    'en-US',
+    "en-US",
     DATETIME_OPTIONS
   ).format(timestamp);
 

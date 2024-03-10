@@ -2,7 +2,7 @@
   "extends": ["stylelint-config-standard"],
   "rules": {
     "block-no-empty": true,
-    "font-family-name-quotes":"always-unless-keyword",
+    "font-family-name-quotes": "always-unless-keyword",
     "number-max-precision": 5,
     "shorthand-property-no-redundant-values": null
   }

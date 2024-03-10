@@ -1,29 +1,10 @@
 {
-  "css.validate": false,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "eslint.run": "onSave",
-  "files.exclude": {
-    "**/.git": true,
-    "**/node_modules": true,
-    "**/.DS_Store": true,
-    "**/Thumbs.db": true
-  },
-  "search.exclude": {
-    "**/release": true
-  },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  }
+  "explorer.excludeGitIgnore": true,
+  "files.insertFinalNewline": true
 }
