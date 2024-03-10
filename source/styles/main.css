@@ -1,17 +1,21 @@
 main {
   padding: 0 2.5rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 5rem;
 }
 
+article,
 section {
-  padding: 0 0 5rem 0;
+  padding: 0 0 2.5rem 0;
 
   p {
     margin: 2.5em auto;
   }
+}
 
-  :last-child {
-    margin-bottom: 0;
-  }
+section {
+  width: 30ch;
 }
 
 h2 {
@@ -28,15 +32,16 @@ h2 {
   &::before,
   &::after {
     content: "";
-    height: 0.0833rem;
+    height: 0.25rem;
+    border-radius: 0.0625em;
   }
 
   &::before {
-    background-image: linear-gradient(to right, var(--linear-gradient-alt));
+    background-image: linear-gradient(to right, var(--step-gradient));
   }
 
   &::after {
-    background-image: linear-gradient(to left, var(--linear-gradient-alt));
+    background-image: linear-gradient(to left, var(--step-gradient));
   }
 }
 
@@ -46,11 +51,15 @@ dl {
   grid-template-columns: auto 1fr;
 }
 
+dt {
+  min-width: 10ch;
+}
+
 dt,
 dd {
   margin: 0;
-  padding: 0.5em 1em;
-  border-bottom: 0.0416rem solid var(--color-border);
+  padding: 0.5em;
+  border-bottom: 0.03125rem solid var(--color-ui);
 
   &:last-of-type {
     border-bottom: 0;
@@ -58,5 +67,8 @@ dd {
 }
 
 time {
+  display: block;
   font-size: 0.75rem;
+  line-height: 1.375;
+  margin-top: 0.25rem;
 }

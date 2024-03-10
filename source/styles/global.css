@@ -5,43 +5,37 @@
 }
 
 ::selection {
-  background: var(--color-link-visited);
+  background: var(--color-text-selection);
 }
 
 a::selection {
   color: var(--color-text);
 }
 
-:focus {
-  outline: 0;
-}
-
+:focus,
 :focus-visible {
-  outline: 0.0416rem ridge var(--color-link);
-  outline-offset: 0.125rem;
+  outline: 0;
 }
 
 html {
   font-family: var(--font-family-body);
   font-size: var(--font-size-base);
-  line-height: 1.75;
-  color: var(--color-text);
-  background: var(--color-background);
 }
 
 body {
-  background-color: var(--color-background);
+  color: var(--color-text);
+  background: var(--color-background);
+  line-height: 1.75;
   margin: 0;
   min-height: 100vh;
-  border-top: 1em solid;
-  border-image-source: linear-gradient(to right, var(--linear-gradient));
-  border-image-width: 0.325em 0;
+  border-image-source: linear-gradient(to right, var(--step-gradient));
+  border-image-width: 1rem 0;
   border-image-slice: 1;
 }
 
 hr {
   border: 0;
-  border-top: 0.0416rem solid var(--color-border);
+  border-top: 0.03125rem solid var(--color-ui);
   margin: 0;
 
   &:first-of-type {
@@ -52,18 +46,32 @@ hr {
 header,
 main,
 footer {
-  max-width: 70ch;
+  max-width: 90ch;
   margin: 0 auto;
 }
 
 a {
-  font-weight: 500;
+  position: relative;
+  font-weight: 600;
   color: var(--color-link);
-  text-decoration: underline;
-  text-decoration-color: var(--color-link);
-  text-decoration-thickness: 0.0833rem;
-  text-underline-offset: 0.2625em;
-  transition: color var(--transition-settings);
+  text-decoration: none;
+  transition:
+    background-color var(--transition-settings),
+    color var(--transition-settings);
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 0.0625rem;
+    border-radius: 0.0625em;
+    background: linear-gradient(to right, var(--step-gradient));
+    width: 100%;
+    margin-top: 1.5em;
+    transition:
+      height var(--transition-settings),
+      margin-top var(--transition-settings);
+  }
 
   &:active {
     color: var(--color-link-active);
@@ -78,5 +86,10 @@ a {
   &:visited:hover,
   &:visited:focus-visible {
     color: var(--color-link-hover);
+
+    &::after {
+      height: 0.25rem;
+      margin-top: 1.625em;
+    }
   }
 }

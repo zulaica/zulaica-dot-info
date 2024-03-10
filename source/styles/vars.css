@@ -1,59 +1,66 @@
 :root {
-  color-scheme: dark light;
+  color-scheme: light dark;
 
   /**
    * Typography
    */
   --font-size-base: 24px;
-  --font-family-body: ui-sans-serif, "Helvetica Neue", "Helvetica", system-ui,
+  --font-family-body: system-ui, ui-sans-serif, "Helvetica Neue", "Helvetica",
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   /**
    * Settings
    */
   --border-radius: 0.25rem;
-  --transition-settings: ease 0.125s;
+  --transition-settings: 0.0625s ease-in-out;
+
+  /**
+   * Hues
+   */
+  --hue-blue: 230;
+  --hue-green: 130;
+  --hue-red: 330;
+
+  /**
+   * Shades
+   */
+  --shade-light: 30% 70%;
+  --shade-medium: 30% 60%;
+  --shade-dark: 30% 50%;
 
   /**
    * Colors
    */
-  --color-background: Canvas;
-  --color-border: GrayText;
-  --color-text: CanvasText;
-  --color-text-inverse: Canvas;
-  --color-link: hsl(var(--color-link-hue) 100% 40%);
-  --color-link-hover: hsl(var(--color-link-hue) 100% 50%);
-  --color-link-active: hsl(var(--color-link-hue) 75% 60%);
-  --color-link-visited: hsl(var(--color-link-hue) 25% 50%);
+  --color-blue: hsl(var(--hue-blue) var(--shade));
+  --color-green: hsl(var(--hue-green) var(--shade));
+  --color-red: hsl(var(--hue-red) var(--shade));
+  --color-link: hsl(var(--hue-blue) var(--shade));
+  --color-link-active: hsl(var(--hue-green) var(--shade));
+  --color-link-hover: hsl(var(--hue-green) var(--shade));
+  --color-link-visited: hsl(var(--hue-red) var(--shade));
+  --color-text-selection: var(--color-ui);
 
   /**
    * Gradients
    **/
-  --linear-gradient: var(--color-link-visited) 10%, var(--color-link-active) 25%,
-    var(--color-link) 50%, var(--color-link-hover) 75%,
-    var(--color-link-visited) 90%;
-  --linear-gradient-alt: var(--color-link-hover) 0%,
-    var(--color-link-visited) 50%, Canvas 100%;
+  --step-gradient: var(--color-blue) 0% 33%, var(--color-green) 33% 66%,
+    var(--color-red) 66% 100%;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-link-hue: 180;
+    --color-background: hsl(var(--hue-green) 10% 5%);
+    --color-text: hsl(var(--hue-green) 10% 90%);
+    --color-ui: hsl(var(--hue-green) var(--shade-dark));
+    --shade: var(--shade-medium);
   }
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --color-link-hue: 280;
-  }
-}
-
-/* Workaround for Safari on iOS */
-@supports (background-color: -apple-system-control-background) and (color: text) {
-  :root {
-    --color-background: -apple-system-control-background;
-    --color-text: text;
-    --linear-gradient-alt: var(--color-link-hover) 0%,
-      var(--color-link-visited) 50%, -apple-system-control-background 100%;
+    --color-background: hsl(var(--hue-green) 10% 90%);
+    --color-text: hsl(var(--hue-green) 10% 25%);
+    --color-ui: hsl(var(--hue-green) var(--shade-medium));
+    --shade: var(--shade-dark);
   }
 }

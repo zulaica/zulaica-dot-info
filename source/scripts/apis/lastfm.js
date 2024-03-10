@@ -5,6 +5,7 @@ const aboutList = document.getElementById("about-list");
 const endpoint = new URL("/lastfm", proxyURL);
 const trackStatus = document.createElement("dt");
 const trackDetails = document.createElement("dd");
+trackDetails.style = "line-height: 1.625";
 
 async function render() {
   await update();
@@ -80,7 +81,7 @@ function _updateTime(timestamp) {
     DATETIME_OPTIONS
   ).format(timestamp);
 
-  return `<br /><time datetime="${datetime}">${formattedDateTime}</time>`;
+  return `<time datetime="${datetime}">${formattedDateTime}</time>`;
 }
 
 const LastFM = Object.freeze({ render, update });
