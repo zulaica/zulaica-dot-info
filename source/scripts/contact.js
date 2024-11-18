@@ -5,7 +5,7 @@ const CONTACT_INFO = `
   d a v i d @ z u l a i c a . i n f o
 
  └──────────────╴EMAIL╶──────────────┘
-           └───╴TWITTER╶───┘
+           └───╴SOCIAL╶────┘
 
 `;
 

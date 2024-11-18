@@ -1,9 +1,0 @@
-.github/
-.vscode/
-release/
-*.config.js
-*.config.json
-.eslintrc.json
-.prettierrc.json
-.stylelintrc.json
-package-lock.json

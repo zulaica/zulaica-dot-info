@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8" />
-    <meta name="color-scheme" content="dark light" />
-
     <title>
       David Zulaica&thinsp;&mdash;&thinsp;Person Familiar with the Matter
     </title>
+
+    <meta charset="utf-8" />
+    <meta name="color-scheme" content="dark light" />
 
     <link rel="dns-prefetch" href="https://zulaica.dev" />
 
@@ -34,45 +34,48 @@
     <meta property="og:url" content="https://zulaica.info/" />
     <meta
       property="og:image"
-      content="https://www.gravatar.com/avatar/da0a821c09edbd8369777d622b446cc2?size=1024"
+      content="https://gravatar.com/avatar/da0a821c09edbd8369777d622b446cc2?size=1024"
     />
 
     <script src="script.hash.js" type="module"></script>
     <link rel="stylesheet" href="style.hash.css" media="screen" />
   </head>
   <body>
-    <header role="banner">
-      <div class="container">
-        <h1>David Zulaica</h1>
-        <p>Person Familiar with the Matter</p>
+    <div id="loader">
+      <div id="indicator">
+        <div class="blue"></div>
+        <div class="green"></div>
+        <div class="red"></div>
       </div>
+    </div>
+    <header role="banner">
+      <h1>David Zulaica</h1>
+      <p>Person Familiar with the Matter</p>
+      <input type="checkbox" id="theme" name="theme" hidden />
+      <label for="theme"></label>
     </header>
     <hr />
     <main>
-      <section>
+      <article>
         <h2>Hello!</h2>
         <p>My name is David.</p>
         <p>
           I like
-          <a href="https://github.com/zulaica" title="Github">writing code</a>.
+          <a href="https://github.com/zulaica" title="My Github profile"
+            >writing code</a
+          >.
         </p>
         <p>
           I love listening to and
           <a href="https://erasedfiles.biz" title="Erased Files">making music</a
-          >. While my instruments of choice have lately been various
-          synthesizers, I also play the piano, drums, and guitar.
-        </p>
-        <p>
-          I have two cats. Their names are Sgt Pepper and Billy Shears. They're
-          siblings, being from the same litter. We've been pals since August
-          2006. (Update: Sgt Pepper passed away March 2023. Billy and I miss him
-          and think of him every day.)
+          >. My instruments of choice lately have been various synthesizers, but
+          I also play the drums, guitar, and piano (albeit a bit rustily).
         </p>
         <p>
           I'm
           <a
-            href="https://www.notion.so/zulaica/amiibo-91a733676d194b8597b7ca2b940a0f36"
-            title="My collection on Notion"
+            href="https://zulaica.notion.site/amiibo-91a733676d194b8597b7ca2b940a0f36"
+            title="My Animal Crossing amiibo collection on Notion"
             >attempting to collect</a
           >
           all of the Animal Crossing amiibo cards. Let me know if you'd like to
@@ -92,82 +95,92 @@
           at Hollywood Theatre is one of my favorite pastimes.
         </p>
         <p>
-          I enjoy playing Magic: The Gathering, both with decks I've built and
-          preconstructed decks I've collected.
+          I enjoy playing Magic: The Gathering, both with
+          <a
+            href="https://moxfield.com/users/zulaica"
+            title="My Moxfield profile"
+            >decks I've built</a
+          >
+          and preconstructed
+          <a
+            href="https://zulaica.notion.site/Precon-Pantry-Project-cd3a1fd9c3514ef2bb434a11f370a7c0"
+            title="My MTG precon collection on Notion"
+            >decks I've collected</a
+          >.
         </p>
-        <p>
-          I'm champing at the bit for The Legend of Zelda: Tears of the Kingdom.
-        </p>
-      </section>
-      <section>
-        <h2>About</h2>
-        <dl id="about-list">
-          <dt>Pronouns</dt>
-          <dd>
-            <a
-              href="https://pronoun.is/they/:or/he"
-              title="Pronoun usage examples"
-              >they/he</a
-            >
-          </dd>
-          <dt>Location</dt>
-          <dd>
-            <a href="https://www.travelportland.com" title="Travel Portland"
-              >Portland, OR</a
-            >
-          </dd>
-          <dt>Github</dt>
-          <dd>
-            <a href="https://github.com/zulaica" title="Github Profile"
-              >zulaica</a
-            >
-          </dd>
-          <dt>Mastodon</dt>
-          <dd>
-            <a
-              rel="me"
-              href="https://xoxo.zone/@zulaica"
-              title="Mastodon Profile"
-              >@zulaica@xoxo.zone</a
-            >
-          </dd>
-          <dt>Cohost</dt>
-          <dd>
-            <a href="https://cohost.org/zulaica" title="Cohost Profile"
-              >@zulaica</a
-            >
-          </dd>
-          <dt>Twitter</dt>
-          <dd>
-            <a href="https://twitter.com/zulaica" title="Twitter Profile"
-              >@zulaica</a
-            >
-          </dd>
-          <dt>Instagram</dt>
-          <dd>
-            <a
-              href="https://www.instagram.com/zulaica/"
-              title="Instagram Profile"
-              >@zulaica</a
-            >
-          </dd>
-        </dl>
-      </section>
+      </article>
+      <aside>
+        <section>
+          <h2>About</h2>
+          <dl id="about-list">
+            <dt>Pronouns</dt>
+            <dd>
+              <a
+                href="https://pronoun.is/they/:or/he"
+                title="Pronoun usage examples"
+                >they/he</a
+              >
+            </dd>
+            <dt>Location</dt>
+            <dd>
+              <a href="https://www.travelportland.com" title="Travel Portland"
+                >Portland, OR</a
+              >
+            </dd>
+          </dl>
+        </section>
+        <section>
+          <h2>Socials</h2>
+          <dl id="socials-list">
+            <dt>Bluesky</dt>
+            <dd>
+              <a
+                href="https://bsky.app/profile/zulaica.info"
+                title="Bluesky profile"
+              >
+                @zulaica.info</a
+              >
+            </dd>
+            <dt>Instagram</dt>
+            <dd>
+              <a href="https://instagram.com/zulaica/" title="Instagram profile"
+                >@zulaica</a
+              >
+            </dd>
+            <dt>Mastodon</dt>
+            <dd>
+              <a href="https://xoxo.zone/@zulaica" title="Mastodon profile"
+                >@zulaica@xoxo.zone</a
+              >
+            </dd>
+            <dt>Threads</dt>
+            <dd>
+              <a href="https://threads.net/@zulaica" title="Threads profile"
+                >@zulaica</a
+              >
+            </dd>
+            <dt>Twitter</dt>
+            <dd>
+              <a href="https://twitter.com/zulaica" title="Twitter profile"
+                >@zulaica</a
+              >
+            </dd>
+          </dl>
+        </section>
+      </aside>
     </main>
     <hr />
     <footer>
-      <div class="container">
-        <p>
-          Source code for this website is
-          <a href="https://github.com/zulaica/zulaica-dot-info"
-            >available on Github</a
-          >.
-        </p>
-        <p>
-          Listening data provided by
-          <a href="https://www.last.fm/api">Last.fm</a>.
-        </p>
-      </div>
+      <p>
+        Source code for this website is
+        <a href="https://github.com/zulaica/zulaica-dot-info"
+          >available on Github</a
+        >.
+      </p>
+      <p>
+        Listening data provided by
+        <a href="https://www.last.fm/api">Last.fm</a>.
+      </p>
     </footer>
   </body>
 </html>

@@ -1,8 +1,8 @@
-footer .container {
+footer {
   padding: 2.5rem;
-}
 
-footer p {
-  font-size: 0.75rem;
-  margin: 0;
+  p {
+    font-size: 0.75rem;
+    margin: 0;
+  }
 }
