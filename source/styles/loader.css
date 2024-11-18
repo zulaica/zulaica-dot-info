@@ -1,0 +1,52 @@
+#loader {
+  display: grid;
+  place-content: center center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  background: hsl(var(--hue-green) 10% 5%);
+  transition: opacity 0.5s;
+
+  &.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  #indicator {
+    display: grid;
+    grid-template-columns: repeat(3, 5rem);
+    grid-template-rows: 0.25rem;
+
+    div {
+      opacity: 0;
+      animation: fade 1.5s infinite alternate;
+
+      &.blue {
+        background: hsl(var(--hue-blue) var(--shade-medium));
+      }
+
+      &.green {
+        background: hsl(var(--hue-green) var(--shade-medium));
+        animation-delay: 0.25s;
+      }
+
+      &.red {
+        background: hsl(var(--hue-red) var(--shade-medium));
+        animation-delay: 0.5s;
+      }
+    }
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
