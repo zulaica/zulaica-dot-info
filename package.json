@@ -3,7 +3,7 @@
   "author": "David Zulaica",
   "version": "3.0.0",
   "engines": {
-    "node": ">=18.19.1"
+    "node": ">=18.20.5"
   },
   "license": "UNLICENSED",
   "private": true,
@@ -34,7 +34,7 @@
     "stylelint-prettier": "5.0.2"
   },
   "volta": {
-    "node": "18.19.1",
-    "npm": "10.2.4"
+    "node": "18.20.5",
+    "npm": "10.8.2"
   }
 }
