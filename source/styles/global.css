@@ -61,6 +61,7 @@ a {
   color: var(--color-link);
   text-decoration: none;
   transition: color var(--link-transition-settings);
+  white-space: nowrap;
 
   &::after {
     content: "";
