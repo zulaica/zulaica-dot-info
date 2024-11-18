@@ -1,6 +1,4 @@
 :root {
-  color-scheme: light dark;
-
   /**
    * Typography
    */
@@ -11,8 +9,8 @@
   /**
    * Settings
    */
-  --border-radius: 0.25rem;
-  --transition-settings: 0.0625s ease-in-out;
+  --body-transition-settings: 0.25s ease-in-out;
+  --link-transition-settings: 0.0625s ease-in-out;
 
   /**
    * Hues
@@ -45,22 +43,4 @@
    **/
   --step-gradient: var(--color-blue) 0% 33%, var(--color-green) 33% 66%,
     var(--color-red) 66% 100%;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: hsl(var(--hue-green) 10% 5%);
-    --color-text: hsl(var(--hue-green) 10% 90%);
-    --color-ui: hsl(var(--hue-green) var(--shade-dark));
-    --shade: var(--shade-medium);
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --color-background: hsl(var(--hue-green) 10% 90%);
-    --color-text: hsl(var(--hue-green) 10% 25%);
-    --color-ui: hsl(var(--hue-green) var(--shade-medium));
-    --shade: var(--shade-dark);
-  }
 }

@@ -31,12 +31,17 @@ body {
   border-image-source: linear-gradient(to right, var(--step-gradient));
   border-image-width: 1rem 0;
   border-image-slice: 1;
+  transition:
+    background var(--body-transition-settings),
+    border-image-source var(--body-transition-settings),
+    color var(--body-transition-settings);
 }
 
 hr {
   border: 0;
   border-top: 0.03125rem solid var(--color-ui);
   margin: 0;
+  transition: border-top var(--body-transition-settings);
 
   &:first-of-type {
     border: 0;
@@ -55,9 +60,7 @@ a {
   font-weight: 600;
   color: var(--color-link);
   text-decoration: none;
-  transition:
-    background-color var(--transition-settings),
-    color var(--transition-settings);
+  transition: color var(--link-transition-settings);
 
   &::after {
     content: "";
@@ -69,8 +72,8 @@ a {
     width: 100%;
     margin-top: 1.5em;
     transition:
-      height var(--transition-settings),
-      margin-top var(--transition-settings);
+      height var(--link-transition-settings),
+      margin-top var(--link-transition-settings);
   }
 
   &:active {
