@@ -6,12 +6,11 @@ import initTheme from "./scripts/preferences.js";
 const handleDomContentLoaded = async () => {
   console.info(`%c ${CONTACT_INFO}`, "font-family: monospace;");
 
-  initTheme();
-
+  LastFM.init();
   const poll = new Poller(210_000);
-  await LastFM.render();
   poll.start(LastFM.update);
 
+  initTheme();
   setTimeout(() => {
     document.getElementById("loader").classList.add("fade-out");
   }, 1500);

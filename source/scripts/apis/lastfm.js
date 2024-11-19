@@ -2,20 +2,28 @@ import { DATETIME_OPTIONS, EMOJI } from "../helpers/constants.js";
 import proxyURL from "./proxyURL.js";
 
 const aboutList = document.getElementById("about-list");
-const endpoint = new URL("/lastfm", proxyURL);
-const trackStatus = document.createElement("dt");
 const trackDetails = document.createElement("dd");
-trackDetails.style = "line-height: 1.625";
+const trackStatus = document.createElement("dt");
 
-async function render() {
-  await update();
-  localStorage.getItem("latest_track") &&
+function init() {
+  const cachedData = JSON.parse(localStorage.getItem("latest_track"));
+
+  if (cachedData) {
     aboutList.append(trackStatus, trackDetails);
+    _updateStatus(cachedData.nowPlaying);
+    _updateDetails(cachedData);
+  }
+
+  update();
 }
 
 async function update() {
   try {
     const data = await _fetchData();
+
+    if (!Array.from(aboutList.children).includes(trackStatus)) {
+      aboutList.append(trackStatus, trackDetails);
+    }
 
     _updateStatus(data.nowPlaying);
     _updateDetails(data);
@@ -26,6 +34,8 @@ async function update() {
 
 async function _fetchData() {
   console.info(`[LastFM] ${EMOJI.technologist} Updating latest track data…`);
+
+  const endpoint = new URL("/lastfm", proxyURL);
   const response = await fetch(endpoint);
 
   if (response.ok) {
@@ -41,7 +51,7 @@ async function _fetchData() {
 
     return latestTrack;
   } else {
-    console.info(
+    console.warn(
       `[LastFM] ${EMOJI.personShrugging} Unable to update latest track data; using cache.`
     );
 
@@ -84,5 +94,5 @@ function _updateTime(timestamp) {
   return `<time datetime="${datetime}">${formattedDateTime}</time>`;
 }
 
-const LastFM = Object.freeze({ render, update });
+const LastFM = Object.freeze({ init, update });
 export default LastFM;
