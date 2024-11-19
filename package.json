@@ -25,6 +25,7 @@
   "devDependencies": {
     "@zulaica/site-bundler": "0.6.3",
     "browser-sync": "3.0.3",
+    "chalk": "4.1.2",
     "eslint": "9.15.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-prettier": "5.2.1",
