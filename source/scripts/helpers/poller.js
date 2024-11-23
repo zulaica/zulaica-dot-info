@@ -1,4 +1,4 @@
-class Poller {
+export default class Poller {
   constructor(duration) {
     this.duration = duration;
     this.intervalId = null;
@@ -15,5 +15,3 @@ class Poller {
     this.intervalId = null;
   };
 }
-
-export default Poller;

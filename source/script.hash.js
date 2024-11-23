@@ -1,22 +1,25 @@
 import LastFM from "./scripts/apis/lastfm.js";
 import CONTACT_INFO from "./scripts/contact.js";
 import Poller from "./scripts/helpers/poller.js";
-import initTheme from "./scripts/preferences.js";
+import Loader from "./scripts/loader.js";
+import Preferences from "./scripts/preferences.js";
 
 const handleDomContentLoaded = async () => {
+  const lastFMPoller = new Poller(210_000);
+
   console.info(`%c ${CONTACT_INFO}`, "font-family: monospace;");
-
-  LastFM.init();
-  const poll = new Poller(210_000);
-  poll.start(LastFM.update);
-
-  initTheme();
-  setTimeout(() => {
-    document.getElementById("loader").classList.add("fade-out");
-  }, 1500);
+  Loader.start();
+  Preferences.init();
+  await LastFM.init();
+  lastFMPoller.start(LastFM.update);
 };
 
 window.addEventListener("DOMContentLoaded", handleDomContentLoaded, {
+  passive: true,
+  once: true
+});
+
+window.addEventListener("LastFMInitCompleted", Loader.stop, {
   passive: true,
   once: true
 });

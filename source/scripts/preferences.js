@@ -1,45 +1,78 @@
-const themeLabel = document.querySelector("[for='theme']");
-const themeToggle = document.getElementById("theme");
+const PALETTE_MAP = Object.freeze({
+  rgb: "autumn",
+  autumn: "spring",
+  spring: "rgb"
+});
 
-const preferences = new Proxy(
-  { isDark: null },
+const modeLabel = document.querySelector("[for='mode']");
+const modeToggle = document.getElementById("mode");
+const paletteLabel = document.querySelector("[for='palette']");
+const paletteToggle = document.getElementById("palette");
+const preferencesProxy = new Proxy(
+  { isDark: null, palette: null },
   {
-    set: function (target, _property, newValue) {
-      if (newValue) {
-        themeLabel.title = "Enable light theme";
-        themeLabel.innerHTML = "🌝";
-      } else {
-        themeLabel.title = "Enable dark theme";
-        themeLabel.innerHTML = "🌚";
-      }
-
-      if (target.isDark === null) {
-        themeToggle.checked = newValue;
-      }
-
-      const theme = newValue ? "dark" : "light";
-      localStorage.setItem("theme", theme);
-      document.documentElement.setAttribute("data-theme", theme);
+    set: function (target, property, newValue) {
+      property === "isDark"
+        ? _handleMode(target, newValue)
+        : _handlePalette(newValue);
 
       return true;
     }
   }
 );
 
-const initTheme = () => {
-  if (!localStorage.getItem("theme")) {
-    preferences.isDark = window.matchMedia(
+const Preferences = Object.freeze({ init });
+export default Preferences;
+
+/*******************************************************************************
+ * Methods
+ ******************************************************************************/
+function init() {
+  if (!localStorage.getItem("mode")) {
+    preferencesProxy.isDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
     ).matches;
   } else {
-    preferences.isDark = localStorage.getItem("theme") === "dark";
+    preferencesProxy.isDark = localStorage.getItem("mode") === "dark";
   }
 
-  themeToggle.addEventListener("change", _handleChange, { passive: true });
-};
+  if (!localStorage.getItem("palette")) {
+    preferencesProxy.palette = "rgb";
+  } else {
+    preferencesProxy.palette = localStorage.getItem("palette");
+  }
 
-const _handleChange = ({ target: { checked } }) => {
-  preferences.isDark = checked;
-};
+  modeLabel.style.display = "grid";
+  paletteLabel.style.display = "grid";
+  modeToggle.addEventListener("change", _toggleMode, { passive: true });
+  paletteToggle.addEventListener("click", _togglePalette, { passive: true });
+}
 
-export default initTheme;
+/*******************************************************************************
+ * Helpers
+ ******************************************************************************/
+function _handleMode(target, newValue) {
+  const mode = newValue ? "dark" : "light";
+
+  if (target.isDark === null) {
+    modeToggle.checked = newValue;
+  }
+
+  modeLabel.title = newValue ? "Enable light mode" : "Enable dark mode";
+  localStorage.setItem("mode", mode);
+  document.documentElement.setAttribute("data-mode", mode);
+}
+
+function _handlePalette(newValue) {
+  paletteLabel.title = `Enable ${PALETTE_MAP[newValue]} palette`;
+  localStorage.setItem("palette", newValue);
+  document.documentElement.setAttribute("data-palette", newValue);
+}
+
+function _toggleMode({ target: { checked } }) {
+  preferencesProxy.isDark = checked;
+}
+
+function _togglePalette() {
+  preferencesProxy.palette = PALETTE_MAP[localStorage.getItem("palette")];
+}

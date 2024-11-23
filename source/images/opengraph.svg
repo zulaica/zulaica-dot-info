@@ -1,7 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" style="fill: #0b0e0c;"/>
-  <rect x="300" y="310" width="200" height="10" style="fill: #7a85b8;"/>
-  <rect x="500" y="310" width="200" height="10" style="fill: #7ab885;"/>
-  <rect x="700" y="310" width="200" height="10" style="fill: #b87a99;"/>
-</svg>
+<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630"><rect width="1200" height="630" style="fill: #0b0e0c;"/><rect x="300" y="310" width="200" height="10" style="fill: #7a85b8;"/><rect x="500" y="310" width="200" height="10" style="fill: #7ab885;"/><rect x="700" y="310" width="200" height="10" style="fill: #b87a99;"/></svg>

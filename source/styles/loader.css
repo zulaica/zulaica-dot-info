@@ -1,19 +1,13 @@
 #loader {
-  display: grid;
+  background: var(--color-background);
+  display: none;
+  height: 100vh;
+  left: 0;
   place-content: center center;
   position: fixed;
   top: 0;
-  left: 0;
   width: 100vw;
-  height: 100vh;
   z-index: 100;
-  background: hsl(var(--hue-green) 10% 5%);
-  transition: opacity 0.5s;
-
-  &.fade-out {
-    opacity: 0;
-    pointer-events: none;
-  }
 
   #indicator {
     display: grid;
@@ -21,21 +15,21 @@
     grid-template-rows: 0.25rem;
 
     div {
-      opacity: 0;
       animation: fade 1.5s infinite alternate;
+      opacity: 0;
 
-      &.blue {
-        background: hsl(var(--hue-blue) var(--shade-medium));
+      &.primary {
+        background: hsl(var(--hue-primary) var(--shade-medium));
       }
 
-      &.green {
-        background: hsl(var(--hue-green) var(--shade-medium));
+      &.secondary {
         animation-delay: 0.25s;
+        background: hsl(var(--hue-secondary) var(--shade-medium));
       }
 
-      &.red {
-        background: hsl(var(--hue-red) var(--shade-medium));
+      &.tertiary {
         animation-delay: 0.5s;
+        background: hsl(var(--hue-tertiary) var(--shade-medium));
       }
     }
   }
@@ -48,5 +42,15 @@
 
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
   }
 }

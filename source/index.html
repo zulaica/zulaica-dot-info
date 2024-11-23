@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" data-mode="dark" data-palette="default">
   <head>
     <title>
       David Zulaica&thinsp;&mdash;&thinsp;Person Familiar with the Matter
@@ -37,18 +37,20 @@
     <link rel="stylesheet" href="style.hash.css" media="screen" />
   </head>
   <body>
-    <div id="loader">
-      <div id="indicator">
-        <div class="blue"></div>
-        <div class="green"></div>
-        <div class="red"></div>
+    <div aria-live="polite" id="loader" role="status">
+      <div id="indicator" aria-hidden="true" aria-label="Loading&hellip;">
+        <div class="primary"></div>
+        <div class="secondary"></div>
+        <div class="tertiary"></div>
       </div>
     </div>
     <header role="banner">
       <h1>David Zulaica</h1>
       <p>Person Familiar with the Matter</p>
-      <input type="checkbox" id="theme" name="theme" hidden />
-      <label for="theme"></label>
+      <input type="checkbox" id="mode" name="mode" hidden />
+      <label for="mode" aria-hidden="true">&nbsp;</label>
+      <input type="button" id="palette" name="palette" hidden />
+      <label for="palette" aria-hidden="true">&nbsp;</label>
     </header>
     <hr />
     <main>

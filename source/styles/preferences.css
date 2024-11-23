@@ -1,15 +1,42 @@
-[data-theme="dark"] {
-  --color-background: hsl(var(--hue-green) 10% 5%);
-  --color-text: hsl(var(--hue-green) 10% 90%);
-  --color-toggle: hsl(var(--hue-green) 10% 90% / 50%);
-  --color-ui: hsl(var(--hue-green) 30% 20%);
+[data-mode="dark"] {
+  --color-background: hsl(var(--hue-secondary) 10% 5%);
+  --color-mode-toggle: hsl(var(--hue-secondary) 10% 90% / 25%);
+  --color-text: hsl(var(--hue-secondary) 10% 90%);
+  --color-ui: hsl(var(--hue-secondary) 10% 90% / 15%);
   --shade: var(--shade-medium);
 }
 
-[data-theme="light"] {
-  --color-background: hsl(var(--hue-green) 10% 90%);
-  --color-text: hsl(var(--hue-green) 10% 25%);
-  --color-toggle: hsl(var(--hue-green) 10% 25% / 50%);
-  --color-ui: hsl(var(--hue-green) var(--shade-medium));
+[data-mode="light"] {
+  --color-background: hsl(var(--hue-secondary) 10% 90%);
+  --color-mode-toggle: hsl(var(--hue-secondary) 10% 25% / 25%);
+  --color-text: hsl(var(--hue-secondary) 10% 25%);
+  --color-ui: hsl(var(--hue-secondary) 10% 25% / 15%);
   --shade: var(--shade-dark);
+}
+
+[data-palette="rgb"] {
+  --color-palette-toggle: hsl(var(--hue-primary-autumn) var(--shade)) 0% 33%,
+    hsl(var(--hue-secondary-autumn) var(--shade)) 33% 66%,
+    hsl(var(--hue-tertiary-autumn) var(--shade)) 66% 100%;
+  --hue-primary: var(--hue-primary-rgb);
+  --hue-secondary: var(--hue-secondary-rgb);
+  --hue-tertiary: var(--hue-tertiary-rgb);
+}
+
+[data-palette="autumn"] {
+  --color-palette-toggle: hsl(var(--hue-primary-spring) var(--shade)) 0% 33%,
+    hsl(var(--hue-secondary-spring) var(--shade)) 33% 66%,
+    hsl(var(--hue-tertiary-spring) var(--shade)) 66% 100%;
+  --hue-primary: var(--hue-primary-autumn);
+  --hue-secondary: var(--hue-secondary-autumn);
+  --hue-tertiary: var(--hue-tertiary-autumn);
+}
+
+[data-palette="spring"] {
+  --color-palette-toggle: hsl(var(--hue-primary-rgb) var(--shade)) 0% 33%,
+    hsl(var(--hue-secondary-rgb) var(--shade)) 33% 66%,
+    hsl(var(--hue-tertiary-rgb) var(--shade)) 66% 100%;
+  --hue-primary: var(--hue-primary-spring);
+  --hue-secondary: var(--hue-secondary-spring);
+  --hue-tertiary: var(--hue-tertiary-spring);
 }
