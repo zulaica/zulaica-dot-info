@@ -1,25 +1,25 @@
-const themeLabel = document.querySelector("[for='theme']");
-const themeToggle = document.getElementById("theme");
+const modeLabel = document.querySelector("[for='mode']");
+const modeToggle = document.getElementById("mode");
 
 const preferences = new Proxy(
   { isDark: null },
   {
     set: function (target, _property, newValue) {
       if (newValue) {
-        themeLabel.title = "Enable light theme";
-        themeLabel.innerHTML = "🌝";
+        modeLabel.title = "Enable light mode";
+        modeLabel.innerHTML = "🌝";
       } else {
-        themeLabel.title = "Enable dark theme";
-        themeLabel.innerHTML = "🌚";
+        modeLabel.title = "Enable dark mode";
+        modeLabel.innerHTML = "🌚";
       }
 
       if (target.isDark === null) {
-        themeToggle.checked = newValue;
+        modeToggle.checked = newValue;
       }
 
-      const theme = newValue ? "dark" : "light";
-      localStorage.setItem("theme", theme);
-      document.documentElement.setAttribute("data-theme", theme);
+      const mode = newValue ? "dark" : "light";
+      localStorage.setItem("mode", mode);
+      document.documentElement.setAttribute("data-mode", mode);
 
       return true;
     }
@@ -27,15 +27,15 @@ const preferences = new Proxy(
 );
 
 const initTheme = () => {
-  if (!localStorage.getItem("theme")) {
+  if (!localStorage.getItem("mode")) {
     preferences.isDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
     ).matches;
   } else {
-    preferences.isDark = localStorage.getItem("theme") === "dark";
+    preferences.isDark = localStorage.getItem("mode") === "dark";
   }
 
-  themeToggle.addEventListener("change", _handleChange, { passive: true });
+  modeToggle.addEventListener("change", _handleChange, { passive: true });
 };
 
 const _handleChange = ({ target: { checked } }) => {

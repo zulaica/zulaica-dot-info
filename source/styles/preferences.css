@@ -1,4 +1,4 @@
-[data-theme="dark"] {
+[data-mode="dark"] {
   --color-background: hsl(var(--hue-green) 10% 5%);
   --color-text: hsl(var(--hue-green) 10% 90%);
   --color-toggle: hsl(var(--hue-green) 10% 90% / 50%);
@@ -6,7 +6,7 @@
   --shade: var(--shade-medium);
 }
 
-[data-theme="light"] {
+[data-mode="light"] {
   --color-background: hsl(var(--hue-green) 10% 90%);
   --color-text: hsl(var(--hue-green) 10% 25%);
   --color-toggle: hsl(var(--hue-green) 10% 25% / 50%);
