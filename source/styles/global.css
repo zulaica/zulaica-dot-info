@@ -55,6 +55,15 @@ footer {
   max-width: 90ch;
 }
 
+.js {
+  header,
+  main,
+  footer,
+  hr {
+    display: none;
+  }
+}
+
 a {
   color: var(--color-link);
   font-weight: 600;

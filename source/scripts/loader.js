@@ -12,5 +12,6 @@ function start() {
 }
 
 function stop() {
+  document.documentElement.classList.remove("js");
   setTimeout(() => loader.classList.add("fade-out"), 1500);
 }

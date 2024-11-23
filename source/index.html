@@ -12,9 +12,6 @@
 
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg?v3.0.3" />
 
-    <link rel="preload" href="style.hash.css" as="style" />
-    <link rel="modulepreload" href="script.hash.js" as="script" />
-
     <meta
       name="viewport"
       content="width=device-width,height=device-height,initial-scale=1,viewport-fit=cover"
@@ -33,8 +30,11 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
-    <script src="script.hash.js" type="module"></script>
     <link rel="stylesheet" href="style.hash.css" media="screen" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <script src="script.hash.js" type="module"></script>
   </head>
   <body>
     <div aria-live="polite" id="loader" role="status">
