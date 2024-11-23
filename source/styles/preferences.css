@@ -13,3 +13,9 @@
   --color-ui: hsl(var(--hue-secondary) var(--shade-medium));
   --shade: var(--shade-dark);
 }
+
+[data-palette="default"] {
+  --hue-primary: 230;
+  --hue-secondary: 130;
+  --hue-tertiary: 330;
+}

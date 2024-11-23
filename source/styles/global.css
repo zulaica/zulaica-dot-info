@@ -32,16 +32,16 @@ body {
   border-image-width: 1rem 0;
   border-image-slice: 1;
   transition:
-    background var(--body-transition-settings),
-    border-image-source var(--body-transition-settings),
-    color var(--body-transition-settings);
+    background var(--transition-settings-body),
+    border-image-source var(--transition-settings-body),
+    color var(--transition-settings-body);
 }
 
 hr {
   border: 0;
   border-top: 0.03125rem solid var(--color-ui);
   margin: 0;
-  transition: border-top var(--body-transition-settings);
+  transition: border-top var(--transition-settings-body);
 
   &:first-of-type {
     border: 0;
@@ -60,7 +60,7 @@ a {
   font-weight: 600;
   color: var(--color-link);
   text-decoration: none;
-  transition: color var(--link-transition-settings);
+  transition: color var(--transition-settings-link);
   white-space: nowrap;
 
   &::after {
@@ -73,8 +73,8 @@ a {
     width: 100%;
     margin-top: 1.5em;
     transition:
-      height var(--link-transition-settings),
-      margin-top var(--link-transition-settings);
+      height var(--transition-settings-link),
+      margin-top var(--transition-settings-link);
   }
 
   &:active {

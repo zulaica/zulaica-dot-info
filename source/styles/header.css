@@ -39,7 +39,7 @@ header {
     cursor: pointer;
     letter-spacing: -0.03125em;
     transition:
-      background var(--body-transition-settings),
-      border var(--body-transition-settings);
+      background var(--transition-settings-body),
+      border var(--transition-settings-body);
   }
 }
