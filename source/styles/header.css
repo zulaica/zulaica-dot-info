@@ -1,6 +1,7 @@
 header {
   display: grid;
-  grid-template-columns: auto auto;
+  column-gap: 0.25rem;
+  grid-template-columns: 1fr auto auto;
   grid-template-rows: auto auto;
   padding: 6rem 2.5rem 5rem;
 
@@ -23,8 +24,17 @@ header {
 
   input,
   label {
-    grid-column: 2;
     grid-row: 1 / span 2;
+  }
+
+  #mode,
+  [for="mode"] {
+    grid-column: 2;
+  }
+
+  #palette,
+  [for="palette"] {
+    grid-column: 3;
   }
 
   label {
@@ -32,14 +42,27 @@ header {
     place-self: center end;
     place-content: center center;
     border-radius: 50%;
-    background: var(--color-toggle);
     font-size: 0.75rem;
     width: 2.5em;
     height: 2.5em;
     cursor: pointer;
     letter-spacing: -0.03125em;
+    opacity: 0.75;
     transition:
       background var(--transition-settings-body),
-      border var(--transition-settings-body);
+      opacity var(--transition-settings-body);
+
+    &[for="mode"] {
+      background: var(--color-text);
+    }
+
+    &[for="palette"] {
+      background-image: linear-gradient(to right, var(--color-palette-toggle));
+      opacity: 0.75;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }

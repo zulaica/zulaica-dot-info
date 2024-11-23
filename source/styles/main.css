@@ -37,11 +37,11 @@ h2 {
   }
 
   &::before {
-    background-image: linear-gradient(to right, var(--step-gradient));
+    background-image: linear-gradient(to right, var(--gradient));
   }
 
   &::after {
-    background-image: linear-gradient(to left, var(--step-gradient));
+    background-image: linear-gradient(to left, var(--gradient));
   }
 }
 
