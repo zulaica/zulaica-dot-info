@@ -5,10 +5,10 @@ function start() {
 }
 
 function stop() {
-  setTimeout(() => {
-    loader.classList.add("fade-out");
-  }, 1500);
+  loader.style.animation = "fade-out 0.5s 1.5s";
 }
+
+loader.addEventListener("animationend", loader.remove);
 
 const Loader = Object.freeze({ start, stop });
 export default Loader;
