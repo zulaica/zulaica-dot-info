@@ -6,8 +6,13 @@
   place-content: center center;
   position: fixed;
   top: 0;
+  transition: opacity 0.5s ease-in-out;
   width: 100vw;
   z-index: 100;
+
+  &.fade-out {
+    opacity: 0;
+  }
 
   #indicator {
     display: grid;
@@ -42,15 +47,5 @@
 
   100% {
     opacity: 1;
-  }
-}
-
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
   }
 }

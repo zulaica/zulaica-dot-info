@@ -1,4 +1,5 @@
 const loader = document.getElementById("loader");
+loader.addEventListener("transitionend", loader.remove);
 
 const Loader = Object.freeze({ start, stop });
 export default Loader;
@@ -11,9 +12,5 @@ function start() {
 }
 
 function stop() {
-  loader.style.animation = "fade-out 0.5s 1.5s";
-
-  setTimeout(function () {
-    loader.remove();
-  }, 1500);
+  setTimeout(() => loader.classList.add("fade-out"), 1500);
 }
