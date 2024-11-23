@@ -6,6 +6,9 @@ import initTheme from "./scripts/preferences.js";
 const handleDomContentLoaded = async () => {
   console.info(`%c ${CONTACT_INFO}`, "font-family: monospace;");
 
+  const loader = document.getElementById("loader");
+  loader.style.display = "grid";
+
   LastFM.init();
   const poll = new Poller(210_000);
   poll.start(LastFM.update);

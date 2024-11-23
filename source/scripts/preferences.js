@@ -35,6 +35,7 @@ const initTheme = () => {
     preferences.isDark = localStorage.getItem("mode") === "dark";
   }
 
+  modeLabel.style.display = "grid";
   modeToggle.addEventListener("change", _handleChange, { passive: true });
 };
 

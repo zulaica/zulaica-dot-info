@@ -28,7 +28,7 @@ header {
   }
 
   label {
-    display: grid;
+    display: none;
     place-self: center end;
     place-content: center center;
     border-radius: 50%;

@@ -1,5 +1,5 @@
 #loader {
-  display: grid;
+  display: none;
   place-content: center center;
   position: fixed;
   top: 0;
