@@ -1,16 +1,16 @@
 [data-mode="dark"] {
   --color-background: hsl(var(--hue-secondary) 10% 5%);
-  --color-text: hsl(var(--hue-secondary) 10% 90%);
   --color-mode-toggle: hsl(var(--hue-secondary) 10% 90% / 25%);
-  --color-ui: hsl(var(--hue-secondary) 30% 20%);
+  --color-text: hsl(var(--hue-secondary) 10% 90%);
+  --color-ui: hsl(var(--hue-secondary) 10% 90% / 15%);
   --shade: var(--shade-medium);
 }
 
 [data-mode="light"] {
   --color-background: hsl(var(--hue-secondary) 10% 90%);
-  --color-text: hsl(var(--hue-secondary) 10% 25%);
   --color-mode-toggle: hsl(var(--hue-secondary) 10% 25% / 25%);
-  --color-ui: hsl(var(--hue-secondary) var(--shade-medium));
+  --color-text: hsl(var(--hue-secondary) 10% 25%);
+  --color-ui: hsl(var(--hue-secondary) 10% 25% / 15%);
   --shade: var(--shade-dark);
 }
 

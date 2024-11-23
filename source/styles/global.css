@@ -23,14 +23,14 @@ html {
 }
 
 body {
-  color: var(--color-text);
   background: var(--color-background);
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right, var(--gradient));
+  border-image-width: 1rem 0;
+  color: var(--color-text);
   line-height: 1.75;
   margin: 0;
   min-height: 100vh;
-  border-image-source: linear-gradient(to right, var(--gradient));
-  border-image-width: 1rem 0;
-  border-image-slice: 1;
   transition:
     background var(--transition-settings-body),
     border-image-source var(--transition-settings-body),
@@ -51,30 +51,33 @@ hr {
 header,
 main,
 footer {
-  max-width: 90ch;
   margin: 0 auto;
+  max-width: 90ch;
 }
 
 a {
-  position: relative;
-  font-weight: 600;
   color: var(--color-link);
+  font-weight: 600;
+  position: relative;
+  transition:
+    background var(--transition-settings-link),
+    color var(--transition-settings-link);
   text-decoration: none;
-  transition: color var(--transition-settings-link);
   white-space: nowrap;
 
   &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    height: 0.0625rem;
-    border-radius: 0.0625em;
     background: linear-gradient(to right, var(--gradient));
-    width: 100%;
+    border-radius: 0.0625em;
+    content: "";
+    height: 0.0625rem;
+    left: 0;
     margin-top: 1.5em;
+    position: absolute;
+    top: 0;
     transition:
       height var(--transition-settings-link),
       margin-top var(--transition-settings-link);
+    width: 100%;
   }
 
   &:active {
@@ -89,6 +92,7 @@ a {
   &:focus-visible,
   &:visited:hover,
   &:visited:focus-visible {
+    background: var(--color-ui);
     color: var(--color-link-hover);
 
     &::after {

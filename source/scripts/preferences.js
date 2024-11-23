@@ -14,8 +14,13 @@ const preferencesProxy = new Proxy(
     }
   }
 );
-const Preferences = Object.freeze({ init });
 
+const Preferences = Object.freeze({ init });
+export default Preferences;
+
+/*******************************************************************************
+ * Methods
+ ******************************************************************************/
 function init() {
   if (!localStorage.getItem("mode")) {
     preferencesProxy.isDark = window.matchMedia(
@@ -37,6 +42,9 @@ function init() {
   paletteToggle.addEventListener("change", _togglePalette, { passive: true });
 }
 
+/*******************************************************************************
+ * Helpers
+ ******************************************************************************/
 function _handleMode(target, newValue) {
   const mode = newValue ? "dark" : "light";
 
@@ -70,5 +78,3 @@ function _toggleMode({ target: { checked } }) {
 function _togglePalette({ target: { checked } }) {
   preferencesProxy.palette = checked;
 }
-
-export default Preferences;

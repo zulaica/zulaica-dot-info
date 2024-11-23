@@ -5,10 +5,9 @@ import Loader from "./scripts/loader.js";
 import Preferences from "./scripts/preferences.js";
 
 const handleDomContentLoaded = async () => {
-  console.info(`%c ${CONTACT_INFO}`, "font-family: monospace;");
-
   const lastFMPoller = new Poller(210_000);
 
+  console.info(`%c ${CONTACT_INFO}`, "font-family: monospace;");
   Loader.start();
   Preferences.init();
   await LastFM.init();
