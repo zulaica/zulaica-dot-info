@@ -15,9 +15,9 @@
   /**
    * Hues
    */
-  --hue-blue: 230;
-  --hue-green: 130;
-  --hue-red: 330;
+  --hue-primary: 230;
+  --hue-secondary: 130;
+  --hue-tertiary: 330;
 
   /**
    * Shades
@@ -29,18 +29,16 @@
   /**
    * Colors
    */
-  --color-blue: hsl(var(--hue-blue) var(--shade));
-  --color-green: hsl(var(--hue-green) var(--shade));
-  --color-red: hsl(var(--hue-red) var(--shade));
-  --color-link: hsl(var(--hue-blue) var(--shade));
-  --color-link-active: hsl(var(--hue-green) var(--shade));
-  --color-link-hover: hsl(var(--hue-green) var(--shade));
-  --color-link-visited: hsl(var(--hue-red) var(--shade));
+  --color-link: hsl(var(--hue-primary) var(--shade));
+  --color-link-active: hsl(var(--hue-secondary) var(--shade));
+  --color-link-hover: hsl(var(--hue-secondary) var(--shade));
+  --color-link-visited: hsl(var(--hue-tertiary) var(--shade));
   --color-text-selection: var(--color-ui);
 
   /**
    * Gradients
    **/
-  --step-gradient: var(--color-blue) 0% 33%, var(--color-green) 33% 66%,
-    var(--color-red) 66% 100%;
+  --step-gradient: hsl(var(--hue-primary) var(--shade)) 0% 33%,
+    hsl(var(--hue-secondary) var(--shade)) 33% 66%,
+    hsl(var(--hue-tertiary) var(--shade)) 66% 100%;
 }

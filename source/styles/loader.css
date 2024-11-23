@@ -7,7 +7,7 @@
   width: 100vw;
   height: 100vh;
   z-index: 100;
-  background: hsl(var(--hue-green) 10% 5%);
+  background: hsl(var(--hue-secondary) 10% 5%);
   transition: opacity 0.5s;
 
   &.fade-out {
@@ -24,17 +24,17 @@
       opacity: 0;
       animation: fade 1.5s infinite alternate;
 
-      &.blue {
-        background: hsl(var(--hue-blue) var(--shade-medium));
+      &.primary {
+        background: hsl(var(--hue-primary) var(--shade-medium));
       }
 
-      &.green {
-        background: hsl(var(--hue-green) var(--shade-medium));
+      &.secondary {
+        background: hsl(var(--hue-secondary) var(--shade-medium));
         animation-delay: 0.25s;
       }
 
-      &.red {
-        background: hsl(var(--hue-red) var(--shade-medium));
+      &.tertiary {
+        background: hsl(var(--hue-tertiary) var(--shade-medium));
         animation-delay: 0.5s;
       }
     }
