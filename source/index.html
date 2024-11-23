@@ -30,8 +30,11 @@
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
-    <script src="script.hash.js" type="module"></script>
     <link rel="stylesheet" href="style.hash.css" media="screen" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <script src="script.hash.js" type="module"></script>
   </head>
   <body>
     <div aria-live="polite" id="loader" role="status">
