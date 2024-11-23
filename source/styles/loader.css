@@ -7,7 +7,7 @@
   width: 100vw;
   height: 100vh;
   z-index: 100;
-  background: hsl(var(--hue-secondary) 10% 5%);
+  background: var(--color-background);
   transition: opacity 0.5s;
 
   &.fade-out {
