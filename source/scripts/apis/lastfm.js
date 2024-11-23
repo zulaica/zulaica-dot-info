@@ -5,8 +5,9 @@ const aboutList = document.getElementById("about-list");
 const trackDetails = document.createElement("dd");
 const trackStatus = document.createElement("dt");
 
-function init() {
+async function init() {
   const cachedData = JSON.parse(localStorage.getItem("latest_track"));
+  const lastFMEvent = new Event("LastFMInitCompleted");
 
   if (cachedData) {
     aboutList.append(trackStatus, trackDetails);
@@ -14,7 +15,8 @@ function init() {
     _updateDetails(cachedData);
   }
 
-  update();
+  await update();
+  window.dispatchEvent(lastFMEvent);
 }
 
 async function update() {

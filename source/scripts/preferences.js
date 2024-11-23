@@ -26,7 +26,7 @@ const preferences = new Proxy(
   }
 );
 
-const initTheme = () => {
+const init = () => {
   if (!localStorage.getItem("mode")) {
     preferences.isDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
@@ -43,4 +43,5 @@ const _handleChange = ({ target: { checked } }) => {
   preferences.isDark = checked;
 };
 
-export default initTheme;
+const Preferences = Object.freeze({ init });
+export default Preferences;
