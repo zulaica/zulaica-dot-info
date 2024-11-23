@@ -1,3 +1,9 @@
+const PALETTE_MAP = Object.freeze({
+  rgb: "autumn",
+  autumn: "spring",
+  spring: "rgb"
+});
+
 const modeLabel = document.querySelector("[for='mode']");
 const modeToggle = document.getElementById("mode");
 const paletteLabel = document.querySelector("[for='palette']");
@@ -8,7 +14,7 @@ const preferencesProxy = new Proxy(
     set: function (target, property, newValue) {
       property === "isDark"
         ? _handleMode(target, newValue)
-        : _handlePalette(target, newValue);
+        : _handlePalette(newValue);
 
       return true;
     }
@@ -31,15 +37,15 @@ function init() {
   }
 
   if (!localStorage.getItem("palette")) {
-    preferencesProxy.palette = false;
+    preferencesProxy.palette = "rgb";
   } else {
-    preferencesProxy.palette = localStorage.getItem("palette") === "autumn";
+    preferencesProxy.palette = localStorage.getItem("palette");
   }
 
   modeLabel.style.display = "grid";
   paletteLabel.style.display = "grid";
   modeToggle.addEventListener("change", _toggleMode, { passive: true });
-  paletteToggle.addEventListener("change", _togglePalette, { passive: true });
+  paletteToggle.addEventListener("click", _togglePalette, { passive: true });
 }
 
 /*******************************************************************************
@@ -57,24 +63,16 @@ function _handleMode(target, newValue) {
   document.documentElement.setAttribute("data-mode", mode);
 }
 
-function _handlePalette(target, newValue) {
-  const palette = newValue ? "autumn" : "default";
-
-  if (target.palette === null) {
-    paletteToggle.checked = newValue;
-  }
-
-  paletteLabel.title = newValue
-    ? "Enable default palette"
-    : "Enable autumn palette";
-  localStorage.setItem("palette", palette);
-  document.documentElement.setAttribute("data-palette", palette);
+function _handlePalette(newValue) {
+  paletteLabel.title = `Enable ${PALETTE_MAP[newValue]} palette`;
+  localStorage.setItem("palette", newValue);
+  document.documentElement.setAttribute("data-palette", newValue);
 }
 
 function _toggleMode({ target: { checked } }) {
   preferencesProxy.isDark = checked;
 }
 
-function _togglePalette({ target: { checked } }) {
-  preferencesProxy.palette = checked;
+function _togglePalette() {
+  preferencesProxy.palette = PALETTE_MAP[localStorage.getItem("palette")];
 }

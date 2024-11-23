@@ -14,20 +14,29 @@
   --shade: var(--shade-dark);
 }
 
-[data-palette="default"] {
+[data-palette="rgb"] {
   --color-palette-toggle: hsl(var(--hue-primary-autumn) var(--shade)) 0% 33%,
     hsl(var(--hue-secondary-autumn) var(--shade)) 33% 66%,
     hsl(var(--hue-tertiary-autumn) var(--shade)) 66% 100%;
-  --hue-primary: var(--hue-primary-default);
-  --hue-secondary: var(--hue-secondary-default);
-  --hue-tertiary: var(--hue-tertiary-default);
+  --hue-primary: var(--hue-primary-rgb);
+  --hue-secondary: var(--hue-secondary-rgb);
+  --hue-tertiary: var(--hue-tertiary-rgb);
 }
 
 [data-palette="autumn"] {
-  --color-palette-toggle: hsl(var(--hue-primary-default) var(--shade)) 0% 33%,
-    hsl(var(--hue-secondary-default) var(--shade)) 33% 66%,
-    hsl(var(--hue-tertiary-default) var(--shade)) 66% 100%;
+  --color-palette-toggle: hsl(var(--hue-primary-spring) var(--shade)) 0% 33%,
+    hsl(var(--hue-secondary-spring) var(--shade)) 33% 66%,
+    hsl(var(--hue-tertiary-spring) var(--shade)) 66% 100%;
   --hue-primary: var(--hue-primary-autumn);
   --hue-secondary: var(--hue-secondary-autumn);
   --hue-tertiary: var(--hue-tertiary-autumn);
+}
+
+[data-palette="spring"] {
+  --color-palette-toggle: hsl(var(--hue-primary-rgb) var(--shade)) 0% 33%,
+    hsl(var(--hue-secondary-rgb) var(--shade)) 33% 66%,
+    hsl(var(--hue-tertiary-rgb) var(--shade)) 66% 100%;
+  --hue-primary: var(--hue-primary-spring);
+  --hue-secondary: var(--hue-secondary-spring);
+  --hue-tertiary: var(--hue-tertiary-spring);
 }

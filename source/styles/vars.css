@@ -7,12 +7,15 @@
   --font-family-body: system-ui, ui-sans-serif, "Helvetica Neue", "Helvetica",
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-size-base: 24px;
-  --hue-primary-autumn: 40;
-  --hue-primary-default: 230;
-  --hue-secondary-autumn: 15;
-  --hue-secondary-default: 130;
-  --hue-tertiary-autumn: 350;
-  --hue-tertiary-default: 330;
+  --hue-primary-autumn: 60;
+  --hue-primary-rgb: 330;
+  --hue-primary-spring: 160;
+  --hue-secondary-autumn: 30;
+  --hue-secondary-rgb: 130;
+  --hue-secondary-spring: 100;
+  --hue-tertiary-autumn: 0;
+  --hue-tertiary-rgb: 230;
+  --hue-tertiary-spring: 60;
   --shade-light: 30% 70%;
   --shade-medium: 30% 60%;
   --shade-dark: 30% 50%;
