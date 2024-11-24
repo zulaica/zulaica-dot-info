@@ -1,5 +1,5 @@
 header {
-  column-gap: 0.25rem;
+  column-gap: 0.5rem;
   display: grid;
   grid-template-columns: 1fr auto auto;
   grid-template-rows: auto auto;

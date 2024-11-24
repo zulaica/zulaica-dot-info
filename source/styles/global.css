@@ -42,10 +42,6 @@ hr {
   border-top: 0.03125rem solid var(--color-ui);
   margin: 0;
   transition: border-top var(--transition-settings-body);
-
-  &:first-of-type {
-    border: 0;
-  }
 }
 
 header,

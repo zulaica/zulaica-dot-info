@@ -10,7 +10,7 @@
   --color-background: hsl(var(--hue-secondary) var(--canvas-light));
   --color-mode-toggle: hsl(var(--hue-secondary) var(--canvas-dark));
   --color-text: hsl(var(--hue-secondary) var(--canvas-dark));
-  --color-ui: hsl(var(--hue-secondary) var(--canvas-dark) / 15%);
+  --color-ui: hsl(var(--hue-secondary) var(--canvas-dark) / 25%);
   --shade: var(--shade-dark);
 }
 
