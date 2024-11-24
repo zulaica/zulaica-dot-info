@@ -1,9 +1,6 @@
 :root {
   --canvas-light: 5% 90%;
   --canvas-dark: 5% 10%;
-  --color-text-selection: var(--color-ui);
-  --font-family-body: system-ui, ui-sans-serif, "Helvetica Neue", "Helvetica",
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-size-base: 24px;
   --hue-primary-rgb: 330;
   --hue-secondary-rgb: 130;

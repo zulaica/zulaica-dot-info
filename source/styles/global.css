@@ -5,7 +5,7 @@
 }
 
 ::selection {
-  background: var(--color-text-selection);
+  background: var(--color-ui);
 }
 
 a::selection {
@@ -19,7 +19,8 @@ a::selection {
 }
 
 html {
-  font-family: var(--font-family-body);
+  font-family: system-ui, ui-sans-serif, "Helvetica Neue", "Helvetica",
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: var(--font-size-base);
 }
 
