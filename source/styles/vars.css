@@ -1,4 +1,6 @@
 :root {
+  --canvas-light: 10% 90%;
+  --canvas-dark: 10% 10%;
   --color-link: hsl(var(--hue-primary) var(--shade));
   --color-link-active: hsl(var(--hue-secondary) var(--shade));
   --color-link-hover: hsl(var(--hue-secondary) var(--shade));
@@ -7,21 +9,24 @@
   --font-family-body: system-ui, ui-sans-serif, "Helvetica Neue", "Helvetica",
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-size-base: 24px;
-  --hue-primary-autumn: 60;
   --hue-primary-rgb: 330;
-  --hue-primary-spring: 60;
-  --hue-secondary-autumn: 30;
   --hue-secondary-rgb: 130;
-  --hue-secondary-spring: 90;
-  --hue-tertiary-autumn: 0;
   --hue-tertiary-rgb: 230;
+  --hue-primary-autumn: 60;
+  --hue-secondary-autumn: 30;
+  --hue-tertiary-autumn: 0;
+  --hue-primary-spring: 60;
+  --hue-secondary-spring: 90;
   --hue-tertiary-spring: 120;
   --shade-light: 35% 75%;
   --shade-medium: 35% 65%;
   --shade-dark: 35% 55%;
-  --gradient: hsl(var(--hue-primary) var(--shade)) 0% 33%,
-    hsl(var(--hue-secondary) var(--shade)) 33% 66%,
-    hsl(var(--hue-tertiary) var(--shade)) 66% 100%;
+  --gradient: hsl(var(--hue-primary) var(--shade)) var(--gradient-step-first),
+    hsl(var(--hue-secondary) var(--shade)) var(--gradient-step-second),
+    hsl(var(--hue-tertiary) var(--shade)) var(--gradient-step-third);
+  --gradient-step-first: 0% 33%;
+  --gradient-step-second: 33% 66%;
+  --gradient-step-third: 66% 100%;
   --transition-settings-body: 0.25s ease-in-out;
   --transition-settings-link: 0.0625s ease-in-out;
 }
