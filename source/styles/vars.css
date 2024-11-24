@@ -1,27 +1,28 @@
 :root {
-  --color-link: hsl(var(--hue-primary) var(--shade));
-  --color-link-active: hsl(var(--hue-secondary) var(--shade));
-  --color-link-hover: hsl(var(--hue-secondary) var(--shade));
-  --color-link-visited: hsl(var(--hue-tertiary) var(--shade));
-  --color-text-selection: var(--color-ui);
-  --font-family-body: system-ui, ui-sans-serif, "Helvetica Neue", "Helvetica",
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --canvas-light: 5% 90%;
+  --canvas-dark: 5% 10%;
   --font-size-base: 24px;
-  --hue-primary-autumn: 60;
   --hue-primary-rgb: 330;
-  --hue-primary-spring: 160;
-  --hue-secondary-autumn: 30;
   --hue-secondary-rgb: 130;
-  --hue-secondary-spring: 100;
-  --hue-tertiary-autumn: 0;
   --hue-tertiary-rgb: 230;
-  --hue-tertiary-spring: 60;
-  --shade-light: 30% 70%;
-  --shade-medium: 30% 60%;
-  --shade-dark: 30% 50%;
-  --gradient: hsl(var(--hue-primary) var(--shade)) 0% 33%,
-    hsl(var(--hue-secondary) var(--shade)) 33% 66%,
-    hsl(var(--hue-tertiary) var(--shade)) 66% 100%;
+  --hue-primary-cmy: 190;
+  --hue-secondary-cmy: 290;
+  --hue-tertiary-cmy: 50;
+  --hue-primary-autumn: 60;
+  --hue-secondary-autumn: 30;
+  --hue-tertiary-autumn: 0;
+  --hue-primary-spring: 60;
+  --hue-secondary-spring: 90;
+  --hue-tertiary-spring: 120;
+  --shade-light: 35% 65%;
+  --shade-medium: 35% 55%;
+  --shade-dark: 35% 45%;
+  --gradient: hsl(var(--hue-primary) var(--shade)) var(--gradient-step-first),
+    hsl(var(--hue-secondary) var(--shade)) var(--gradient-step-second),
+    hsl(var(--hue-tertiary) var(--shade)) var(--gradient-step-third);
+  --gradient-step-first: 0% 33%;
+  --gradient-step-second: 33% 66%;
+  --gradient-step-third: 66% 100%;
   --transition-settings-body: 0.25s ease-in-out;
   --transition-settings-link: 0.0625s ease-in-out;
 }

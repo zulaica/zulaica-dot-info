@@ -5,20 +5,12 @@
 }
 
 ::selection {
-  background: var(--color-text-selection);
-}
-
-a::selection {
-  color: var(--color-text);
-}
-
-:focus,
-:focus-visible {
-  outline: 0;
+  background: var(--color-ui);
 }
 
 html {
-  font-family: var(--font-family-body);
+  font-family: system-ui, ui-sans-serif, "Helvetica Neue", "Helvetica",
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: var(--font-size-base);
 }
 
@@ -42,10 +34,6 @@ hr {
   border-top: 0.03125rem solid var(--color-ui);
   margin: 0;
   transition: border-top var(--transition-settings-body);
-
-  &:first-of-type {
-    border: 0;
-  }
 }
 
 header,
@@ -65,6 +53,7 @@ footer {
 }
 
 a {
+  border: 0.0625em solid var(--color-background);
   color: var(--color-link);
   font-weight: 600;
   position: relative;
@@ -78,15 +67,19 @@ a {
     background: linear-gradient(to right, var(--gradient));
     border-radius: 0.0625em;
     content: "";
-    height: 0.0625rem;
+    height: 0.0625em;
     left: 0;
-    margin-top: 1.5em;
+    margin-top: 1.25em;
     position: absolute;
     top: 0;
     transition:
       height var(--transition-settings-link),
       margin-top var(--transition-settings-link);
     width: 100%;
+  }
+
+  &::selection {
+    color: var(--color-text);
   }
 
   &:active {
@@ -97,6 +90,12 @@ a {
     color: var(--color-link-visited);
   }
 
+  &:focus,
+  &:focus-visible {
+    border-color: var(--color-ui);
+    outline: 0;
+  }
+
   &:hover,
   &:focus-visible,
   &:visited:hover,
@@ -105,8 +104,8 @@ a {
     color: var(--color-link-hover);
 
     &::after {
-      height: 0.25rem;
-      margin-top: 1.625em;
+      height: 0.325em;
+      margin-top: 1.375em;
     }
   }
 }

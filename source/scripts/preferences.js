@@ -1,5 +1,6 @@
 const PALETTE_MAP = Object.freeze({
-  rgb: "autumn",
+  rgb: "cmy",
+  cmy: "autumn",
   autumn: "spring",
   spring: "rgb"
 });
