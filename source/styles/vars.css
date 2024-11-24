@@ -1,10 +1,10 @@
 :root {
-  --canvas-light: 10% 90%;
-  --canvas-dark: 10% 10%;
-  --color-link: hsl(var(--hue-primary) var(--shade));
-  --color-link-active: hsl(var(--hue-secondary) var(--shade));
-  --color-link-hover: hsl(var(--hue-secondary) var(--shade));
-  --color-link-visited: hsl(var(--hue-tertiary) var(--shade));
+  --canvas-light: 5% 90%;
+  --canvas-dark: 5% 10%;
+  --color-link: hsl(var(--hue-primary) var(--shade-medium));
+  --color-link-active: hsl(var(--hue-secondary) var(--shade-dark));
+  --color-link-hover: hsl(var(--hue-secondary) var(--shade-dark));
+  --color-link-visited: hsl(var(--hue-tertiary) var(--shade-dark));
   --color-text-selection: var(--color-ui);
   --font-family-body: system-ui, ui-sans-serif, "Helvetica Neue", "Helvetica",
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -12,15 +12,18 @@
   --hue-primary-rgb: 330;
   --hue-secondary-rgb: 130;
   --hue-tertiary-rgb: 230;
+  --hue-primary-cmy: 190;
+  --hue-secondary-cmy: 290;
+  --hue-tertiary-cmy: 50;
   --hue-primary-autumn: 60;
   --hue-secondary-autumn: 30;
   --hue-tertiary-autumn: 0;
   --hue-primary-spring: 60;
   --hue-secondary-spring: 90;
   --hue-tertiary-spring: 120;
-  --shade-light: 35% 75%;
-  --shade-medium: 35% 65%;
-  --shade-dark: 35% 55%;
+  --shade-light: 35% 65%;
+  --shade-medium: 35% 55%;
+  --shade-dark: 35% 45%;
   --gradient: hsl(var(--hue-primary) var(--shade)) var(--gradient-step-first),
     hsl(var(--hue-secondary) var(--shade)) var(--gradient-step-second),
     hsl(var(--hue-tertiary) var(--shade)) var(--gradient-step-third);

@@ -15,13 +15,23 @@
 }
 
 [data-palette="rgb"] {
+  --color-palette-toggle: hsl(var(--hue-primary-cmy) var(--shade))
+      var(--gradient-step-first),
+    hsl(var(--hue-secondary-cmy) var(--shade)) var(--gradient-step-second),
+    hsl(var(--hue-tertiary-cmy) var(--shade)) var(--gradient-step-third);
+  --hue-primary: var(--hue-primary-rgb);
+  --hue-secondary: var(--hue-secondary-rgb);
+  --hue-tertiary: var(--hue-tertiary-rgb);
+}
+
+[data-palette="cmy"] {
   --color-palette-toggle: hsl(var(--hue-primary-autumn) var(--shade))
       var(--gradient-step-first),
     hsl(var(--hue-secondary-autumn) var(--shade)) var(--gradient-step-second),
     hsl(var(--hue-tertiary-autumn) var(--shade)) var(--gradient-step-third);
-  --hue-primary: var(--hue-primary-rgb);
-  --hue-secondary: var(--hue-secondary-rgb);
-  --hue-tertiary: var(--hue-tertiary-rgb);
+  --hue-primary: var(--hue-primary-cmy);
+  --hue-secondary: var(--hue-secondary-cmy);
+  --hue-tertiary: var(--hue-tertiary-cmy);
 }
 
 [data-palette="autumn"] {
