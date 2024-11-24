@@ -5,15 +5,6 @@ header {
   grid-template-rows: auto auto;
   padding: 6rem 2.5rem 5rem;
 
-  h1 {
-    font-size: 2.25rem;
-    grid-column: 1;
-    grid-row: 1;
-    letter-spacing: -0.03125em;
-    line-height: 1;
-    margin: 0;
-  }
-
   p {
     font-family: ui-serif, serif;
     font-style: oblique;
@@ -21,47 +12,56 @@ header {
     grid-row: 2;
     margin: 0;
   }
+}
 
-  input,
-  label {
-    grid-row: 1 / span 2;
+h1 {
+  font-size: 2.25rem;
+  grid-column: 1;
+  grid-row: 1;
+  letter-spacing: -0.03125em;
+  line-height: 1;
+  margin: 0;
+}
+
+input,
+label {
+  grid-row: 1 / span 2;
+}
+
+label {
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  font-size: 0.75rem;
+  height: 2.5em;
+  letter-spacing: -0.03125em;
+  opacity: 0.7;
+  place-content: center center;
+  place-self: center end;
+  transition:
+    background var(--transition-settings-body),
+    opacity var(--transition-settings-body);
+  width: 2.5em;
+
+  &[for="mode"] {
+    background: var(--color-text);
   }
 
-  #mode,
-  [for="mode"] {
-    grid-column: 2;
+  &[for="palette"] {
+    background-image: linear-gradient(to right, var(--color-palette-toggle));
   }
 
-  #palette,
-  [for="palette"] {
-    grid-column: 3;
+  &:hover {
+    opacity: 0.9;
   }
+}
 
-  label {
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    font-size: 0.75rem;
-    height: 2.5em;
-    letter-spacing: -0.03125em;
-    opacity: 0.7;
-    place-content: center center;
-    place-self: center end;
-    transition:
-      background var(--transition-settings-body),
-      opacity var(--transition-settings-body);
-    width: 2.5em;
+#mode,
+[for="mode"] {
+  grid-column: 2;
+}
 
-    &[for="mode"] {
-      background: var(--color-text);
-    }
-
-    &[for="palette"] {
-      background-image: linear-gradient(to right, var(--color-palette-toggle));
-    }
-
-    &:hover {
-      opacity: 0.9;
-    }
-  }
+#palette,
+[for="palette"] {
+  grid-column: 3;
 }

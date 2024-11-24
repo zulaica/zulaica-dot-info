@@ -8,16 +8,6 @@
   background: var(--color-ui);
 }
 
-a::selection {
-  color: var(--color-text);
-}
-
-:focus,
-:focus-visible {
-  border-color: var(--color-ui);
-  outline: 0;
-}
-
 html {
   font-family: system-ui, ui-sans-serif, "Helvetica Neue", "Helvetica",
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -88,12 +78,22 @@ a {
     width: 100%;
   }
 
+  &::selection {
+    color: var(--color-text);
+  }
+
   &:active {
     color: var(--color-link-active);
   }
 
   &:visited {
     color: var(--color-link-visited);
+  }
+
+  &:focus,
+  &:focus-visible {
+    border-color: var(--color-ui);
+    outline: 0;
   }
 
   &:hover,

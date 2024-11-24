@@ -1,15 +1,3 @@
-[data-mode="dark"] {
-  --color-background: hsl(var(--hue-secondary) var(--canvas-dark));
-  --color-link: hsl(var(--hue-primary) var(--shade-light));
-  --color-link-active: hsl(var(--hue-secondary) var(--shade-medium));
-  --color-link-hover: hsl(var(--hue-secondary) var(--shade-medium));
-  --color-link-visited: hsl(var(--hue-tertiary) var(--shade-dark));
-  --color-mode-toggle: hsl(var(--hue-secondary) var(--canvas-light));
-  --color-text: hsl(var(--hue-secondary) var(--canvas-light));
-  --color-ui: hsl(var(--hue-secondary) var(--canvas-light) / 10%);
-  --shade: var(--shade-medium);
-}
-
 [data-mode="light"] {
   --color-background: hsl(var(--hue-secondary) var(--canvas-light));
   --color-link: hsl(var(--hue-primary) var(--shade-dark));
@@ -20,6 +8,18 @@
   --color-text: hsl(var(--hue-secondary) var(--canvas-dark));
   --color-ui: hsl(var(--hue-secondary) var(--canvas-dark) / 10%);
   --shade: var(--shade-dark);
+}
+
+[data-mode="dark"] {
+  --color-background: hsl(var(--hue-secondary) var(--canvas-dark));
+  --color-link: hsl(var(--hue-primary) var(--shade-light));
+  --color-link-active: hsl(var(--hue-secondary) var(--shade-medium));
+  --color-link-hover: hsl(var(--hue-secondary) var(--shade-medium));
+  --color-link-visited: hsl(var(--hue-tertiary) var(--shade-dark));
+  --color-mode-toggle: hsl(var(--hue-secondary) var(--canvas-light));
+  --color-text: hsl(var(--hue-secondary) var(--canvas-light));
+  --color-ui: hsl(var(--hue-secondary) var(--canvas-light) / 10%);
+  --shade: var(--shade-medium);
 }
 
 [data-palette="rgb"] {

@@ -21,6 +21,10 @@
     max-width: 60ch;
   }
 
+  main {
+    display: block;
+  }
+
   article {
     padding-bottom: 0;
   }
@@ -28,10 +32,6 @@
   section {
     padding: 2.5rem 0;
     width: unset;
-  }
-
-  main {
-    display: block;
   }
 }
 
