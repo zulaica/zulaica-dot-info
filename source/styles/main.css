@@ -34,7 +34,7 @@ h2 {
 
   &::before,
   &::after {
-    border-radius: 0.0625em;
+    border-radius: 0.125rem;
     content: "";
     height: 0.25rem;
   }

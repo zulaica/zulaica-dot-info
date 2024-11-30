@@ -25,6 +25,7 @@
 
       &.primary {
         background: hsl(var(--hue-primary) var(--shade-medium));
+        border-radius: 0.125rem 0 0 0.125rem;
       }
 
       &.secondary {
@@ -35,6 +36,7 @@
       &.tertiary {
         animation-delay: 0.5s;
         background: hsl(var(--hue-tertiary) var(--shade-medium));
+        border-radius: 0 0.125rem 0.125rem 0;
       }
     }
   }
