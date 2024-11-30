@@ -15,7 +15,7 @@ header {
 }
 
 h1 {
-  font-size: 2.25rem;
+  font-size: 3rem;
   grid-column: 1;
   grid-row: 1;
   letter-spacing: -0.03125em;
