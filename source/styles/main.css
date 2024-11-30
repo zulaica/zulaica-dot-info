@@ -1,7 +1,7 @@
 main {
   display: flex;
   flex-wrap: wrap;
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
 article {
@@ -9,19 +9,16 @@ article {
   flex-grow: 100000;
 
   p {
-    margin: 2.5em 0;
+    margin: 2rem 0;
   }
 }
 
 aside {
+  display: flex;
+  flex-direction: column;
   flex-basis: 30ch;
   flex-grow: 1;
-
-  section {
-    &:last-of-type {
-      padding-top: 2.5rem;
-    }
-  }
+  gap: 2rem;
 }
 
 h2 {
@@ -53,7 +50,7 @@ h2 {
 dl {
   display: grid;
   grid-template-columns: auto 1fr;
-  margin: 2.5em auto;
+  margin: 2rem 0;
 }
 
 dt {
@@ -64,17 +61,22 @@ dt,
 dd {
   border-bottom: 0.03125rem solid var(--color-ui);
   margin: 0;
-  padding: 0.5em;
+  padding: calc(1rem - 0.5px) 0.5rem;
   transition: border-bottom var(--transition-settings-body);
+
+  &:first-of-type {
+    padding-top: 0;
+  }
 
   &:last-of-type {
     border-bottom: 0;
+    padding-bottom: 0;
   }
 }
 
 time {
   display: block;
   font-size: 0.75rem;
-  line-height: 1.375;
-  margin-top: 0.25rem;
+  line-height: 1.125;
+  margin-top: calc(0.75rem - 0.5px);
 }
