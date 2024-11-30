@@ -37,6 +37,14 @@ hr {
   border-top: calc(1em / 24) solid var(--color-ui);
   margin: 0;
   transition: border-top var(--transition-settings-body);
+
+  &:first-of-type {
+    margin-bottom: 2.5rem;
+  }
+
+  &:last-of-type {
+    margin-top: 2.5rem;
+  }
 }
 
 header,
@@ -44,6 +52,7 @@ main,
 footer {
   margin: 0 auto;
   max-width: 90ch;
+  width: calc(100vw - 5rem);
 }
 
 .js {

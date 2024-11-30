@@ -3,11 +3,12 @@ header {
   display: grid;
   grid-template-columns: 1fr auto auto;
   grid-template-rows: auto auto;
-  padding: 6rem 2.5rem 5rem;
+  padding: 6rem 0 5rem;
 
   p {
     font-family: ui-serif, serif;
     font-style: oblique;
+    font-size: 0.85rem;
     grid-column: 1;
     grid-row: 2;
     margin: 0;

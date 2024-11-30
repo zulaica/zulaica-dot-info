@@ -1,24 +1,26 @@
 main {
-  display: grid;
-  grid-gap: 5rem;
-  grid-template-columns: auto auto;
-  padding: 0 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
 }
 
 article {
-  padding: 2.5rem 0;
+  flex-basis: 30ch;
+  flex-grow: 100000;
 
   p {
-    margin: 2.5em auto;
+    margin: 2.5em 0;
   }
 }
 
-section {
-  padding: 2.5rem 0 0;
-  width: 30ch;
+aside {
+  flex-basis: 30ch;
+  flex-grow: 1;
 
-  &:last-of-type {
-    padding-top: 0;
+  section {
+    &:last-of-type {
+      padding-top: 2.5rem;
+    }
   }
 }
 
