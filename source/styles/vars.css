@@ -22,6 +22,6 @@
   --gradient-step-first: 0% 33%;
   --gradient-step-second: 33% 66%;
   --gradient-step-third: 66% 100%;
-  --transition-settings-body: 0.25s ease-in-out;
-  --transition-settings-link: 0.0625s ease-in-out;
+  --transition-settings-body: calc(1s / 4) ease-in-out;
+  --transition-settings-link: calc(1s / 16) ease-in-out;
 }
