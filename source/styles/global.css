@@ -56,7 +56,11 @@ footer {
 }
 
 a {
-  border: 0.0625em solid var(--color-background);
+  /**
+   * Safari 18.1.1 occasionally won't paint the gradient underline pseudo
+   * element. Adding a 1px border appears to fix the issue but it's unclear why.
+   */
+  border: 1px solid transparent;
   color: var(--color-link);
   font-weight: 600;
   position: relative;
