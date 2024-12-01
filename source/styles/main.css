@@ -1,32 +1,31 @@
 main {
-  display: grid;
-  grid-gap: 5rem;
-  grid-template-columns: auto auto;
-  padding: 0 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 article {
-  padding: 2.5rem 0;
+  flex-basis: 30ch;
+  flex-grow: 100000;
 
   p {
-    margin: 2.5em auto;
+    margin-block: 2rem;
   }
 }
 
-section {
-  padding: 2.5rem 0 0;
-  width: 30ch;
-
-  &:last-of-type {
-    padding-top: 0;
-  }
+aside {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 30ch;
+  flex-grow: 1;
+  gap: 2rem;
 }
 
 h2 {
   align-items: center;
   display: grid;
   font-family: ui-serif, serif;
-  font-size: 1.75rem;
+  font-size: 2rem;
   font-style: oblique;
   gap: 0.5em;
   grid-template-columns: 1fr auto 1fr;
@@ -34,7 +33,7 @@ h2 {
 
   &::before,
   &::after {
-    border-radius: 0.0625em;
+    border-radius: 0.125rem;
     content: "";
     height: 0.25rem;
   }
@@ -51,7 +50,7 @@ h2 {
 dl {
   display: grid;
   grid-template-columns: auto 1fr;
-  margin: 2.5em auto;
+  margin-block: 2rem;
 }
 
 dt {
@@ -60,19 +59,25 @@ dt {
 
 dt,
 dd {
-  border-bottom: 0.03125rem solid var(--color-ui);
+  border-block-end: 0.03125rem solid var(--color-ui);
   margin: 0;
-  padding: 0.5em;
-  transition: border-bottom var(--transition-settings-body);
+  padding-block: calc(1rem - 0.5px);
+  padding-inline: 0.5rem;
+  transition: border-block-end var(--transition-settings-body);
+
+  &:first-of-type {
+    padding-block-start: 0;
+  }
 
   &:last-of-type {
-    border-bottom: 0;
+    border-block-end: 0;
+    padding-block-end: 0;
   }
 }
 
 time {
   display: block;
   font-size: 0.75rem;
-  line-height: 1.375;
-  margin-top: 0.25rem;
+  line-height: 1.125;
+  margin-block-start: calc(0.75rem - 0.5px);
 }

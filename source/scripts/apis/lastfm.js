@@ -85,7 +85,7 @@ function _formatData(data) {
 }
 
 function _updateDetails({ url, title, artist, timestamp }) {
-  const details = `&ldquo;<a href="${url}" title="${title} on Last.fm">${title}</a>&rdquo; by ${artist}`;
+  const details = `&ldquo;<a href="${url}" title="${title} on Last.fm">${title}</a>&rdquo;<br />by ${artist}`;
   const time = timestamp ? _updateTime(timestamp) : "";
 
   trackDetails.innerHTML = details + time;

@@ -43,8 +43,8 @@ function init() {
     preferencesProxy.palette = localStorage.getItem("palette");
   }
 
-  modeLabel.style.display = "grid";
-  paletteLabel.style.display = "grid";
+  modeLabel.style.display = "inline-grid";
+  paletteLabel.style.display = "inline-grid";
   modeToggle.addEventListener("change", _toggleMode, { passive: true });
   paletteToggle.addEventListener("click", _togglePalette, { passive: true });
 }
