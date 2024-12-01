@@ -9,7 +9,7 @@ article {
   flex-grow: 100000;
 
   p {
-    margin: 2rem 0;
+    margin-block: 2rem;
   }
 }
 
@@ -50,7 +50,7 @@ h2 {
 dl {
   display: grid;
   grid-template-columns: auto 1fr;
-  margin: 2rem 0;
+  margin-block: 2rem;
 }
 
 dt {
@@ -59,18 +59,19 @@ dt {
 
 dt,
 dd {
-  border-bottom: 0.03125rem solid var(--color-ui);
+  border-block-end: 0.03125rem solid var(--color-ui);
   margin: 0;
-  padding: calc(1rem - 0.5px) 0.5rem;
-  transition: border-bottom var(--transition-settings-body);
+  padding-block: calc(1rem - 0.5px);
+  padding-inline: 0.5rem;
+  transition: border-block-end var(--transition-settings-body);
 
   &:first-of-type {
-    padding-top: 0;
+    padding-block-start: 0;
   }
 
   &:last-of-type {
-    border-bottom: 0;
-    padding-bottom: 0;
+    border-block-end: 0;
+    padding-block-end: 0;
   }
 }
 
@@ -78,5 +79,5 @@ time {
   display: block;
   font-size: 0.75rem;
   line-height: 1.125;
-  margin-top: calc(0.75rem - 0.5px);
+  margin-block-start: calc(0.75rem - 0.5px);
 }

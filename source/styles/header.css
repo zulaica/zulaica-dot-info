@@ -1,5 +1,5 @@
 header {
-  padding: 6rem 0 5rem;
+  padding-block: 6rem 5rem;
 
   p {
     font-family: ui-serif, serif;
@@ -21,8 +21,8 @@ label {
   display: none;
   height: 2rem;
   opacity: 0.7;
-  margin-top: 1rem;
-  margin-right: 0.5rem;
+  margin-block-start: 1rem;
+  margin-inline-end: 0.5rem;
   transition:
     background var(--transition-settings-body),
     opacity var(--transition-settings-body);

@@ -37,16 +37,16 @@ body {
 
 hr {
   border: 0;
-  border-bottom: 1px solid var(--color-ui);
+  border-block-end: 1px solid var(--color-ui);
   margin: 0;
   width: 100vw;
 
   &:first-of-type {
-    margin-bottom: 2rem;
+    margin-block-end: 2rem;
   }
 
   &:last-of-type {
-    margin-top: 2rem;
+    margin-block-start: 2rem;
   }
 }
 
@@ -84,14 +84,14 @@ a {
     height: calc(0.25rem / 5);
     min-height: 2px;
     left: 0;
-    margin-top: 1.25em;
+    margin-block-start: 1.25em;
     position: absolute;
     pointer-events: none;
     right: 0;
     top: 0;
     transition:
       height var(--transition-settings-link),
-      margin-top var(--transition-settings-link);
+      margin-block-start var(--transition-settings-link);
   }
 
   &::selection {
@@ -121,7 +121,7 @@ a {
 
     &::after {
       height: 0.25rem;
-      margin-top: 1.375em;
+      margin-block-start: 1.375em;
     }
   }
 }
