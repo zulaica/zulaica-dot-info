@@ -23,9 +23,12 @@ body {
   border-image-source: linear-gradient(to right, var(--gradient));
   border-image-width: 1em 0;
   color: var(--color-text);
+  display: flex;
+  flex-direction: column;
   line-height: 2;
   margin: 0;
   min-height: 100vh;
+  place-items: center start;
   transition:
     background var(--transition-settings-body),
     border-image-source var(--transition-settings-body),
@@ -34,9 +37,9 @@ body {
 
 hr {
   border: 0;
-  border-top: calc(1em / 24) solid var(--color-ui);
+  border-bottom: 1px solid var(--color-ui);
   margin: 0;
-  transition: border-top var(--transition-settings-body);
+  width: 100vw;
 
   &:first-of-type {
     margin-bottom: 2rem;
@@ -50,7 +53,6 @@ hr {
 header,
 main,
 footer {
-  margin: 0 auto;
   max-width: 80ch;
   width: calc(100vw - 4rem);
 }
