@@ -1,9 +1,13 @@
-import { DATETIME_OPTIONS, EMOJI } from "../helpers/constants.js";
+import { DATETIME_OPTIONS, EMOJI, MAX_RETRIES } from "../helpers/constants.js";
 import proxyURL from "./proxyURL.js";
 
 const aboutList = document.getElementById("about-list");
 const trackDetails = document.createElement("dd");
 const trackStatus = document.createElement("dt");
+const service = "[LastFM]";
+
+let elementsAppended = false;
+let retries = 0;
 
 const LastFM = Object.freeze({ init, update });
 export default LastFM;
@@ -12,61 +16,105 @@ export default LastFM;
  * Methods
  ******************************************************************************/
 async function init() {
-  const cachedData = JSON.parse(localStorage.getItem("latest_track"));
-  const lastFMEvent = new Event("LastFMInitCompleted");
+  const cachedData = _getCachedData();
+  const lastFMInitCompleted = new Event("LastFMInitCompleted");
 
   if (cachedData) {
-    aboutList.append(trackStatus, trackDetails);
-    _updateStatus(cachedData.nowPlaying);
-    _updateDetails(cachedData);
+    _refreshLatestTrack(cachedData);
   }
 
   await update();
-  window.dispatchEvent(lastFMEvent);
+  window.dispatchEvent(lastFMInitCompleted);
 }
 
 async function update() {
   try {
     const data = await _fetchData();
 
-    if (!Array.from(aboutList.children).includes(trackStatus)) {
-      aboutList.append(trackStatus, trackDetails);
-    }
-
-    _updateStatus(data.nowPlaying);
-    _updateDetails(data);
+    _refreshLatestTrack(data);
   } catch ({ message }) {
-    console.error(`[LastFM] ${EMOJI.pensiveFace} Error: ${message}`);
+    console.error(`${service}`, `${EMOJI.pensiveFace} Error: ${message}`);
+
+    retries += 1;
+
+    if (retries >= MAX_RETRIES) {
+      console.warn(
+        `${service}`,
+        `${EMOJI.pensiveFace} Maximum retry attempts have been reached.`
+      );
+      console.info(
+        `${service}`,
+        `${EMOJI.technologist} Stopping LastFM poller.`
+      );
+
+      const lastFMMaxRetries = new Event("LastFMMaxRetries");
+      window.dispatchEvent(lastFMMaxRetries);
+    }
   }
 }
 
 /*******************************************************************************
  * Helpers
  ******************************************************************************/
+function _appendElements() {
+  if (elementsAppended) return;
+
+  aboutList.append(trackStatus, trackDetails);
+  elementsAppended = true;
+}
+
+function _getCachedData() {
+  try {
+    const cached = localStorage.getItem("latest_track");
+
+    return cached ? JSON.parse(cached) : null;
+  } catch {
+    return null;
+  }
+}
+
 async function _fetchData() {
-  console.info(`[LastFM] ${EMOJI.technologist} Updating latest track data…`);
+  console.info(
+    `${service}`,
+    `${EMOJI.technologist} Updating latest track data…`
+  );
 
   const endpoint = new URL("/lastfm", proxyURL);
-  const response = await fetch(endpoint);
 
-  if (response.ok) {
+  try {
+    const response = await fetch(endpoint);
+
     const {
       recenttracks: {
         track: { 0: data }
       }
     } = await response.json();
-    const latestTrack = _formatData(data);
+    const latestData = _formatData(data);
 
-    localStorage.setItem("latest_track", JSON.stringify(latestTrack));
-    console.info(`[LastFM] ${EMOJI.partyingFace} Latest track data updated.`);
-
-    return latestTrack;
-  } else {
-    console.warn(
-      `[LastFM] ${EMOJI.personShrugging} Unable to update latest track data; using cache.`
+    localStorage.setItem("latest_track", JSON.stringify(latestData));
+    console.info(
+      `${service}`,
+      `${EMOJI.partyingFace} Latest track data updated and cached.`
     );
 
-    return JSON.parse(localStorage.getItem("latest_track"));
+    return latestData;
+  } catch {
+    console.warn(
+      `${service}`,
+      `${EMOJI.personShrugging} Unable to update latest track data.`
+    );
+    console.info(
+      `${service}`,
+      `${EMOJI.technologist} Attempting to use cached track data.`
+    );
+
+    const cachedData = _getCachedData();
+
+    if (!cachedData) {
+      throw new Error("Cached track data is not available.");
+    }
+
+    return cachedData;
   }
 }
 
@@ -84,23 +132,44 @@ function _formatData(data) {
   return { artist, title, nowPlaying, timestamp, url };
 }
 
-function _updateDetails({ url, title, artist, timestamp }) {
-  const details = `&ldquo;<a href="${url}" title="${title} on Last.fm">${title}</a>&rdquo;<br />by ${artist}`;
-  const time = timestamp ? _updateTime(timestamp) : "";
+function _refreshLatestTrack(data) {
+  _appendElements();
+  _updateStatus(data.nowPlaying);
+  _updateDetails(data);
+}
 
-  trackDetails.innerHTML = details + time;
+function _updateDetails({ url, title, artist, timestamp }) {
+  trackDetails.innerHTML = "";
+
+  const link = document.createElement("a");
+  link.href = url;
+  link.title = `${title} on Last.fm`;
+  link.textContent = title;
+
+  trackDetails.append(link);
+  trackDetails.append(document.createElement("br"));
+  trackDetails.append(document.createTextNode(`by ${artist}`));
+
+  if (timestamp) {
+    trackDetails.append(document.createElement("br"));
+    trackDetails.append(_createTimeElement(timestamp));
+  }
 }
 
 function _updateStatus(nowPlaying) {
   trackStatus.textContent = nowPlaying ? "Listening to" : "Listened to";
 }
 
-function _updateTime(timestamp) {
+function _createTimeElement(timestamp) {
+  const timeElement = document.createElement("time");
   const datetime = new Date(timestamp).toISOString();
   const formattedDateTime = new Intl.DateTimeFormat(
     "en-US",
     DATETIME_OPTIONS
   ).format(timestamp);
 
-  return `<time datetime="${datetime}">${formattedDateTime}</time>`;
+  timeElement.datetime = datetime;
+  timeElement.textContent = formattedDateTime;
+
+  return timeElement;
 }

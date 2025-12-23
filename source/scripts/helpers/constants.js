@@ -16,3 +16,5 @@ export const EMOJI = Object.freeze({
   personShrugging: "\ud83e\udd37",
   technologist: "\ud83e\uddd1\u200d\ud83d\udcbb"
 });
+
+export const MAX_RETRIES = 3;
