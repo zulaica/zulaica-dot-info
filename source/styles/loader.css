@@ -1,13 +1,13 @@
 #loader {
   background: var(--color-background);
   display: none;
-  height: 100vh;
+  height: 100svh;
   left: 0;
   place-content: center center;
   position: fixed;
   top: 0;
   transition: opacity 0.5s ease-in-out;
-  width: 100vw;
+  width: 100svw;
   z-index: 100;
 
   &.fade-out {
@@ -24,21 +24,17 @@
       opacity: 0;
 
       &.primary {
-        background: hsl(var(--hue-primary) var(--shade-medium));
-        border-end-start-radius: 0.125rem;
-        border-start-start-radius: 0.125rem;
+        background: var(--color-primary);
       }
 
       &.secondary {
         animation-delay: 0.25s;
-        background: hsl(var(--hue-secondary) var(--shade-medium));
+        background: var(--color-secondary);
       }
 
       &.tertiary {
         animation-delay: 0.5s;
-        background: hsl(var(--hue-tertiary) var(--shade-medium));
-        border-start-end-radius: 0.125rem;
-        border-end-end-radius: 0.125rem;
+        background: var(--color-tertiary);
       }
     }
   }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" dir="ltr" data-mode="dark" data-palette="default">
+<html lang="en" dir="ltr" data-mode="dark">
   <head>
     <title>
       David Zulaica&thinsp;&mdash;&thinsp;Person Familiar with the Matter
@@ -45,15 +45,19 @@
       </div>
     </div>
     <header role="banner">
-      <h1>David Zulaica</h1>
-      <p>Person Familiar with the Matter</p>
-      <input type="checkbox" id="mode" name="mode" hidden />
-      <label for="mode" aria-hidden="true">&nbsp;</label>
-      <input type="button" id="palette" name="palette" hidden />
-      <label for="palette" aria-hidden="true">&nbsp;</label>
+      <div class="container">
+        <div id="content">
+          <h1>David Zulaica</h1>
+          <p>Person Familiar with the Matter</p>
+        </div>
+        <div id="preferences">
+          <input type="checkbox" id="mode" name="mode" hidden />
+          <label for="mode" aria-hidden="true"></label>
+        </div>
+      </div>
     </header>
     <hr />
-    <main>
+    <main class="container">
       <article>
         <h2>Hello!</h2>
         <p>My name is David.</p>
@@ -145,34 +149,24 @@
                 >@zulaica</a
               >
             </dd>
-            <dt>Mastodon</dt>
-            <dd>
-              <a href="https://xoxo.zone/@zulaica" title="Mastodon profile"
-                >@zulaica@xoxo.zone</a
-              >
-            </dd>
-            <dt>Threads</dt>
-            <dd>
-              <a href="https://threads.net/@zulaica" title="Threads profile"
-                >@zulaica</a
-              >
-            </dd>
           </dl>
         </section>
       </aside>
     </main>
     <hr />
     <footer>
-      <p>
-        Source code for this website is
-        <a href="https://github.com/zulaica/zulaica-dot-info"
-          >available on Github</a
-        >.
-      </p>
-      <p>
-        Listening data provided by
-        <a href="https://www.last.fm/api">Last.fm</a>.
-      </p>
+      <div class="container">
+        <p>
+          Source code for this website is
+          <a href="https://github.com/zulaica/zulaica-dot-info"
+            >available on Github</a
+          >.
+        </p>
+        <p>
+          Listening data provided by
+          <a href="https://www.last.fm/api">Last.fm</a>.
+        </p>
+      </div>
     </footer>
   </body>
 </html>

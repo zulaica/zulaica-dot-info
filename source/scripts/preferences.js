@@ -1,79 +1,51 @@
-const PALETTE_MAP = Object.freeze({
-  rgb: "cmy",
-  cmy: "autumn",
-  autumn: "spring",
-  spring: "rgb"
-});
+const body = document.documentElement;
 
 const modeLabel = document.querySelector("[for='mode']");
 const modeToggle = document.getElementById("mode");
-const paletteLabel = document.querySelector("[for='palette']");
-const paletteToggle = document.getElementById("palette");
-const preferencesProxy = new Proxy(
-  { isDark: null, palette: null },
-  {
-    set: function (target, property, newValue) {
-      property === "isDark"
-        ? _handleMode(target, newValue)
-        : _handlePalette(newValue);
+const modeOptions = {
+  label: modeLabel,
+  toggle: modeToggle,
+  preference: "mode",
+  values: ["light", "dark"],
+  titles: ["Enable dark mode", "Enable light mode"],
+  textContent: ["🌑", "🌕"]
+};
 
-      return true;
-    }
-  }
-);
+modeLabel.style.display = "inline-grid";
 
 const Preferences = Object.freeze({ init });
+
 export default Preferences;
 
 /*******************************************************************************
  * Methods
  ******************************************************************************/
 function init() {
-  if (!localStorage.getItem("mode")) {
-    preferencesProxy.isDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-  } else {
-    preferencesProxy.isDark = localStorage.getItem("mode") === "dark";
-  }
+  const modeSetting = localStorage.getItem("mode");
 
-  if (!localStorage.getItem("palette")) {
-    preferencesProxy.palette = "rgb";
-  } else {
-    preferencesProxy.palette = localStorage.getItem("palette");
-  }
+  const isDark = modeSetting
+    ? modeSetting === "dark"
+    : window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  modeLabel.style.display = "inline-grid";
-  paletteLabel.style.display = "inline-grid";
-  modeToggle.addEventListener("change", _toggleMode, { passive: true });
-  paletteToggle.addEventListener("click", _togglePalette, { passive: true });
+  _handlePreference(isDark, modeOptions);
+
+  modeToggle.addEventListener("change", _handleMode, { passive: true });
 }
 
 /*******************************************************************************
  * Helpers
  ******************************************************************************/
-function _handleMode(target, newValue) {
-  const mode = newValue ? "dark" : "light";
-
-  if (target.isDark === null) {
-    modeToggle.checked = newValue;
-  }
-
-  modeLabel.title = newValue ? "Enable light mode" : "Enable dark mode";
-  localStorage.setItem("mode", mode);
-  document.documentElement.setAttribute("data-mode", mode);
+function _handleMode({ target: { checked } }) {
+  _handlePreference(checked, modeOptions);
 }
 
-function _handlePalette(newValue) {
-  paletteLabel.title = `Enable ${PALETTE_MAP[newValue]} palette`;
-  localStorage.setItem("palette", newValue);
-  document.documentElement.setAttribute("data-palette", newValue);
-}
-
-function _toggleMode({ target: { checked } }) {
-  preferencesProxy.isDark = checked;
-}
-
-function _togglePalette() {
-  preferencesProxy.palette = PALETTE_MAP[localStorage.getItem("palette")];
+function _handlePreference(
+  checked,
+  { label, toggle, preference, values, titles, textContent }
+) {
+  label.title = titles[Number(checked)];
+  label.textContent = textContent[Number(checked)];
+  toggle.checked = checked;
+  localStorage.setItem(preference, values[Number(checked)]);
+  body.setAttribute(`data-${preference}`, values[Number(checked)]);
 }

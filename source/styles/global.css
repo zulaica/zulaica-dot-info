@@ -5,7 +5,7 @@
 }
 
 :root {
-  font-size: calc(1rem + 0.5vw);
+  font-size: calc(1rem + 0.5lvw);
 }
 
 ::selection {
@@ -15,31 +15,33 @@
 html {
   font-family: system-ui, ui-sans-serif, "Helvetica Neue", "Helvetica",
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  max-height: 100svh;
+  overflow: hidden;
 }
 
 body {
   background: var(--color-background);
-  border-image-slice: 1;
-  border-image-source: linear-gradient(to right, var(--gradient));
-  border-image-width: 1em 0;
   color: var(--color-text);
   display: flex;
   flex-direction: column;
+  height: 100%;
+  left: 0;
   line-height: 2;
   margin: 0;
-  min-height: 100vh;
+  overflow: auto;
   place-items: center start;
+  position: absolute;
+  top: 0;
   transition:
     background var(--transition-settings-body),
-    border-image-source var(--transition-settings-body),
     color var(--transition-settings-body);
 }
 
 hr {
   border: 0;
-  border-block-end: 1px solid var(--color-ui);
+  border-block-end: 0.03125rem solid var(--color-ui);
   margin: 0;
-  width: 100vw;
+  width: 100svw;
 
   &:first-of-type {
     margin-block-end: 2rem;
@@ -50,11 +52,19 @@ hr {
   }
 }
 
-header,
-main,
-footer {
+.container {
   max-width: 80ch;
-  width: calc(100vw - 4rem);
+  width: calc(100svw - 4rem);
+}
+
+header,
+footer {
+  border-image-source: linear-gradient(to right, var(--gradient));
+  border-image-width: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  place-items: center start;
+  width: 100svw;
 }
 
 .js {
@@ -67,8 +77,8 @@ footer {
 }
 
 a {
-  border: 1px solid transparent;
-  color: var(--color-link);
+  background: var(--color-link-background);
+  color: var(--color-text);
   font-weight: 600;
   position: relative;
   transition:
@@ -79,7 +89,6 @@ a {
 
   &::after {
     background: linear-gradient(to right, var(--gradient));
-    border-radius: 0.125rem;
     content: "";
     height: calc(0.25rem / 5);
     min-height: 2px;
@@ -99,11 +108,11 @@ a {
   }
 
   &:active {
-    color: var(--color-link-active);
+    color: var(--color-text);
   }
 
   &:visited {
-    color: var(--color-link-visited);
+    color: var(--color-text);
   }
 
   &:focus,
@@ -116,8 +125,8 @@ a {
   &:focus-visible,
   &:visited:hover,
   &:visited:focus-visible {
-    background: var(--color-ui);
-    color: var(--color-link-hover);
+    background: var(--color-link-background-hover);
+    color: var(--color-background);
 
     &::after {
       height: 0.25rem;

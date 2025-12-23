@@ -1,27 +1,20 @@
 :root {
-  --canvas-light: 5% 90%;
-  --canvas-dark: 5% 10%;
-  --hue-primary-rgb: 330;
-  --hue-secondary-rgb: 130;
-  --hue-tertiary-rgb: 230;
-  --hue-primary-cmy: 190;
-  --hue-secondary-cmy: 290;
-  --hue-tertiary-cmy: 50;
-  --hue-primary-autumn: 60;
-  --hue-secondary-autumn: 30;
-  --hue-tertiary-autumn: 0;
-  --hue-primary-spring: 60;
-  --hue-secondary-spring: 90;
-  --hue-tertiary-spring: 120;
+  --canvas-light: 5% 85%;
+  --canvas-dark: 5% 15%;
+  --color-grey: hsl(210deg 2% 82%);
+  --color-primary: hsl(24deg 81% 59%);
+  --color-secondary: hsl(48deg 90% 73%);
+  --color-tertiary: hsl(186deg 40% 63%);
+  --hue-grey: 210deg;
   --shade-light: 35% 65%;
   --shade-medium: 35% 55%;
   --shade-dark: 35% 45%;
-  --gradient: hsl(var(--hue-primary) var(--shade)) var(--gradient-step-first),
-    hsl(var(--hue-secondary) var(--shade)) var(--gradient-step-second),
-    hsl(var(--hue-tertiary) var(--shade)) var(--gradient-step-third);
+  --gradient: var(--color-primary) var(--gradient-step-first),
+    var(--color-secondary) var(--gradient-step-second),
+    var(--color-tertiary) var(--gradient-step-third);
   --gradient-step-first: 0% 33%;
   --gradient-step-second: 33% 66%;
   --gradient-step-third: 66% 100%;
   --transition-settings-body: calc(1s / 4) ease-in-out;
-  --transition-settings-link: calc(1s / 16) ease-in-out;
+  --transition-settings-link: calc(1s / 8) ease-in-out;
 }

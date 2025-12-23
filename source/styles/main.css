@@ -15,8 +15,8 @@ article {
 
 aside {
   display: flex;
-  flex-direction: column;
   flex-basis: 30ch;
+  flex-direction: column;
   flex-grow: 1;
   gap: 2rem;
 }
@@ -33,9 +33,9 @@ h2 {
 
   &::before,
   &::after {
-    border-radius: 0.125rem;
     content: "";
-    height: 0.25rem;
+    height: calc(0.25rem / 5);
+    min-height: 2px;
   }
 
   &::before {
