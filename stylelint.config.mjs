@@ -1,9 +1,12 @@
-{
-  "extends": ["stylelint-config-standard"],
-  "rules": {
+/**
+ * @type {import('stylelint').Config}
+ */
+export default {
+  extends: ["stylelint-config-standard"],
+  rules: {
     "block-no-empty": true,
     "font-family-name-quotes": "always-unless-keyword",
     "number-max-precision": 5,
     "shorthand-property-no-redundant-values": null
   }
-}
+};
