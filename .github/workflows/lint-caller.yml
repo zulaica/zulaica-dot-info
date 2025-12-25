@@ -5,12 +5,18 @@ on: pull_request
 jobs:
   lint_js:
     name: Lint Javascript Files
+    permissions:
+      contents: read
+      issues: write
     uses: ./.github/workflows/lint.yml
     with:
       file-extension: js
 
   lint_css:
     name: Lint CSS Files
+    permissions:
+      contents: read
+      issues: write
     uses: ./.github/workflows/lint.yml
     with:
       file-extension: css

@@ -3,11 +3,11 @@ name: SSH Deploy
 on:
   push:
     branches:
-      - 'main'
+      - "main"
   workflow_dispatch:
     inputs:
       label:
-        description: 'Label'
+        description: "Label"
         type: string
         required: true
 
@@ -15,6 +15,9 @@ jobs:
   ssh_deploy:
     name: Bundle release and deploy
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
     steps:
       - name: Check out codebase
         uses: actions/checkout@v3
@@ -27,10 +30,10 @@ jobs:
       - name: Deploy to Staging
         uses: easingthemes/ssh-deploy@v2
         env:
-          ARGS: '-az --delete'
+          ARGS: "-az --delete"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          SOURCE: 'release/'
+          SOURCE: "release/"
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           TARGET: ${{ secrets.TARGET }}
