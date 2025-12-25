@@ -13,7 +13,8 @@
 }
 
 html {
-  font-family: system-ui, ui-sans-serif, "Helvetica Neue", "Helvetica",
+  font-family:
+    system-ui, ui-sans-serif, "Helvetica Neue", "Helvetica",
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   max-height: 100svh;
   overflow: hidden;

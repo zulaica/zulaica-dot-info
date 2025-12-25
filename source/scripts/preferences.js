@@ -11,7 +11,7 @@ const modeOptions = {
   textContent: ["🌑", "🌕"]
 };
 
-modeLabel.style.display = "inline-grid";
+modeLabel.style.display = "inline-flex";
 
 const Preferences = Object.freeze({ init });
 
