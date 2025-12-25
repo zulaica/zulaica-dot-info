@@ -11,10 +11,12 @@ export const DATETIME_OPTIONS = Object.freeze({
 });
 
 export const EMOJI = Object.freeze({
-  partyingFace: "\ud83e\udd73",
-  pensiveFace: "\ud83d\ude14",
-  personShrugging: "\ud83e\udd37",
-  technologist: "\ud83e\uddd1\u200d\ud83d\udcbb"
+  fullMoon: "\u{1f315}",
+  newMoon: "\u{1f311}",
+  partyingFace: "\u{1f973}",
+  pensiveFace: "\u{1f614}",
+  personShrugging: "\u{1f937}",
+  technologist: "\u{1f9d1}\u200d\u{1f4bb}"
 });
 
 export const MAX_RETRIES = 3;
