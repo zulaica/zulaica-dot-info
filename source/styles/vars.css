@@ -6,15 +6,16 @@
   --color-secondary: hsl(48deg 90% 73%);
   --color-tertiary: hsl(186deg 40% 63%);
   --hue-grey: 210deg;
-  --shade-light: 35% 65%;
-  --shade-medium: 35% 55%;
-  --shade-dark: 35% 45%;
-  --gradient: var(--color-primary) var(--gradient-step-first),
+  --gradient:
+    var(--color-primary) var(--gradient-step-first),
     var(--color-secondary) var(--gradient-step-second),
     var(--color-tertiary) var(--gradient-step-third);
   --gradient-step-first: 0% 33%;
   --gradient-step-second: 33% 66%;
   --gradient-step-third: 66% 100%;
+  --shade-dark: 35% 45%;
+  --shade-light: 35% 65%;
+  --shade-medium: 35% 55%;
   --transition-settings-body: calc(1s / 4) ease-in-out;
   --transition-settings-link: calc(1s / 8) ease-in-out;
 }

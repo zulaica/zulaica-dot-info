@@ -10,7 +10,7 @@
 
     <link rel="dns-prefetch" href="https://zulaica.dev" />
 
-    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg?v3.0.3" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg?v3.2.2" />
 
     <meta
       name="viewport"
@@ -25,7 +25,7 @@
     <meta property="og:url" content="https://zulaica.info/" />
     <meta
       property="og:image"
-      content="https://zulaica.info/images/opengraph.svg?v3.0.3"
+      content="https://zulaica.info/images/opengraph.svg?v3.2.2"
     />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -38,21 +38,22 @@
   </head>
   <body>
     <div aria-live="polite" id="loader" role="status">
-      <div id="indicator" aria-hidden="true" aria-label="Loading&hellip;">
+      <p class="visually-hidden">Loading&hellip;</p>
+      <div id="indicator" aria-hidden="true">
         <div class="primary"></div>
         <div class="secondary"></div>
         <div class="tertiary"></div>
       </div>
     </div>
-    <header role="banner">
+    <header>
       <div class="container">
         <div id="content">
           <h1>David Zulaica</h1>
           <p>Person Familiar with the Matter</p>
         </div>
-        <div id="preferences">
+        <div id="preferences" aria-hidden="true">
           <input type="checkbox" id="mode" name="mode" hidden />
-          <label for="mode" aria-hidden="true"></label>
+          <label for="mode"></label>
         </div>
       </div>
     </header>
@@ -96,20 +97,30 @@
           >
           at Hollywood Theatre is one of my favorite pastimes.
         </p>
-        <p>
-          I enjoy playing Magic: The Gathering, both with
-          <a
-            href="https://moxfield.com/users/zulaica"
-            title="My Moxfield profile"
-            >decks I've built</a
-          >
-          and preconstructed
-          <a
-            href="https://zulaica.notion.site/Precon-Pantry-Project-cd3a1fd9c3514ef2bb434a11f370a7c0"
-            title="My MTG precon collection on Notion"
-            >decks I've collected</a
-          >.
-        </p>
+        <p>I enjoy playing:</p>
+        <ul>
+          <li>
+            <a
+              href="https://challonge.com/users/zulaica"
+              title="My Challonge profile"
+              >Dice Throne</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://insider.sternpinball.com/players/PixelDonkey"
+              title="My Stern Insider profile"
+              >Pinball</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://moxfield.com/users/zulaica"
+              title="My Moxfield profile"
+              >Magic: The Gathering</a
+            >
+          </li>
+        </ul>
       </article>
       <aside>
         <section>

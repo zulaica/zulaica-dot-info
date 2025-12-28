@@ -1,5 +1,4 @@
 header {
-  /* background-image: linear-gradient(135deg, var(--gradient)); */
   border-image-slice: 1 0 0 0;
   color: var(--color-header-text);
   padding-block: 5rem;
@@ -28,13 +27,15 @@ header {
 
     #preferences {
       label {
+        align-items: center;
         background: var(--color-toggle-background);
         border-radius: 50%;
         cursor: pointer;
         display: none;
         height: 1.825rem;
-        line-height: 1;
-        place-items: center center;
+        justify-content: center;
+        letter-spacing: -0.0625em;
+        line-height: 1.5;
         transition: background var(--transition-settings-link);
         width: 1.825rem;
 

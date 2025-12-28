@@ -1,3 +1,4 @@
+import { EMOJI } from "./helpers/constants";
 const body = document.documentElement;
 
 const modeLabel = document.querySelector("[for='mode']");
@@ -8,10 +9,10 @@ const modeOptions = {
   preference: "mode",
   values: ["light", "dark"],
   titles: ["Enable dark mode", "Enable light mode"],
-  textContent: ["🌑", "🌕"]
+  textContent: [EMOJI.newMoon, EMOJI.fullMoon]
 };
 
-modeLabel.style.display = "inline-grid";
+modeLabel.style.display = "inline-flex";
 
 const Preferences = Object.freeze({ init });
 

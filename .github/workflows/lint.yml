@@ -9,6 +9,9 @@ jobs:
   lint:
     name: Run Workflow
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
     steps:
       - name: Check out branch
         uses: actions/checkout@v3

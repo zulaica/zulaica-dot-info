@@ -16,7 +16,8 @@ export default [
       sourceType: "module"
     },
     rules: {
-      "no-var": "error"
+      "no-var": "error",
+      "one-var": ["error", "never"]
     }
   },
   eslintConfigPrettier,
