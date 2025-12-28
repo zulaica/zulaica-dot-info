@@ -20,7 +20,7 @@ jobs:
       issues: write
     steps:
       - name: Check out codebase
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
       - name: Install Node.js
         uses: volta-cli/action@v4
       - name: Install dependencies
