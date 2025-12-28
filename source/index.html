@@ -38,21 +38,22 @@
   </head>
   <body>
     <div aria-live="polite" id="loader" role="status">
-      <div id="indicator" aria-hidden="true" aria-label="Loading&hellip;">
+      <p class="visually-hidden">Loading&hellip;</p>
+      <div id="indicator" aria-hidden="true">
         <div class="primary"></div>
         <div class="secondary"></div>
         <div class="tertiary"></div>
       </div>
     </div>
-    <header role="banner">
+    <header>
       <div class="container">
         <div id="content">
           <h1>David Zulaica</h1>
           <p>Person Familiar with the Matter</p>
         </div>
-        <div id="preferences">
+        <div id="preferences" aria-hidden="true">
           <input type="checkbox" id="mode" name="mode" hidden />
-          <label for="mode" aria-hidden="true"></label>
+          <label for="mode"></label>
         </div>
       </div>
     </header>

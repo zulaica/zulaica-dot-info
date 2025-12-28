@@ -68,15 +68,6 @@ footer {
   width: 100svw;
 }
 
-.js {
-  header,
-  main,
-  footer,
-  hr {
-    display: none;
-  }
-}
-
 a {
   background: var(--color-link-background);
   color: var(--color-text);
