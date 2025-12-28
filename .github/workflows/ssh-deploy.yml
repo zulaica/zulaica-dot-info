@@ -27,7 +27,7 @@ jobs:
         run: npm ci
       - name: Bundle release
         run: npm run build
-      - name: Deploy to Staging
+      - name: Deploy release
         uses: easingthemes/ssh-deploy@v5.1.0
         with:
           ARGS: "-az --delete"
