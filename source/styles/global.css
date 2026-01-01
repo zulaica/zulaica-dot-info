@@ -70,31 +70,19 @@ footer {
 }
 
 a {
-  background: var(--color-link-background);
+  background: var(--color-ui);
   color: var(--color-text);
   font-weight: 600;
   position: relative;
   transition:
     background var(--transition-settings-link),
-    color var(--transition-settings-link);
-  text-decoration: none;
-  white-space: nowrap;
-
-  &::after {
-    background: linear-gradient(to right, var(--gradient));
-    content: "";
-    height: calc(0.25rem / 5);
-    min-height: 2px;
-    left: 0;
-    margin-block-start: 1.25em;
-    position: absolute;
-    pointer-events: none;
-    right: 0;
-    top: 0;
-    transition:
-      height var(--transition-settings-link),
-      margin-block-start var(--transition-settings-link);
-  }
+    color var(--transition-settings-link),
+    text-decoration-thickness var(--transition-settings-link),
+    text-underline-offset var(--transition-settings-link);
+  text-decoration-color: var(--color-ui);
+  text-decoration-line: underline;
+  text-decoration-thickness: max(2px, 0.25em / 3);
+  text-underline-offset: 0.325em;
 
   &::selection {
     color: var(--color-text);
@@ -118,12 +106,10 @@ a {
   &:focus-visible,
   &:visited:hover,
   &:visited:focus-visible {
-    background: var(--color-link-background-hover);
-    color: var(--color-background);
-
-    &::after {
-      height: 0.25rem;
-      margin-block-start: 1.375em;
-    }
+    background: var(--color-text);
+    color: var(--color-ui);
+    text-decoration-color: var(--color-text);
+    text-decoration-thickness: max(3px, 0.375em / 3);
+    text-underline-offset: 0.375em;
   }
 }

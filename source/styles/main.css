@@ -34,8 +34,7 @@ h2 {
   &::before,
   &::after {
     content: "";
-    block-size: calc(0.25rem / 5);
-    min-block-size: 2px;
+    block-size: max(2px, 0.25em / 5);
   }
 
   &::before {

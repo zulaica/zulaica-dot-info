@@ -1,12 +1,8 @@
 [data-mode="light"] {
   --color-background: hsl(var(--hue-grey) var(--canvas-light));
   --color-header-text: hsl(var(--hue-grey) var(--canvas-dark));
-  --color-link-background: hsl(var(--hue-grey) var(--canvas-dark) / 10%);
-  --color-link-background-hover: hsl(var(--hue-grey) var(--canvas-dark) / 90%);
   --color-toggle-background: hsl(var(--hue-grey) var(--canvas-dark) / 50%);
-  --color-toggle-background-hover: hsl(
-    var(--hue-grey) var(--canvas-dark) / 80%
-  );
+  --color-toggle-background-hover: hsl(var(--hue-grey) var(--canvas-dark) / 80%);
   --color-text: hsl(var(--hue-grey) var(--canvas-dark));
   --color-ui: hsl(var(--hue-grey) 2% 70%);
   --shade: var(--shade-medium);
@@ -15,12 +11,8 @@
 [data-mode="dark"] {
   --color-background: hsl(var(--hue-grey) var(--canvas-dark));
   --color-header-text: hsl(var(--hue-grey) var(--canvas-light));
-  --color-link-background: hsl(var(--hue-grey) var(--canvas-light) / 10%);
-  --color-link-background-hover: hsl(var(--hue-grey) var(--canvas-light) / 90%);
   --color-toggle-background: hsl(var(--hue-grey) var(--canvas-light) / 50%);
-  --color-toggle-background-hover: hsl(
-    var(--hue-grey) var(--canvas-light) / 80%
-  );
+  --color-toggle-background-hover: hsl(var(--hue-grey) var(--canvas-light) / 80%);
   --color-text: hsl(var(--hue-grey) var(--canvas-light));
   --color-ui: hsl(var(--hue-grey) 2% 30%);
   --shade: var(--shade-medium);
