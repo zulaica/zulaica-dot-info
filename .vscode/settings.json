@@ -1,12 +1,22 @@
 {
   "editor.codeActionsOnSave": {
+    "source.fixAll.prettier": "always",
     "source.fixAll.eslint": "always",
-    "source.fixAll.stylelint": "always",
-    "source.organizeImports": "explicit"
+    "source.organizeImports": "always"
   },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  "eslint.enable": true,
   "eslint.run": "onSave",
+  "eslint.validate": ["css", "javascript"],
   "explorer.excludeGitIgnore": true,
-  "files.insertFinalNewline": true
+  "files.insertFinalNewline": true,
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
