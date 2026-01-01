@@ -17,5 +17,5 @@
   --shade-light: 35% 65%;
   --shade-medium: 35% 55%;
   --transition-settings-body: calc(1s / 4) ease-in-out;
-  --transition-settings-link: calc(1s / 8) ease-in-out;
+  --transition-settings-link: calc(1s / 12) ease-in-out;
 }

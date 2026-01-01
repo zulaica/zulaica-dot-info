@@ -9,7 +9,7 @@ const modeOptions = {
   preference: "mode",
   values: ["light", "dark"],
   titles: ["Enable dark mode", "Enable light mode"],
-  textContent: [EMOJI.newMoon, EMOJI.fullMoon]
+  textContent: [EMOJI.newMoon, EMOJI.fullMoon],
 };
 
 modeLabel.style.display = "inline-flex";
@@ -42,7 +42,7 @@ function _handleMode({ target: { checked } }) {
 
 function _handlePreference(
   checked,
-  { label, toggle, preference, values, titles, textContent }
+  { label, toggle, preference, values, titles, textContent },
 ) {
   label.title = titles[Number(checked)];
   label.textContent = textContent[Number(checked)];

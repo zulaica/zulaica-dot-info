@@ -29,15 +29,15 @@ header {
       label {
         align-items: center;
         background: var(--color-toggle-background);
+        block-size: 1.825rem;
         border-radius: 50%;
         cursor: pointer;
         display: none;
-        height: 1.825rem;
+        inline-size: 1.825rem;
         justify-content: center;
         letter-spacing: -0.0625em;
         line-height: 1.5;
         transition: background var(--transition-settings-link);
-        width: 1.825rem;
 
         &:hover {
           background: var(--color-toggle-background-hover);

@@ -9,11 +9,10 @@
 
 # Configuration Files
 .vscode/*.json     linguist-language=JSON5
+.vscode/*.json     linguist-vendored
 .prettierrc.json   linguist-language=JSON5
-.stylelintrc.json  linguist-language=JSON5
-
+.prettierrc.json   linguist-vendored
 .prettierignore    linguist-vendored
-.stylelintignore   linguist-vendored
 eslint.config.mjs  linguist-vendored
 
 # Generated Files
