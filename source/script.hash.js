@@ -16,15 +16,15 @@ const handleDomContentLoaded = async () => {
 
 window.addEventListener("DOMContentLoaded", handleDomContentLoaded, {
   passive: true,
-  once: true
+  once: true,
 });
 
 window.addEventListener("LastFMInitCompleted", Loader.stop, {
   passive: true,
-  once: true
+  once: true,
 });
 
 window.addEventListener("LastFMMaxRetries", lastFMPoller.stop, {
   passive: true,
-  once: true
+  once: true,
 });

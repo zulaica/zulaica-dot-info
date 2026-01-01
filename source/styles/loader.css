@@ -1,12 +1,12 @@
 .visually-hidden {
+  block-size: 1px;
   border: 0;
-  clip-path: rect(0 0 0 0);
-  height: 1px;
+  clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);
+  inline-size: 1px;
   overflow: hidden;
   padding: 0;
   position: absolute;
   white-space: nowrap;
-  width: 1px;
 }
 
 .js {
@@ -20,14 +20,14 @@
 
 #loader {
   background: var(--color-background);
+  block-size: 100svb;
   display: none;
-  height: 100svh;
-  left: 0;
+  inline-size: 100svi;
+  inset-block-start: 0;
+  inset-inline-start: 0;
   place-content: center center;
   position: fixed;
-  top: 0;
   transition: opacity 0.5s ease-in-out;
-  width: 100svw;
   z-index: 100;
 
   &.fade-out {

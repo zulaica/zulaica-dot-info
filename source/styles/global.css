@@ -5,7 +5,7 @@
 }
 
 :root {
-  font-size: calc(1rem + 0.5lvw);
+  font-size: calc(1rem + 0.5lvi);
 }
 
 ::selection {
@@ -15,24 +15,25 @@
 html {
   font-family:
     system-ui, ui-sans-serif, "Helvetica Neue", "Helvetica",
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  max-height: 100svh;
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji", sans-serif;
+  max-block-size: 100svb;
   overflow: hidden;
 }
 
 body {
   background: var(--color-background);
+  block-size: 100%;
   color: var(--color-text);
   display: flex;
   flex-direction: column;
-  height: 100%;
-  left: 0;
+  inset-block-start: 0;
+  inset-inline-start: 0;
   line-height: 2;
   margin: 0;
   overflow: auto;
   place-items: center start;
   position: absolute;
-  top: 0;
   transition:
     background var(--transition-settings-body),
     color var(--transition-settings-body);
@@ -41,8 +42,8 @@ body {
 hr {
   border: 0;
   border-block-end: 0.03125rem solid var(--color-ui);
+  inline-size: 100svi;
   margin: 0;
-  width: 100svw;
 
   &:first-of-type {
     margin-block-end: 2rem;
@@ -54,8 +55,8 @@ hr {
 }
 
 .container {
-  max-width: 80ch;
-  width: calc(100svw - 4rem);
+  inline-size: calc(100svi - 4rem);
+  max-inline-size: 80ch;
 }
 
 header,
@@ -64,8 +65,8 @@ footer {
   border-image-width: 1rem 0;
   display: flex;
   flex-direction: column;
+  inline-size: 100svi;
   place-items: center start;
-  width: 100svw;
 }
 
 a {

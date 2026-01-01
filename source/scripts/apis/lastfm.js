@@ -40,11 +40,11 @@ async function update() {
     if (retries >= MAX_RETRIES) {
       console.warn(
         `${service}`,
-        `${EMOJI.pensiveFace} Maximum retry attempts have been reached.`
+        `${EMOJI.pensiveFace} Maximum retry attempts have been reached.`,
       );
       console.info(
         `${service}`,
-        `${EMOJI.technologist} Stopping LastFM poller.`
+        `${EMOJI.technologist} Stopping LastFM poller.`,
       );
 
       const lastFMMaxRetries = new Event("LastFMMaxRetries");
@@ -76,7 +76,7 @@ function _getCachedData() {
 async function _fetchData() {
   console.info(
     `${service}`,
-    `${EMOJI.technologist} Updating latest track data…`
+    `${EMOJI.technologist} Updating latest track data…`,
   );
 
   const endpoint = new URL("/lastfm", proxyURL);
@@ -86,26 +86,26 @@ async function _fetchData() {
 
     const {
       recenttracks: {
-        track: { 0: data }
-      }
+        track: { 0: data },
+      },
     } = await response.json();
     const latestData = _formatData(data);
 
     localStorage.setItem("latest_track", JSON.stringify(latestData));
     console.info(
       `${service}`,
-      `${EMOJI.partyingFace} Latest track data updated and cached.`
+      `${EMOJI.partyingFace} Latest track data updated and cached.`,
     );
 
     return latestData;
   } catch {
     console.warn(
       `${service}`,
-      `${EMOJI.personShrugging} Unable to update latest track data.`
+      `${EMOJI.personShrugging} Unable to update latest track data.`,
     );
     console.info(
       `${service}`,
-      `${EMOJI.technologist} Attempting to use cached track data.`
+      `${EMOJI.technologist} Attempting to use cached track data.`,
     );
 
     const cachedData = _getCachedData();
@@ -124,7 +124,7 @@ function _formatData(data) {
     date,
     name: title,
     url,
-    "@attr": attr
+    "@attr": attr,
   } = data;
   const timestamp = date ? date.uts * 1000 : null;
   const nowPlaying = attr?.nowplaying ?? null;
@@ -165,7 +165,7 @@ function _createTimeElement(timestamp) {
   const datetime = new Date(timestamp).toISOString();
   const formattedDateTime = new Intl.DateTimeFormat(
     "en-US",
-    DATETIME_OPTIONS
+    DATETIME_OPTIONS,
   ).format(timestamp);
 
   timeElement.datetime = datetime;
