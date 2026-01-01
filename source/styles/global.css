@@ -12,6 +12,16 @@
   background: var(--color-ui);
 }
 
+@supports(padding:max(0px)) {
+
+  header .container,
+  main,
+  footer p {
+    padding-inline-start: env(safe-area-inset-left);
+    padding-inline-end: env(safe-area-inset-right);
+  }
+}
+
 html {
   font-family:
     system-ui, ui-sans-serif, "Helvetica Neue", "Helvetica",
