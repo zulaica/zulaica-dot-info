@@ -40,8 +40,7 @@ header {
         display: none;
         inline-size: 1.825rem;
         justify-content: center;
-        letter-spacing: -0.0625em;
-        line-height: 1.5;
+        letter-spacing: -0.046875em;
         transition: background var(--transition-settings-link);
 
         &:hover {
