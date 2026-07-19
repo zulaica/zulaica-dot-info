@@ -12,10 +12,11 @@ header {
 
     #content {
       h1 {
-        font-size: 3rem;
-        letter-spacing: -0.03125em;
-        line-height: 1;
+        font-size: 5rem;
+        letter-spacing: -0.0425em;
+        line-height: 0.825;
         margin: 0;
+        margin-inline-start: -0.25rem;
       }
 
       p {
