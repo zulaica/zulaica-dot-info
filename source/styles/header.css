@@ -11,6 +11,10 @@ header {
     justify-content: space-between;
 
     #content {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+
       h1 {
         font-size: 5rem;
         letter-spacing: -0.0425em;
