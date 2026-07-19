@@ -11,11 +11,16 @@ header {
     justify-content: space-between;
 
     #content {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+
       h1 {
-        font-size: 3rem;
-        letter-spacing: -0.03125em;
-        line-height: 1;
+        font-size: 5rem;
+        letter-spacing: -0.0425em;
+        line-height: 0.825;
         margin: 0;
+        margin-inline-start: -0.25rem;
       }
 
       p {
@@ -35,8 +40,7 @@ header {
         display: none;
         inline-size: 1.825rem;
         justify-content: center;
-        letter-spacing: -0.0625em;
-        line-height: 1.5;
+        letter-spacing: -0.046875em;
         transition: background var(--transition-settings-link);
 
         &:hover {
